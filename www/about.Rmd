@@ -1,0 +1,20 @@
+---
+title: "About me"
+output:
+  html_document:
+    toc: false
+---
+
+I am an undergraduate student double majoring in [quantitative economics](https://www.smith.edu/academics/economics) and [statistical and data sciences](https://www.smith.edu/academics/statistics). I will graduate from [Smith College](https://www.smith.edu/) in January 2022. My hobbies this month include drinking too much iced coffee, improving Wikipedia pages and reading the American Library Association's [Top 10 Most Challenged Books of 2020](http://www.ala.org/advocacy/bbooks/frequentlychallengedbooks/top10).
+
+<br>
+
+***
+### Social media:
+
+[Github](https://github.com/SarahGillespie)
+
+[LinkedIn](https://www.linkedin.com/in/sarahg4567/)
+
+[Professional Twitter](https://twitter.com/SarahG4567)
+

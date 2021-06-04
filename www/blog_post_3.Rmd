@@ -1,0 +1,28 @@
+---
+title: 'blog post 3: Should corporations pay you for using your data in their algorithms?'
+---
+ By Sarah Gillespie
+ 
+ Published March 7, 2021
+ 
+Should corporations pay you for using your data in their algorithms? It may be cost ineffective to compensate you monetarily for an amount less than one pocket full of change that your data is worth to the company. However, data is the new gold and you should be reimbursed for your property in some form.
+
+The [second chapter of Data Feminism](https://data-feminism.mitpress.mit.edu/pub/ei7cogfn/release/2) discusses researchers giving back to communities that they use to gather and analyze data. The book explores an example where academic geographers in the 1970’s looked at the data about how predominantly white commuters killed children while driving carelessly through a predominantly Black community. A community leader insisted that researchers provide more for community empowerment than just a copy of the final research product,
+
+> She recognized that while a single map or project could make a focused intervention, education would enable her community to come away with a longer-term strategy for challenging power. As it turned out, the institutional affiliations of the academic geographers enabled them to offer free, for-credit college courses, which they taught in the community for community members.
+
+This dialogue inspires me to ask what giving back a long-term positive impact look like today? What does this mentality look like when applied to corporations instead of academia?
+
+The default answer may be for a company to just throw money at this problem and donate a percent of their profit to different organizations.
+
+But one altruistic tool these large corporations have is the ability to do math and research that individuals may not have the time or specialization to perform themselves.
+
+Target and Amazon are two companies that have invested many resources in analyzing consumer behavior.
+
+If companies “give back” by focusing on regional problems, one idea is to create emergency kits customized to local climate change threats and predicted climate emergencies. According to the [Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/cpr/infographics/pfe-family.htm), 48% of Americans do not have emergency supplies for a disaster. A company could analyze the nuances of each zip code’s future threats and sell kits with the correct items and correct proportions of items to fit the region’s predicted climate change caused natural disasters. For example, an emergency kit sold in Boston, Massachusetts would have more emergency thermal blankets included than an emergency kit sold in Malibu, California. Both would have a three-day supply of food and bottled water, but the kit sold in Boston would have food items that are less susceptible to freezing during extreme weather conditions. The kit sold in Malibu may have additional masks to protect purchasers’ lungs from the predicted increase in wildfire’s number and severity. By customizing emergency kits to specific zip codes, Target would be able to perform nuanced analysis on a large scale to account for the precise academic research about impending climate change consequences. Clearly, they have the supply chain and delivery system to easily get these emergency kits to communities. 
+
+Companies could give back by analyzing individual’s buying patterns. Amazon Prime Fresh, Whole Foods, Target, and any other organization that sells groceries, accepts SNAP, and has invested resources in predicting consumer’s buying habits could look to see if each individual SNAP user is getting enough food from each food group. If the company detects a deficit, the company could not only suggest specific nutritional improvements but give the deficient item to the SNAP user. Analyzing nutrition and planning a prepared diet takes research, scientific knowledge, and skill,  resources which are severely limited when living on a budget. Doing this analysis with the use of data that a company already has could take the burden off an individual and improve their quality of life.
+
+While these two examples feel dystopian, with the first fully acknowledging how underprepared the average American is for the reality of climate change and the second using how some companies know people even more intimately than they may know themself. However, these two examples meet the criteria of  using a big and powerful organization’s unique strengths and resources to do research that individuals may not be able to perform and solve the gap.
+
+Having these companies “give back” is challenging in the modern era. People not only need that these companies give back to communities for using their consumers for research, but specify what way the company can produce the most long-term benefit. Since people give up their data all the time for corporate research without being financially compensated, I believe it is fair to ask that companies repay that debt by finding ways to provide long-term benefit to communities. If corporations do not make this effort and people do not demand that benefit, then it sets a precedent that every person’s personal data is free to be used for corporate research and profit maximization. The least that We the People can demand is to be paid for giving up our property.

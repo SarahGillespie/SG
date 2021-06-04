@@ -1,0 +1,37 @@
+name: "www"
+output_dir: "../docs"
+navbar:
+  title: "Sarah Gillespie"
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+    - text: "About Me"
+      icon: fa-user-check
+      href: about.html
+    - text: "Blog"
+      icon: fa-newspaper
+      menu:
+        - text: "Post 1"
+          href: blog_post_1.html
+        - text: "Post 2"
+          href: blog_post_2.html
+        - text: "Post 3"
+          href: blog_post_3.html
+        - text: "Post 4"
+          href: blog_post_4.html
+  right:
+    - icon: fa-github
+      href: https://github.com/SarahGillespie
+    - icon: fa-twitter
+      href: https://twitter.com/SarahG4567
+    - icon: fa-linkedin
+      href: https://www.linkedin.com/in/sarahg4567/
+
+output:  
+  html_document:  
+    self_contained: no  
+    theme: yeti
+    highlight: pygments
+    toc: true
+    toc_float: true

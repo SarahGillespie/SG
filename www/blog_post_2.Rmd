@@ -1,0 +1,17 @@
+---
+title: 'blog post 2: check your blind spot.'
+---
+By Sarah Gillespie
+ 
+Published March 4, 2021
+
+ 
+If a person does not check his car's blind spot, he is still liable for damage caused in the resulting crash. The same concept should apply to algorithms. Auditing algorithms for biases and discrimination should be considered a necessary cost of doing business. While this may seem like an overwhelming task, a simple first step would be to ensure algorithms that receive government funding do not discriminate against federally protected groups, including discrimination based on gender, race, color, disability, or religion. While our society works to eliminate current discrimination, it is also our responsibility to prevent new ways of discrimination from, intentionally or unintentionally, developing.
+
+One example of this is Amazon’s resume screening algorithm, discussed in [*Data Feminism*](https://data-feminism.mitpress.mit.edu/). The resume screener was trained using prior applicant’s resumes, which were predominantly male. As a result, the algorithm developed a stronger preference for male applicants and even downgraded resumes with the word “women” and graduates of women’s colleges. While Amazon canceled the project, but is easy to see the potential for discrimination that both has measurable financial impacts and the victims do not know they are being discriminated against.
+
+If an algorithm is unable to be reasonably avoided or is government funded, then the algorithm should be subject to transparency requirements. This could be achieved by legislators by amending the Freedom of Information Act with language relevant to today’s technology. At present, regulatory action in this category does not appear to be happening. If legislators are not making acts towards algorithm’s transparency, then I hesitate to rely on them to step even further to create relevant laws that rein in algorithms’ biases and potential harm.
+
+I wish corporations would step up to audit their algorithms, but it is unlikely businesses will take on the financial cost and potential embarrassment to audit their algorithms without a strong incentive. Corporations may not want to lift the hood of a profitable algorithm to see victims the algorithm discriminates against. Auditing an algorithm may require skills that the organization’s data science or IT team does not possess. An easy solution if an organization does not have the expertise to audit their own algorithms is to hire an outside consultant. One group that is pioneering auditing algorithms for bias is O'Neil Risk Consulting & Algorithmic Auditing, founded by the author of Weapons of Math Destruction. O'Neil Risk Consulting & Algorithmic Auditing has partnered with AirBNB, the State of Illinois, and Rentlogic. 
+
+Since legislators are not up to the task of protecting against harmful technologies, I predict the burden will fall to another branch of the government: the judicial branch. Without specific bills regulating algorithms that systematically harm individuals, the ethical algorithm rulebook will be built via civil lawsuits until there is sufficient case law and penalties to incentivize organizations to audit their algorithms for discrimination.

@@ -1,0 +1,31 @@
+---
+title: 'blog post 1: I read the fine print'
+---
+By Sarah Gillespie
+
+Published March 4, 2021
+
+
+Last November, I had the opportunity to vote on California’s Prop 25: Abolishing Cash Bail. This unpassed proposition would have replaced the current bail system in California with an algorithm to assess a person’s risk for not appearing at trial. As I did research, I struggled to find details about the algorithm proposed as an alternative to cash bail.
+
+
+I could not find details on what factors the algorithm used to consider a person’s riskiness for not appearing to stand trial or if the algorithm would be made “in-house” or outsourced to a company specialized in machine learning. No details were provided on if the machine learning algorithm would be subject to the same information disclosure requirements as specified under the Freedom of Information Act or the state’s even more comprehensive law, the California Public Records Act. The proposition did not specify whether the algorithm’s result would be the final call or just one factor considered by a judge.
+
+
+Related algorithms used in judicial contexts exhibit the same adverse outcomes as the cash bail system. Biases can become hard-coded into an algorithm. The algorithms do not directly ask about race or income, but instead asks invasive and ambiguous questions. These questions link to deep societal and political problems, such as the school-to-prison pipeline and the war on drugs, both of which disproportionately target people of color and low-income neighborhoods. A Northpointe software product survey, detailed in a ProPublic article, asks defendants “Was one of your parents ever sent to jail or prison?” “How many of your friends/acquaintances are taking drugs illegally?” and “How often did you get in fights while at school?” The questionnaire also asks people to agree or disagree with statements such as “A hungry person has a right to steal” and “If people make me angry or lose my temper, I can be dangerous.” These questions are highly objectionable and potentially impermissible in a courtroom, but their answers are used to determine life altering verdicts, such as being released while awaiting trial or sentencing length if convicted.
+
+
+I do not like the bail system, but I hesitate to support the frequently proposed algorithm alternatives until there is significantly more transparency and accountability around these programs. While many studies have analyzed judges’ implicit biases, at least there is accountability to an individual. Algorithms take away the opportunity for judicial discretion and replace it with an opaque answer created by questions that may not be admissible in a courtroom and an algorithm that may not be vetted to remove discriminatory biases. 
+
+
+A person should not need to go earn a PhD in statistics to learn why they are not being released from jail that day.
+
+
+
+Further reading recommendations:
+
+[Prop 25 full text](https://voterguide.sos.ca.gov/propositions/25/)
+
+[Weapons of Math Destruction by Cathy O’Neil](https://weaponsofmathdestructionbook.com/)
+
+[Propublica article on Risk Assessments in Criminal Sentencing](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
