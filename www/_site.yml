@@ -12,14 +12,16 @@ navbar:
     - text: "Blog"
       icon: fa-newspaper
       menu:
-        - text: "Post 1"
-          href: blog_post_1.html
-        - text: "Post 2"
-          href: blog_post_2.html
-        - text: "Post 3"
-          href: blog_post_3.html
-        - text: "Post 4"
+        - text: "Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans"
+          href: blog_post_5.html
+        - text: "Target should just press 'delete'"
           href: blog_post_4.html
+        - text: "Should corporations pay you for using your data in their algorithms?"
+          href: blog_post_3.html
+        - text: "Check your blind spot."
+          href: blog_post_2.html
+        - text: "I read the fine print"
+          href: blog_post_1.html
   right:
     - icon: fa-github
       href: https://github.com/SarahGillespie
