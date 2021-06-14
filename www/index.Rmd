@@ -8,7 +8,7 @@ output:
 
 ### Blogging:
 
-[June 4, 2021: *Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans'*](https://sarahgillespie.github.io/SG/blog_post_5.html)
+[June 4, 2021: *Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans*](https://sarahgillespie.github.io/SG/blog_post_5.html)
 
 [May 7, 2021: *Target should just press 'delete'*](https://sarahgillespie.github.io/SG/blog_post_4.html)
 
