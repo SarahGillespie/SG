@@ -3,7 +3,9 @@ title: 'blog post 6: algorithm transparency + case law'
 ---
  By Sarah Gillespie
  
- *in progress*
+*in progress*
+
+*This blog post is not legal advice. This blog post is just me reading through case law that I find fascinating and making my notes on it public in case anyone finds my interpretation and annotations helpful.*
  
 Case briefs on United States' court rulings that create case law impact regarding algorithm transparency and public auditing of machine learning algorithms:
 
