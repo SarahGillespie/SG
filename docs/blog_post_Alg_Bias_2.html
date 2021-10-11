@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>How biased data can create a biased algorithm (and prevention methods)</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Sarah Gillespie</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-user-check"></span>
+     
+    About Me
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-newspaper"></span>
+     
+    Blog
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="blog_post_5.html">Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans</a>
+    </li>
+    <li>
+      <a href="blog_post_4.html">Target should just press 'delete'</a>
+    </li>
+    <li>
+      <a href="blog_post_3.html">Should corporations pay you for using your data in their algorithms?</a>
+    </li>
+    <li>
+      <a href="blog_post_2.html">Check your blind spot.</a>
+    </li>
+    <li>
+      <a href="blog_post_1.html">I read the fine print</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/SarahGillespie">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/SarahG4567">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/sarahg4567/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">How biased data can create a biased algorithm (and prevention methods)</h1>
+
+</div>
+
+
+<p>By Sarah Gillespie</p>
+<p>Biased data can create a biased algorithm in a two main ways. First, collecting data where the given information is simply incorrect and using that data to train a model.</p>
+<p>If a person is from a group that is outside the norm, there is risk their data could be used to identify them and they would have to deal with the repercussions of all the survey information not being personally identifiable rather than anonymous. Inaccurate or missing data can lead to a less precise model and the design of surveys can induce that bias into the data. The paper, <a href="https://www.jstor.org/stable/pdf/10.5325/jinfopoli.8.2018.0078.pdf">How Algorithms Discriminate Based on Data They Lack: Challenges, Solutions, and Policy Implications</a>, speaks to how questions about identity can impact marginalized groups in different ways than the majority group by exposing members of marginalized groups to more risk if the data is de-anonymized.</p>
+<blockquote>
+<p>Unfortunately, while uncovering bias may require collecting sensitive identity data, doing so can also entail potential harms and risks. General concerns about data protection and privacy are heightened when respondents have marginalized identities or identities that will be relatively rare in that context. Their social categories increase the likelihood that their data can be de-anonymized, the risk that they will be targeted specifically, or the harm that could occur if their records are compromised.</p>
+</blockquote>
+<p>One way the <a href="https://www.census.gov/newsroom/blogs/research-matters/2018/08/protecting_the_confi0.html">United States Census Bureau</a> deals with this dilemma is using “noise injection” to help protect the privacy of survey respondents before the census data is published for the public.</p>
+<blockquote>
+<p>To help prevent anyone from tracing statistics back to a specific respondent, we alter the underlying statistical tabulations before publication. This process is called “noise injection.” It has been a key feature of our confidentiality protection systems for decades. However, this process is a delicate balancing act. Enough noise must be added to protect confidentiality, but too much noise could damage the statistic’s fitness-for-use. Using our previous disclosure avoidance systems, we are not able to share details of the noise added to the data in order to protect confidentiality. This means users have no idea how much any estimate may be altered from its measured value due to the application of historical disclosure avoidance procedures.</p>
+</blockquote>
+<p>Second, by not training algorithms on the style of data you wish the algorithm to create. An algorithm’s output mimics the world that is given to it and can amplify existing biases. A Reuters articles described a recruiting algorithm Amazon trained based on its successful hires’ and past applicants’ resumes. The company’s experimental hiring tool used artificial intelligence to score job candidates scores.</p>
+<p>“Everyone wanted this holy grail,” one of the people said. “They literally wanted it to be an engine where I’m going to give you 100 resumes, it will spit out the top five, and we’ll hire those.”</p>
+<p>The resume did successfully output what it thought were the top applicants based on past applicants’ resumes. Unfortunately, neither the tech giant’s past resume pool nor payroll were particularly diverse. Both groups were overwhelmingly white, male, and from affluent backgrounds. Without specifying anything, the resume algorithm picked up on this pattern. The impact was the training algorithm penalized people with the word “women” on their algorithm and graduates of two all-women’s colleges.</p>
+<p>A large natural language processing model, GPT-3, was trained on vast amounts of written text on the internet, including Reddit comments. Internet forum comments fed into OpenAI’s GPT models have a double-edged sword effect: the data style makes GPT-3’s language generation much more natural but the model also repears many common cuss words and slurs. GPT-3 can be fine-tuned with different texts, but struggles to keep the content of its generation “workplace appropriate.”</p>
+<p>How can these problems be prevented?</p>
+<p>For GPT-3, a research paper published by the University of Washington, <a href="https://aclanthology.org/2020.findings-emnlp.301/">RealToxicityPrompts: Evaluating Neural Toxic Degeneration in Language Models</a>, showed how training a similar natural language processing model on Wikipedia data reduced the amount of non-workplace appropriate generations.</p>
+<div class="figure">
+<img src="Fig_2_RTP_paper.png" alt="Source: Figure 2 in [RealToxicityPrompts: Evaluating Neural Toxic Degeneration in Language Models](https://aclanthology.org/2020.findings-emnlp.301/) &lt;br&gt; Caption: The orange line and area shows the expected number of “toxic,” essentially workplace inappropriate language generations by [Salesforce’s CTRL model](https://arxiv.org/abs/1909.05858) trained on Wikipedia data. Training CTRL on Wikipedia data did not eliminate the toxic language generations but did reduce the generations compared to the untrained CTRL model and the series of GPT models." width="100%" />
+<p class="caption">
+Source: Figure 2 in <a href="https://aclanthology.org/2020.findings-emnlp.301/">RealToxicityPrompts: Evaluating Neural Toxic Degeneration in Language Models</a> <br> Caption: The orange line and area shows the expected number of “toxic,” essentially workplace inappropriate language generations by <a href="https://arxiv.org/abs/1909.05858">Salesforce’s CTRL model</a> trained on Wikipedia data. Training CTRL on Wikipedia data did not eliminate the toxic language generations but did reduce the generations compared to the untrained CTRL model and the series of GPT models.
+</p>
+</div>
+<p>The Amazon recruiting algorithm was likely not trained on a dataset that had a pool of candidates that reflected the diversity in hires that recruiters and managers wanted. This could have been solved by curating a more diverse and representative set of data (resumes) that differ from the status quo and using that dataset to train the model. This can avoid hard-coding and amplifying human biases that created the representation and rhetoric in your status quo dataset.</p>
+<p>The takeaway is that quality data takes intentional effort to curate. Building enough trust with people for them to give accurate information about themselves and choosing the data that emphasises the world you want to create to avoid reiterating the status quo are two actionable steps that algorithm builders can do to ensure more fair algorithms.</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
