@@ -6,6 +6,14 @@ output:
 ---
 <br>
 
+### Steps to solve algorithm biases:
+
+[October 11, 2021: *How biased data can create a biased algorithm (and prevention methods)* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_2.html)
+
+[October 10, 2021: *Ways algorithms can uphold and fail a variety of fairness definitions* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_1.html)
+
+<br>
+
 ### Blogging:
 
 [June 4, 2021: *Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans* (two-minute read)](https://sarahgillespie.github.io/SG/blog_post_5.html)
