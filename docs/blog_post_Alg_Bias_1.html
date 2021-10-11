@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Ways algorithms can uphold and fail a variety of fairness definitions</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Sarah Gillespie</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-user-check"></span>
+     
+    About Me
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-newspaper"></span>
+     
+    Blog
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="blog_post_5.html">Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans</a>
+    </li>
+    <li>
+      <a href="blog_post_4.html">Target should just press 'delete'</a>
+    </li>
+    <li>
+      <a href="blog_post_3.html">Should corporations pay you for using your data in their algorithms?</a>
+    </li>
+    <li>
+      <a href="blog_post_2.html">Check your blind spot.</a>
+    </li>
+    <li>
+      <a href="blog_post_1.html">I read the fine print</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/SarahGillespie">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/SarahG4567">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/sarahg4567/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Ways algorithms can uphold and fail a variety of fairness definitions</h1>
+
+</div>
+
+
+<p>By Sarah Gillespie</p>
+<p>Published October 10, 2021</p>
+<p>The paper, <a href="https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf">On Formalizing Fairness in Prediction with Machine Learning</a>, discusses a number of definitions on how to decide if an algorithm is “fair,” specifically by breaking the concept down into five ways that an outcome can fail fairness. These fairness definitions are most analogous to multiple regression’s OLS assumptions: to have a statistically-sound regression, you need to check that your model fits all the regression assumptions, but you may still be able to work with the regression model if it doesn’t - you just need to be a lot more cautious.</p>
+<p>Comparison: Algorithm Fairness Categories</p>
+<table>
+<colgroup>
+<col width="35%" />
+<col width="35%" />
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Definition</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Counterfactual fairness</td>
+<td>Decision is fair towards an individual if the decision is the same in both the actual world and counterfactual worlds where the individual belongs to a different demographic group.</td>
+<td>Amazon’s resume algorithm rejecting the resumes of anyone with the word “woman” on her resume.</td>
+</tr>
+<tr class="even">
+<td>Group fairness</td>
+<td>The outcome prediction for individuals should be the same outcome across different demographic groups with almost equal probability. Collectivist egalitarianism.</td>
+<td><a href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">Northepoint sentencing algorithm failed group fairness between different racial groups. The formula was particularly likely to falsely flag black defendants as future criminals, wrongly labeling them this way at almost twice the rate as white defendants. White defendants were mislabeled as low risk more often than black defendants.</a></td>
+</tr>
+<tr class="odd">
+<td>Individual fairness</td>
+<td>A predictor is fair if it produces similar outputs for similar individuals. Associated with individual egalitarianism.</td>
+<td>A victim of the Northpointe algorithm was Brisha Borden was given a disproportionately harsh sentencing suggestion compared to another data point, Vernon Prater.</td>
+</tr>
+<tr class="even">
+<td>Equality of opportunity</td>
+<td>In a scenario where there is only one beneficial outcome, the true positive rate should be the same for all groups.</td>
+<td>Not accounting for systemic discrimination that may affect one group’s data used in the algorithm in an adverse way</td>
+</tr>
+<tr class="odd">
+<td>Preference-based fairness</td>
+<td>An algorithm satisfies an individual’s preferred treatment and has the highest rate of matching an individual’s real preference to the algorithm’s prediction for the individual’s preference.</td>
+<td>An algorithm that has a high error percentage for preference matching, such as an unsuccessful roommate algorithm at a large university.</td>
+</tr>
+</tbody>
+</table>
+<p>One common confusion point when comparing fairness definitions is the difference between group fairness and individual fairness. One might wonder how they are different, since treating groups differently means being unfair to all the individuals in those groups.</p>
+<p>First, let our two different groups be students at Smith College studying computer science and students at Mount Holyoke College studying computer science. All students are applying for jobs at the same career fairs and the same LinkedIn posts and the same company websites.</p>
+<p>If there was group fairness, then the Smith College computer science students would get the same number of interview invitations as Mount Holyoke College students. If Smith computer science students received more or less interview invitations than the Mount Holyoke computer science students then this would fail group fairness.</p>
+<p>Individual fairness is focused on individual points in the data set and checking to make sure identical data points receive the same treatment. So, if two Smith computer science students had the same academic background, grades, and experiences and applied to the same jobs, then the interview process would be individually fair if the two Smith students received the same number of interview invitations. If the students did not receive the same number of interview invitations, then the process would not be individually fair. A company might offer more interview opportunities to people in groups underrepresented in their employee population to achieve a group fairness goal. This decreases individual fairness in the applicant population but has a potential to increase group fairness in the company’s employee population.</p>
+<p>This relates to another point the Formalizing Fairness paper discusses: the difference between an algorithm’s treatment and its impact. Treatment and impact are not exclusive to algorithms.</p>
+<p>Treatment is the specific type of care that an algorithm suggests for each data point, while impact is the effect on that data point’s well-being. Since each person tends to be more unique and has their own set of skills and resources, providing the exact same treatment to people is unlikely to lead to the exact same outcome. For example, an educational algorithm provides the same treatment that suggests two first grade students read the same chapter in a book. If one student has an older sibling around to help look up challenging words and explain deeper literary elements like foreshadowing and social context, that student will gain a larger benefit and a different impact than a student who reads the book without her support system around helping her to understand the chapter. Despite having the same treatment, these two students had a very different impact.</p>
+<p>The Association for Computing Machinery published <a href="https://techpolicy.acm.org/2017/01/new-statement-on-algorithmic-transparency-and-accountability-by-acm-u-s-public-policy-council/">7 Principles for Algorithmic Transparency and Accountability</a>, which is written for the creators of algorithms and has a larger emphasis on encouraging algorithm creators to fully understand the algorithm they create and make it auditable.</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Awareness<br> Owners, designers, builders, users, and other stakeholders of analytic systems should be aware of the possible biases involved in their design, implementation, and use and the potential harm that biases can cause to individuals and society.<br></li>
+<li>Access and Redress<br> Regulators should encourage the adoption of mechanisms that enable questioning and redress for individuals and groups that are adversely affected by algorithmically informed decisions.<br></li>
+<li>Accountability<br> Institutions should be held responsible for decisions made by the algorithms that they use, even if it is not feasible to explain in detail how the algorithms produce their results.<br></li>
+<li>Explanation<br> Systems and institutions that use algorithmic decision-making are encouraged to produce explanations regarding both the procedures followed by the algorithm and the specific decisions that are made. This is particularly important in public policy contexts.<br></li>
+<li>Data Provenance<br> A description of the way in which the training data was collected should be maintained by the builders of the algorithms, accompanied by an exploration of the potential biases induced by the human or algorithmic data-gathering process. Public scrutiny of the data provides maximum opportunity for corrections. However, concerns over privacy, protecting trade secrets, or revelation of analytics that might allow malicious actors to game the system can justify restricting access to qualified and authorized individuals.<br></li>
+<li>Audibility<br> Models, algorithms, data, and decisions should be recorded so that they can be audited in cases where harm is suspected.<br></li>
+<li>Validation and Testing<br> Institutions should use rigorous methods to validate their models and document those methods and results. In particular, they should routinely perform tests to assess and determine whether the model generates discriminatory harm. Institutions are encouraged to make the results of such tests public.<br></li>
+</ol>
+</blockquote>
+<p>This differs from the <a href="https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf">On Formalizing Fairness in Prediction with Machine Learning</a> paper, which has a larger focus on how the subjects of an algorithm should be treated.</p>
+<p>The take-away from this is to have individuals know the purpose and impact of algorithms they are responsible for. This may include documentation on an algorithm’s goals, economic impact and social impact. When an algorithm is affecting actual people’s lives rather than just being a gimmick, it is important to consider the intersection of its computing efficiency with its real world effect.</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
