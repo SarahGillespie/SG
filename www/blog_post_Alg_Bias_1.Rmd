@@ -3,7 +3,7 @@ title: 'Ways algorithms can uphold and fail a variety of fairness definitions'
 ---
 By Sarah Gillespie
  
-Published October 10, 2021
+Published October 4, 2021
 
 The paper, [On Formalizing Fairness in Prediction with Machine Learning](https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf), discusses a number of definitions on how to decide if an algorithm is “fair,” specifically by breaking the concept down into five ways that an outcome can fail fairness. These fairness definitions are most analogous to multiple regression’s OLS assumptions: to have a statistically-sound regression, you need to check that your model fits all the regression assumptions, but you may still be able to work with the regression model if it doesn’t - you just need to be a lot more cautious.
 
