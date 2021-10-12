@@ -10,7 +10,7 @@ output:
 
 [October 11, 2021: *How biased data can create a biased algorithm (and prevention methods)* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_2.html)
 
-[October 10, 2021: *Ways algorithms can uphold and fail a variety of fairness definitions* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_1.html)
+[October 4, 2021: *Ways algorithms can uphold and fail a variety of fairness definitions* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_1.html)
 
 <br>
 
