@@ -6,7 +6,9 @@ output:
 ---
 <br>
 
-### Steps to solve algorithm biases:
+### Steps to solve algorithm biases in everyday algorithms:
+
+[October 18, 2021: *Preprocessing k-means and k-medians can reduce unintended segregation in each cluster* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3A.html)
 
 [October 11, 2021: *How biased data can create a biased algorithm (and prevention methods)* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_2.html)
 

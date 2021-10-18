@@ -11,7 +11,7 @@
 
 
 
-<title>Sarah Gillespie</title>
+<title>Preprocessing k-means and k-medians</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -208,6 +211,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -215,6 +281,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -300,47 +376,37 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Sarah Gillespie</h1>
+<h1 class="title toc-ignore">Preprocessing k-means and k-medians</h1>
 
 </div>
 
 
-<p><br></p>
-<div id="steps-to-solve-algorithm-biases-in-everyday-algorithms" class="section level3">
-<h3>Steps to solve algorithm biases in everyday algorithms:</h3>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3A.html">October 18, 2021: <em>Preprocessing k-means and k-medians can reduce unintended segregation in each cluster</em> (five-minute read)</a></p>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_2.html">October 11, 2021: <em>How biased data can create a biased algorithm (and prevention methods)</em> (five-minute read)</a></p>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_1.html">October 4, 2021: <em>Ways algorithms can uphold and fail a variety of fairness definitions</em> (five-minute read)</a></p>
-<p><br></p>
+<p>By Sarah Gillespie</p>
+<p>Published October 18, 2021</p>
+<p>Some of the most common grouping algorithms are not infallible against accidentally grouping by protected classes. K-means and k-medians can be susceptible to falling into the “ZIP code problem.” The ZIP code problem is a situation where the United States Postal Service assigned geographic code in effect becomes a proxy variable for race due to historic redlining practices. This results in stark racial and economic divides throughout cities that persist to the present day. Systemic racism and sexism in the United States have created many such proxy variables like the ZIP code problem.</p>
+<p>As a refresher, k-grouping algorithms is an unsupervised machine learning technique that groups a collection of data points into subgroups based on a certain feature the points share. For the k-median grouping algorithm, the algorithm uses “centroids”, k different randomly-initiated points in the data, and assigns every data point to the nearest centroid. After every point has been assigned, the centroid is moved to the median of all of the points assigned to it. The same grouping strategy is used for <a href="https://towardsdatascience.com/how-does-k-means-clustering-in-machine-learning-work-fdaaaf5acfa0">k-means</a>.</p>
+<div class="figure">
+<img src="img_blog_post_Alg_Bias_3A_howdoesMLwork.png" alt="Source: [How Does k-Means Clustering in Machine Learning Work?](https://towardsdatascience.com/how-does-k-means-clustering-in-machine-learning-work-fdaaaf5acfa0) by Anas Al-Masri for Toward Data Science &lt;br&gt; Caption: This example of k-means groupings shows how a collection of data points on a Cartesian plane can be classified into three bubble-like sub-groups." width="100%" />
+<p class="caption">
+Source: <a href="https://towardsdatascience.com/how-does-k-means-clustering-in-machine-learning-work-fdaaaf5acfa0">How Does k-Means Clustering in Machine Learning Work?</a> by Anas Al-Masri for Toward Data Science <br> Caption: This example of k-means groupings shows how a collection of data points on a Cartesian plane can be classified into three bubble-like sub-groups.
+</p>
 </div>
-<div id="blogging" class="section level3">
-<h3>Blogging:</h3>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_5.html">June 4, 2021: <em>Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans</em> (two-minute read)</a></p>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_4.html">May 7, 2021: <em>Target should just press ‘delete’</em> (five-minute read)</a></p>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_3.html">March 7, 2021: <em>Should corporations pay you for using your data in their algorithms?</em> (five-minute read)</a></p>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_2.html">March 4, 2021: <em>Check your blind spot.</em> (five-minute read)</a></p>
-<p><a href="https://sarahgillespie.github.io/SG/blog_post_1.html">March 4, 2021: <em>I read the fine print.</em> (five-minute read)</a></p>
-<p><br></p>
+<p>If a person uses a k-grouping algorithm to create groups based on ZIP codes or another proxy variable for a protected class, the effect can still be segregated clusters. If a person groups students by SAT score, then they most likely unintentionally simultaneously grouped students by family income.If a person groups members of a city by ZIP code, they most likely also created clusters that each have a homogenous racial group rather than each cluster representing the city’s diversity.</p>
+<p>There is a solution to have groups clustered around your variable of interest while still having each cluster be roughly representative of the overall data’s population diversity. Algorithm builders can apply a pre-processing step that creates clusters based on the variable of interest as well as prioritizing each cluster being roughly the same diversity as the population as a whole. This means the groups may be more spread out than a classic k-grouping algorithm but can be diverse based on one or more protected groups.</p>
+<p>The below example, from <a href="https://papers.nips.cc/paper/2017/hash/978fce5bcc4eccc88ad48ce3914124a2-Abstract.html">Fair Clustering Through Fairlets</a>, shows the grouping algorithm applied with two different diversity attributes: point color and point outline.</p>
+<div class="figure">
+<img src="img_blog_post_Alg_Bias_3A_figure1.png" alt="Source: Figure 1 from [Fair Clustering Through Fairlets](https://papers.nips.cc/paper/2017/hash/978fce5bcc4eccc88ad48ce3914124a2-Abstract.html).&lt;br&gt;Caption: Grouping that accounts for the proportion of different subgroups do a verbal form of this graph." width="100%" />
+<p class="caption">
+Source: Figure 1 from <a href="https://papers.nips.cc/paper/2017/hash/978fce5bcc4eccc88ad48ce3914124a2-Abstract.html">Fair Clustering Through Fairlets</a>.<br>Caption: Grouping that accounts for the proportion of different subgroups do a verbal form of this graph.
+</p>
 </div>
-<div id="projects" class="section level3">
-<h3>Projects:</h3>
-<p><a href="https://htmlpreview.github.io/?https://github.com/SarahGillespie/SDS293_final_project/blob/main/final_project.html">Chat about <em>RealToxicityPrompts: Evaluating Neural Toxic Degeneration in Language Models</em> (fifteen-minute read)</a></p>
-<p><a href="https://twitter.com/SarahG4567/status/1274088050906157056">Colleges’ household income, acceptance rate, and plans for fall 2020</a></p>
-<p><a href="https://twitter.com/SarahG4567/status/1273835618674475008">Trying to predict what my college would do in fall 2020 based on about 1000 other college’s fall 2020 plan announcements</a></p>
-<p><a href="https://github.com/SarahGillespie/LGBTQ-support-in-USA/blob/master/GillespieFinalProject%20(1).pdf">LGBTQ support in the United States with extra focus on the south (fifteen-minute read)</a></p>
-<p><a href="https://github.com/jcg0105/QuizBuilder">DIY GRE prep flashcards using Java</a></p>
-<p><a href="https://htmlpreview.github.io/?https://github.com/SarahGillespie/EconomistGraphicRedone/blob/master/SarahGDataGraphicRedone.html">Quick redesign of an Economist graph</a></p>
-<p><br></p>
-</div>
-<div id="social-media" class="section level3">
-<h3>Social media:</h3>
-<p><a href="https://github.com/SarahGillespie">Github</a></p>
-<p><a href="https://www.linkedin.com/in/sarahg4567/">LinkedIn</a></p>
-<p><a href="https://twitter.com/SarahG4567">Professional Twitter</a></p>
-</div>
+<p>Just this one preprocessing step can reduce unintended grouping segregation like the ZIP code problem. The result is still grouping by common factors, except preserving the diversity of the data rather than unintentionally segregating different populations. The cost is slightly more spread out groups that aren’t quite the same as the groups produced by classical k-grouping methods, but more representation of the populations that exist in the overall dataset.</p>
+<p>Code to pre-process this additional preprocessing grouping step using Fair-Lloyd algorithm is on Github: <a href="https://github.com/fairkmeans/Fair-K-Means-Clustering">https://github.com/fairkmeans/Fair-K-Means-Clustering</a> Unfortunately, this algorithm is in Matlab rather than Python or R.</p>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -373,6 +439,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

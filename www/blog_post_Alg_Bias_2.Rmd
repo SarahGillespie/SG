@@ -3,6 +3,8 @@ title: 'How biased data can create a biased algorithm (and prevention methods)'
 ---
  By Sarah Gillespie
  
+ Published October 11, 2021
+ 
 
 Biased data can create a biased algorithm in a two main ways. First, collecting data where the given information is simply incorrect and using that data to train a model.
 
