@@ -31,6 +31,7 @@ output:
 <br>
 
 ### Projects:
+
 [Chat about *RealToxicityPrompts: Evaluating Neural Toxic Degeneration in Language Models* (fifteen-minute read)](https://htmlpreview.github.io/?https://github.com/SarahGillespie/SDS293_final_project/blob/main/final_project.html)
 
 [Colleges' household income, acceptance rate, and plans for fall 2020](https://twitter.com/SarahG4567/status/1274088050906157056)
