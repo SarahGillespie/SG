@@ -1,0 +1,82 @@
+---
+title: 'Quick Deep k-Nearest Neighbors Explanation'
+---
+ By Sarah Gillespie
+ 
+ Published October 25, 2021
+
+
+
+### Deep learning structure
+
+
+```{r img_blog_post_Alg_Bias_3B_An-example-of-a-deep-learning-neural-network-with-3-hidden-layers-For-a-Boltzmann, fig.cap="Source: Figure .<br>Caption: Grouping .", echo=FALSE, out.width="100%"}
+knitr::include_graphics("img_blog_post_Alg_Bias_3B_An-example-of-a-deep-learning-neural-network-with-3-hidden-layers-For-a-Boltzmann.png")
+```
+
+### Deep k-Nearest Neighbors (DkNN)
+
+
+```{r img_blog_post_Alg_Bias_3B_DkNN_drawing, fig.cap="Source: Figure .<br>Caption: Grouping .", echo=FALSE, out.width="100%"}
+knitr::include_graphics("img_blog_post_Alg_Bias_3B_DkNN_drawing.jpg")
+```
+
+
+### Does DkNN change the model?
+
+No.
+It’s all about documentation.
+
+```{r img_blog_post_Alg_Bias_3B_recipt2, fig.cap="Source: Figure .<br>Caption: Grouping .", echo=FALSE, out.width="100%"}
+knitr::include_graphics("img_blog_post_Alg_Bias_3B_recipt2.jpg")
+```
+
+
+DkNN goal: “ensure that each intermediate computation performed by the deep neural network is conformal with the final prediction that it makes.”
+
+### Adversarial Input
+
+DNN generally work fine with some small randomness in input data but sometimes give the wrong output due to (the input being a little different from the training data)+(a weak point in the model).
+Impact: this is exploitable. People can purposefully make a model classify things wrong if they know that weak point. Access the source code and training data         is not needed.
+Problem: how to know if a point is exploiting that weak spot?
+Solution: create a credibility score.
+
+Example: the plastic license plate covers
+### Numbers about the numbers
+*Credibility*: characterizes how relevant the training data is to the prediction.
+Credibility score = (# of NN points that DON’T match the input’s final output label) /                 (total number of NN considered)
+*Confidence*: quantifies the likelihood of the prediction being correct.
+Confidence score = the distance between the test input and the model’s NN training points
+
+### DkNN Application Areas
+
+1. Documentation of analysis
+
+List an input’s NN in each layer.
+Goal: make sure the intermediate steps’ output conforms with the final output
+
+```{r img_blog_post_Alg_Bias_3B_recipt1, fig.cap="Source: Figure .<br>Caption: Grouping .", echo=FALSE, out.width="50%"}
+knitr::include_graphics("img_blog_post_Alg_Bias_3B_recipt1.jpg")
+```
+
+
+2. Inform about outliers
+[RED FLAG]
+if there’s an outlying point.
+
+Goal: prevent the model from extrapolating too much from its training data.
+
+3. Adversarial Points
+[RED FLAG] if it is likely that there is purposeful exploitation of the model’s grouping weaknesses.
+Goal: prevent exploited outputs from having a real-world impact.
+
+
+### Big idea: DkNN + GPT-3
+GPT-3 frequently produces toxic language, mimicking the toxic language present in its natural language training data. 
+
+Current approach: mass banning all potentially toxic words when using the model in a sensitive setting
+
+Potential better approach:
+1. use DkNN  to find the training points in each layer that are most associated with toxic language generation
+2. remove those points form the training data
+3. retrain the model with the detoxed data
