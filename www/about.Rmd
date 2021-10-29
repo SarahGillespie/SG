@@ -5,7 +5,13 @@ output:
     toc: false
 ---
 
-I am an undergraduate student double majoring in [quantitative economics](https://www.smith.edu/academics/economics) and [statistical and data sciences](https://www.smith.edu/academics/statistics). I will graduate from [Smith College](https://www.smith.edu/) in January 2022. My hobbies this month include drinking too much iced coffee, improving Wikipedia pages and reading the American Library Association's [Top 10 Most Challenged Books of 2020](http://www.ala.org/advocacy/bbooks/frequentlychallengedbooks/top10).
+#### I am an undergraduate student double majoring in [quantitative economics](https://www.smith.edu/academics/economics) and [statistical and data sciences](https://www.smith.edu/academics/statistics).
+
+My career goal is to analyze and synthesize complex data into concise, relevant, and engaging insights to facilitate data-driven decision making. For my Bachelors degree, I will graduate from [Smith College](https://www.smith.edu/) in January 2022.
+
+Besides academics, I am president of my school's Statistical and Data Sciences club. I use this leadership opportunity to organize inclusive events to support beginner, intermediate, and advanced student skill-level learning and enthusiasm in data science and statistics. This semester's topics include included Git, R Shiny, data communication, environmental data, alumni speakers, and internship confessions.
+
+My hobbies this month include drinking too much pumpkin spice flavored coffee, improving Wikipedia pages and listening to The Great Courses' [The Black Death: The World's Most Devastating Plague](https://www.thegreatcourses.com/courses/the-black-death-the-worlds-most-devastating-plague) audiobook from my public library.
 
 <br>
 
@@ -15,6 +21,4 @@ I am an undergraduate student double majoring in [quantitative economics](https:
 [Github](https://github.com/SarahGillespie)
 
 [LinkedIn](https://www.linkedin.com/in/sarahg4567/)
-
-[Professional Twitter](https://twitter.com/SarahG4567)
 
