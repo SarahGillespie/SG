@@ -59,10 +59,7 @@ knitr::include_graphics("img_blog_post_Alg_Bias_3B_DkNN_drawing.jpg")
 
 
 *Credibility*: characterizes how relevant the training data is to the prediction.
-Let:
-non-matching NN = the number of nearest neighbor points that do not match the input’s final output label
-total = the total number of nearest neighbors considered
-Credibility score = $\frac{non-matching NN}{total}$
+The credibility score is calculated by dividing the number of nearest neighbor points that do not match the input’s final output label by the total number of nearest neighbors considered.
 
 A large credibility score means that it is more likely the input is adversarial or otherwise wrongly classified. The credibility score range is [0, 1]. A score of 0 means that all of the point's nearest neighbors are the same group that the point's final classification is while a score of 1 means that none of the point's nearest neighbors are the same group as the point's final classification. The credibility score exists for an individual hidden layer and the model as a whole.
 
@@ -71,16 +68,12 @@ A large credibility score means that it is more likely the input is adversarial 
 
 Confidence score = the distance between the test input and the model’s nearest neighboring training points, summed for each layer to create a confidence score for each layer and then the summation of layer confidence scores can be added together to get a confidence score for the model as a whole.
 
-The confidence score does not exist in an informational vacuum: an algorithm user most consider the confidence score relative to other inputs' confidence scores. A large score, relative to other inputs' confidence scores. means the point is less similar to the model's training data and may be too much of an outlier to correctly classify. The confidence score range is [0, \infty). Just like the credibility score, the confidence score exists for an individual hidden layer and the model as a whole.
+The confidence score does not exist in an informational vacuum: an algorithm user most consider the confidence score relative to other inputs' confidence scores. A large score, relative to other inputs' confidence scores. means the point is less similar to the model's training data and may be too much of an outlier to correctly classify. The confidence score range is [0, $\infty$). Just like the credibility score, the confidence score exists for an individual hidden layer and the model as a whole.
 
-In mathmatical notation, the confidence score can be written as:
-
-[ADD IN THE MATH NOTATION YOU WROTE ON THE WHITEBOARD]
+The mathematical notation for the confidence and credibility scores can be found in my accompanying post [*Math Equations for Deep k-Nearest Neighbors' Confidence and Credibility Scores* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B_math.html).
 
 
-If the deep learning classification output and the training data are in agreement (i.e. the input has a small credibility score and a small confidence score), then the DkNN algorithm’s prediction is likely to be accurate. However, if there is a disconnect between the representation prediction and the training data then the output is likely to be an inaccurate prediction. This can happen if an input is too much of an outlier or being an adversarial input. Same with the confidence score: regardless of the classification output, if a point is too geographically far from its neighbors then that increases the likelihood that the point is an adversarial input or too obscure for the model to correctly classify based on the model’s training data.
-
-Please note that this approach works for deep learning that pushes each input through a the same series of layers. The confidence and credibility score approach would not work in a neural network model where each input is analyzed by some, but not all, of the model's neurons.
+Summing up the score for each layer only works and is comparable because each input goes through the same series of layers. The confidence and credibility score approach would not work in a neural network model where each input is analyzed by some, but not all, of the model's neurons.
 
 ### DkNN Application Areas
 
