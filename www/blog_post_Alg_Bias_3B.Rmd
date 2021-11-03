@@ -32,7 +32,7 @@ knitr::include_graphics("img_blog_post_Alg_Bias_3B_recipt2.jpg")
 
 ### Adversarial Input
 
-```{r img_blog_post_Alg_Bias_3B_Achilles_being_hit_in_the_heel-black-and-white, fig.cap="*Source: Twinkl.com*", echo=FALSE, out.width="100%"}
+```{r img_blog_post_Alg_Bias_3B_Achilles_being_hit_in_the_heel-black-and-white, fig.cap="*Source: Twinkl.com*", echo=FALSE, out.width="30%"}
 knitr::include_graphics("img_blog_post_Alg_Bias_3B_Achilles_being_hit_in_the_heel-black-and-white.png")
 ```
 
@@ -40,7 +40,7 @@ knitr::include_graphics("img_blog_post_Alg_Bias_3B_Achilles_being_hit_in_the_hee
 Deep neural networks generally work fine with some small randomness in input data but sometimes give the wrong output due to (the input being a little different from the training data)+(a weak point in the model). This is like hitting the Achilles' heel of an otherwise robust model and is exploitable. People can purposefully make a model classify things wrong if they knows that weak point. Access to the source code and training data is not needed.
 
 
-```{r img_blog_post_Alg_Bias_3B_phantomplate, fig.cap="*Source: Phantomplate.com <br>Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input.*", echo=FALSE, out.width="100%"}
+```{r img_blog_post_Alg_Bias_3B_phantomplate, fig.cap="*Source: Phantomplate.com <br>Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input.*", echo=FALSE, out.width="50%"}
 knitr::include_graphics("img_blog_post_Alg_Bias_3B_phantomplate.gif")
 ```
 
@@ -51,7 +51,7 @@ The solution is to find some way to rank how likely points are to be operable in
 
 
 ### Numbers about the numbers
-The paper introduces two novel measurements: credibility scores and confidence scores. Unexpected measurements could alert the people running the algorithm to potential adversarial inputs or if the model is extrapolating too much from limited data. Assuming these measurements fall along a normal distribution from a collection of test inputs, if a credibility score or confidence score is too many standard devations away from the mean score then the model could put up a red flag for human intervention.
+The paper introduces two novel measurements: credibility scores and confidence scores. Unexpected measurements could alert the people running the algorithm to potential adversarial inputs or if the model is extrapolating too much from limited data. Assuming these measurements fall along a normal distribution from a collection of test inputs, if a credibility score or confidence score is too many standard deviations away from the mean score then the model could put up a red flag for human intervention.
 
 ```{r img_blog_post_Alg_Bias_3B_DkNN_drawing, fig.cap="*Source: Sarah Gillespie illustration <br>Caption: An illustration of confidence and credibility scores in a three hidden layer model using 5 nearest neighbor points per layer.*", echo=FALSE, out.width="100%"}
 knitr::include_graphics("img_blog_post_Alg_Bias_3B_DkNN_drawing.jpg")
