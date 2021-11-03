@@ -383,61 +383,66 @@ div.tocify {
 
 <p>By Sarah Gillespie</p>
 <p>Published October 28, 2021</p>
-<div id="deep-learning-structure" class="section level3">
-<h3>Deep learning structure</h3>
-<p>Deep learning faces a lack of robustness in some settings, such as being vulnerable to adversarial inputs, not being able to rationalize its predictions, and not able to provide protection for stakeholders against data that does not conform to the model’s training data. Deep learning methods’ struggle with unpredictability and unaccountability means these algorithms have very limited usage in high stakes applications such as security or safety critical applications. The paper <a href="https://arxiv.org/pdf/1803.04765.pdf">Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning</a> proposes the DkNN documentation method to address these challenges.</p>
-<div class="figure">
-<img src="img_blog_post_Alg_Bias_3B_An-example-of-a-deep-learning-neural-network-with-3-hidden-layers-For-a-Boltzmann.png" alt="Source: Adcock, Jeremy &amp; Allen, Euan &amp; Day, Matthew &amp; Frick, Stefan &amp; Hinchliff, Janna &amp; Johnson, Mack &amp; Morley-Short, Sam &amp; Pallister, Sam &amp; Price, Alasdair &amp; Stanisic, Stasja. (2015). Advances in quantum machine learning. &lt;br&gt;Caption: An example of a deep learning neural network with 3 hidden layers. Each layer is specified as a vector of binary components, with the edges between the vectors defined as a matrix of weight values." width="100%" />
-<p class="caption">
-Source: Adcock, Jeremy &amp; Allen, Euan &amp; Day, Matthew &amp; Frick, Stefan &amp; Hinchliff, Janna &amp; Johnson, Mack &amp; Morley-Short, Sam &amp; Pallister, Sam &amp; Price, Alasdair &amp; Stanisic, Stasja. (2015). Advances in quantum machine learning. <br>Caption: An example of a deep learning neural network with 3 hidden layers. Each layer is specified as a vector of binary components, with the edges between the vectors defined as a matrix of weight values.
-</p>
-</div>
-</div>
 <div id="deep-k-nearest-neighbors-dknn" class="section level3">
 <h3>Deep k-Nearest Neighbors (DkNN)</h3>
-<p>DkNN uses the classic k-nearest neighbors algorithm along with representations of the data learned by each layer of the deep neural network grouping method to produce documentation on . DkNN is excellent at producing documentation to answer why a deep-learning model groups each input to its specific output.</p>
-<p>The goal of DkNN is to provide documentation on why a deep learning algorithm chose the category that it did and how much the person using the algorithm’s results should trust that output. This is crucial in settings like using deep learning in situations where security and reliablity are paramount, like the financial or military industries.</p>
+<p>Deep learning faces a lack of robustness in some settings, such as being vulnerable to adversarial inputs, not being able to rationalize its predictions, and not able to provide protection for stakeholders against data that does not conform to the model’s training data. The impact is these algorithms have very limited usage in high stakes applications such as security or safety critical applications, despite how advanced deep learning is in less critical settings. The unpredictability and unaccountability is a major barrier for the adoption of deep learning in high stakes settings. The paper <a href="https://arxiv.org/pdf/1803.04765.pdf">Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning</a> introduces DkNN. DkNN is excellent at producing documentation to answer why a deep-learning model groups each input to its specific output. The paper also introduces some metrics about how reasonable a deep learning model’s output by comparing the input to the training data.</p>
+<div class="figure">
+<img src="img_blog_post_Alg_Bias_3B_An-example-of-a-deep-learning-neural-network-with-3-hidden-layers-For-a-Boltzmann.png" alt="*Source: Adcock, Jeremy &amp; Allen, Euan &amp; Day, Matthew &amp; Frick, Stefan &amp; Hinchliff, Janna &amp; Johnson, Mack &amp; Morley-Short, Sam &amp; Pallister, Sam &amp; Price, Alasdair &amp; Stanisic, Stasja. (2015). Advances in quantum machine learning. &lt;br&gt;Caption: An example of a deep learning neural network with 3 hidden layers. Each layer is specified as a vector of binary components, with the edges between the vectors defined as a matrix of weight values.*" width="100%" />
+<p class="caption">
+<em>Source: Adcock, Jeremy &amp; Allen, Euan &amp; Day, Matthew &amp; Frick, Stefan &amp; Hinchliff, Janna &amp; Johnson, Mack &amp; Morley-Short, Sam &amp; Pallister, Sam &amp; Price, Alasdair &amp; Stanisic, Stasja. (2015). Advances in quantum machine learning. <br>Caption: An example of a deep learning neural network with 3 hidden layers. Each layer is specified as a vector of binary components, with the edges between the vectors defined as a matrix of weight values.</em>
+</p>
+</div>
 <p>The research paper introducing DkNN describes this as “ensure that each intermediate computation performed by the deep neural network is conformal with the final prediction that it makes.”</p>
+<p>In other words, the goal of DkNN is to provide documentation on why a deep learning algorithm chose the category that it did and let the people running the algorithm know if something seems amiss. This increases the opportunity for human intervention if an input needs more nuanced thinking and analysis than can be provided by a model. This is crucial in settings like using deep learning in situations where security and reliablity are paramount, like the financial or military industries.</p>
 </div>
 <div id="does-dknn-change-the-model" class="section level3">
 <h3>Does DkNN change the model?</h3>
-<p>No. It’s all about creating documentation as the model categorizes an input. DkNN method performs a nearest neighbor search to find training points most similar to the given input. This occurs on each hidden layer of the deep learning process. This produces documentation that wouldn’t otherwise exist and a “behind the scenes” view about how the deep learning algorithm is classifying each individual input.</p>
-<p>The model’s output with DkNN will be exactly the same as without DkNN: the only difference is that DkNN lists some of the reasons why a model selected that output through listing the input’s neighboring points in each layer and some other metrics about how reliable the outputted categorization might be.</p>
+<p>No.</p>
+<p>DkNN is all about creating documentation as the model categorizes an input. The method performs a nearest neighbor search to find training points most similar to the given input. This occurs on each hidden layer of the deep learning process. This produces documentation that wouldn’t otherwise exist and a “behind the scenes” view about how the deep learning algorithm is classifying each individual input.</p>
+<p>The model’s output with DkNN will be exactly the same as without DkNN: the only difference is that DkNN lists the input’s neighboring points in each layer and some other metrics about how reliable the outputted categorization might be. People can look at those neighboring points to see the similarities to the training data and how much the input data differs from the training data and make an educated guess at the deep learning’s grouping methods and a judgement call about how much they should trust the model’s output for a specific input.</p>
 <div class="figure">
-<img src="img_blog_post_Alg_Bias_3B_recipt2.jpg" alt="Source: Getty Images &lt;br&gt;Caption: Grouping ." width="100%" />
+<img src="img_blog_post_Alg_Bias_3B_recipt2.jpg" alt="*Source: Getty Images*" width="100%" />
 <p class="caption">
-Source: Getty Images <br>Caption: Grouping .
+<em>Source: Getty Images</em>
 </p>
 </div>
 </div>
 <div id="adversarial-input" class="section level3">
 <h3>Adversarial Input</h3>
-<p>Deep neural networks generally work fine with some small randomness in input data but sometimes give the wrong output due to (the input being a little different from the training data)+(a weak point in the model). This is exploitable. People can purposefully make a model classify things wrong if they knows that weak point. Access to the source code and training data is not needed.</p>
 <div class="figure">
-<img src="img_blog_post_Alg_Bias_3B_phantomplate.gif" alt="Source: www.phantomplate.com &lt;br&gt;Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input." width="100%" />
+<img src="img_blog_post_Alg_Bias_3B_Achilles_being_hit_in_the_heel-black-and-white.png" alt="*Source: Twinkl.com*" width="100%" />
 <p class="caption">
-Source: www.phantomplate.com <br>Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input.
+<em>Source: Twinkl.com</em>
+</p>
+</div>
+<p>Deep neural networks generally work fine with some small randomness in input data but sometimes give the wrong output due to (the input being a little different from the training data)+(a weak point in the model). This is like hitting the Achilles’ heel of an otherwise robust model and is exploitable. People can purposefully make a model classify things wrong if they knows that weak point. Access to the source code and training data is not needed.</p>
+<div class="figure">
+<img src="img_blog_post_Alg_Bias_3B_phantomplate.gif" alt="*Source: Phantomplate.com &lt;br&gt;Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input.*" width="100%" />
+<p class="caption">
+<em>Source: Phantomplate.com <br>Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input.</em>
 </p>
 </div>
 <p>When an algorithm is classifying lots of points with little human interaction, how could the algorithm know if a point is intentionally exploiting an algorithm’s weak spot?</p>
-<p>The solution is to create a credibility score.</p>
+<p>The solution is to find some way to rank how likely points are to be operable in the existing model.</p>
 </div>
 <div id="numbers-about-the-numbers" class="section level3">
 <h3>Numbers about the numbers</h3>
-<p>The paper introduces two novel measurements: credibility scores and confidence scores. These measurements could alert the people running the algorithm to potential adversarial inputs or if the model is extrapolating too much from limited data.</p>
-<p><em>Credibility</em>: characterizes how relevant the training data is to the prediction.</p>
-<p>Credibility score = <span class="math inline">\(\frac{# of nearest neighbor points that DON’T match the input’s final output label}{total number of nearest neighbors considered}\)</span></p>
-<p>A large credibility score means that it is more likely the input is adversarial or otherwise wrongly classified. The credibility score range is [0, 1]. A score of 0 means that all of the point’s nearest neighbors are the same group that the point’s final classification is while a score of 1 means that none of the point’s nearest neighbors are the same group as the point’s final classification. The credibility score exists for an individual hidden layer and the model as a whole.</p>
-<p><em>Confidence</em>: quantifies the likelihood of the prediction being correct.</p>
-<p>Confidence score = the distance between the test input and the model’s NN training points</p>
-<p>Theconfidence score is relative to other input’s confidence scores. A large score, compared to other inputs’ confidence scores, means the point is less similar to the model’s training data and may be too much of an outlier to correctly classify. The confidence score range is [0, ). Just like the credibility score, the confidence score exists for an individual hidden layer and the model as a whole.</p>
+<p>The paper introduces two novel measurements: credibility scores and confidence scores. Unexpected measurements could alert the people running the algorithm to potential adversarial inputs or if the model is extrapolating too much from limited data. Assuming these measurements fall along a normal distribution from a collection of test inputs, if a credibility score or confidence score is too many standard devations away from the mean score then the model could put up a red flag for human intervention.</p>
 <div class="figure">
-<img src="img_blog_post_Alg_Bias_3B_DkNN_drawing.jpg" alt="&lt;br&gt;Caption: An illustration of confidence and credibility scores in a three hidden layer model using 5 nearest neighbor points per layer." width="100%" />
+<img src="img_blog_post_Alg_Bias_3B_DkNN_drawing.jpg" alt="*Source: Sarah Gillespie illustration &lt;br&gt;Caption: An illustration of confidence and credibility scores in a three hidden layer model using 5 nearest neighbor points per layer.*" width="100%" />
 <p class="caption">
-<br>Caption: An illustration of confidence and credibility scores in a three hidden layer model using 5 nearest neighbor points per layer.
+<em>Source: Sarah Gillespie illustration <br>Caption: An illustration of confidence and credibility scores in a three hidden layer model using 5 nearest neighbor points per layer.</em>
 </p>
 </div>
-<p>If the outputted classification and the training data are in agreement, then the DkNN algorithm’s prediction is likely to be accurate. However, if there is a disconnect between the representation prediction and the training data then the output is likely to be an inaccurate prediction through being too much of an outlier or being an adversarial input. Same with the confidence score: regardless of the classification output, if a point is too geographically far from its neighbors then that increases the likelihood that the point is an adversarial input or too obscure for the model to correctly classify based on the model’s training data.</p>
+<p><em>Credibility</em>: characterizes how relevant the training data is to the prediction. Let: non-matching NN = the number of nearest neighbor points that do not match the input’s final output label total = the total number of nearest neighbors considered Credibility score = <span class="math inline">\(\frac{non-matching NN}{total}\)</span></p>
+<p>A large credibility score means that it is more likely the input is adversarial or otherwise wrongly classified. The credibility score range is [0, 1]. A score of 0 means that all of the point’s nearest neighbors are the same group that the point’s final classification is while a score of 1 means that none of the point’s nearest neighbors are the same group as the point’s final classification. The credibility score exists for an individual hidden layer and the model as a whole.</p>
+<p><em>Confidence</em>: quantifies the likelihood of the prediction being correct.</p>
+<p>Confidence score = the distance between the test input and the model’s nearest neighboring training points, summed for each layer to create a confidence score for each layer and then the summation of layer confidence scores can be added together to get a confidence score for the model as a whole.</p>
+<p>The confidence score does not exist in an informational vacuum: an algorithm user most consider the confidence score relative to other inputs’ confidence scores. A large score, relative to other inputs’ confidence scores. means the point is less similar to the model’s training data and may be too much of an outlier to correctly classify. The confidence score range is [0, ). Just like the credibility score, the confidence score exists for an individual hidden layer and the model as a whole.</p>
+<p>In mathmatical notation, the confidence score can be written as:</p>
+<p>[ADD IN THE MATH NOTATION YOU WROTE ON THE WHITEBOARD]</p>
+<p>If the deep learning classification output and the training data are in agreement (i.e. the input has a small credibility score and a small confidence score), then the DkNN algorithm’s prediction is likely to be accurate. However, if there is a disconnect between the representation prediction and the training data then the output is likely to be an inaccurate prediction. This can happen if an input is too much of an outlier or being an adversarial input. Same with the confidence score: regardless of the classification output, if a point is too geographically far from its neighbors then that increases the likelihood that the point is an adversarial input or too obscure for the model to correctly classify based on the model’s training data.</p>
+<p>Please note that this approach works for deep learning that pushes each input through a the same series of layers. The confidence and credibility score approach would not work in a neural network model where each input is analyzed by some, but not all, of the model’s neurons.</p>
 </div>
 <div id="dknn-application-areas" class="section level3">
 <h3>DkNN Application Areas</h3>
@@ -446,9 +451,9 @@ Source: www.phantomplate.com <br>Caption: Techniques used to obscure license pla
 <p>Goal: make sure the intermediate steps’ output conforms with the final output. This is useful for documenting model analysis when a model’s training data might change over time or when the model’s output may be called into question at the moment of creation or farther away in time.</p>
 <p>DkNN achieves this goal by creating a list of an input’s nearest neighbors in each layer.</p>
 <div class="figure">
-<img src="img_blog_post_Alg_Bias_3B_recipt1.jpg" alt="Source: Figure .&lt;br&gt;Caption: Grouping ." width="50%" />
+<img src="img_blog_post_Alg_Bias_3B_recipt1.jpg" alt="*Source: Getty Images*" width="50%" />
 <p class="caption">
-Source: Figure .<br>Caption: Grouping .
+<em>Source: Getty Images</em>
 </p>
 </div>
 </div>
@@ -465,7 +470,7 @@ Source: Figure .<br>Caption: Grouping .
 <div id="help-the-models-catagorization-be-interpretable-to-people." class="section level4">
 <h4>4. Help the models catagorization be interpretable to people.</h4>
 <p>The explanations provided by looking at an input’s distance from its nearest neighbors are intuitive and interpretable by humans when trying to understand a model’s specific decision. For example, if an individual was denied a mortgage, a person questioning the model’s decision can learn that the denial was due to an individual’s debt-to-income ratio rather than the house’s location or value.</p>
-<p>This can be legally important when a <a href="https://en.wikipedia.org/wiki/Right_to_explanation">Right to Explaination</a> exists, such as in the General Data Protection Regulation. The Right to Explaination is a right to be given an explanation for an algorithm’s output, particularly if the output has legal or financial implications. For simple groupings, like classical k-means or standard nearest neighbors, this is an easy task. For deep learning algorithms their combinations of hidden layers, abstract parameters, and adjustable weights make providing a Right to Explaination much more of a challenge. DkNN helps provide the Right to Explaination by generating documentation that can inform about the input’s most related training points and provide the confidence and credibility scores that detail how related the input was to the existing training points and how valid the categorization may be.</p>
+<p>This can be legally important when a <a href="https://en.wikipedia.org/wiki/Right_to_explanation">Right to Explanation</a> exists, such as in the General Data Protection Regulation. The Right to Explanation is a right to be given an explanation for an algorithm’s output, particularly if the output has legal or financial implications. For simple groupings, like classical k-means or standard nearest neighbors, this is an easy task. For deep learning algorithms their combinations of hidden layers, abstract parameters, and adjustable weights make providing a Right to Explanation much more of a challenge. DkNN helps provide the Right to Explanation by generating documentation that can inform about the input’s most related training points and provide the confidence and credibility scores that detail how related the input was to the existing training points and how valid the categorization may be.</p>
 <p>To conclude, DkNN is not a silver bullet solution to deep learning’s problems, but it does provide an opportunity for more context on how an algorithm is grouping points. The DkNN grouping can be used to flag inputs that are too far outside the norm to be classified accurately, but the DkNN process does not alter the deep learning model. The benefit to fairness is that a given model can be much more interpretable and increase a model’s ability to have its outputs checked by people.</p>
 </div>
 </div>

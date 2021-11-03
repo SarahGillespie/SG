@@ -7,7 +7,7 @@ output:
 <br>
 
 ### Steps to solve algorithm biases in everyday algorithms:
-[October 28, 2021: *Quick Deep k-Nearest Neighbors Explanation* (fifteen-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B.html)
+[October 28, 2021: *Succinct Deep k-Nearest Neighbors Explanation* (fifteen-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B.html)
 
 
 [October 18, 2021: *Preprocessing k-means and k-medians can reduce unintended segregation in each cluster* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3A.html)
