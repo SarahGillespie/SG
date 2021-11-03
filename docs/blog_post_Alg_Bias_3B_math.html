@@ -416,7 +416,17 @@ div.tocify {
 </div>
 <div id="mathematical-notation-for-the-credibility-score" class="section level3">
 <h3>Mathematical Notation for the Credibility Score</h3>
-<p><em>Credibility</em>: characterizes how relevant the training data is to the prediction. Let: non-matching NN = the number of nearest neighbor points that do not match the input’s final output label. total = the total number of nearest neighbors considered Credibility score = <span class="math inline">\(\frac{non-matching NN}{total}\)</span></p>
+<p><em>Credibility</em>: characterizes how relevant the training data is to the prediction.</p>
+<p>Use the same notation from above of</p>
+<p><span class="math inline">\(\varphi\)</span>: the total nearest neighbor points considered in each layer</p>
+<p><span class="math inline">\(\lambda\)</span>: a specific hidden layer</p>
+<p><span class="math inline">\(\Lambda\)</span>: the total number of hidden layers</p>
+<p>with the addition of letting</p>
+<p><span class="math inline">\(\psi\)</span>: the number of nearest neighbor points that are a different class than the input point’s final classification.</p>
+<p>A single layer’s credibility score would be <span class="math inline">\(\frac{\psi}{\varphi}\)</span>.</p>
+<p>The credibility score for an entire model would be</p>
+<p><span class="math display">\[\frac{\sum_{\lambda=1}^{\Lambda} \psi_\lambda}{\Lambda\varphi}\]</span></p>
+<p>Note: in this formula, it is assumed that there is the same number of <span class="math inline">\(\varphi\)</span>, the number of nearest neighbor points in each layer. Since we assume <span class="math inline">\(\varphi\)</span> is the same integer value for layer then we can multiply <span class="math inline">\(\varphi\)</span> by the total number of layers rather than doing summation notation on <span class="math inline">\(\varphi\)</span>.</p>
 <p>A large credibility score means that it is more likely the input is adversarial or otherwise wrongly classified. The credibility score range is [0, 1]. A score of 0 means that all of the point’s nearest neighbors are the same group that the point’s final classification is while a score of 1 means that none of the point’s nearest neighbors are the same group as the point’s final classification. The credibility score exists for an individual hidden layer and the model as a whole.</p>
 </div>
 <div id="diy" class="section level3">
