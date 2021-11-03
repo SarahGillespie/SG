@@ -3,7 +3,7 @@ title: 'Deep k-Nearest Neighbors Math Scores Explanation'
 ---
  By Sarah Gillespie
  
- Published October 28, 2021
+ Published November 2, 2021
 
 ### Deep k-Nearest Neighbors (DkNN)
 
