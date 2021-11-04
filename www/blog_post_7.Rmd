@@ -1,8 +1,28 @@
 ---
-title: 'blog post 7: '
+title: 'blog post 7: Intellectual Property + ML models'
 ---
  By Sarah Gillespie
  
  *in progress*
  
+Testing GPT-3 and Codex --> go google the code and phrases and see how much is originally generated and how much is actually just intelligently copy and pasted paragraphs from training data. GPT-3 and Codex blur the lines of copyright on code and language by putting everything in the same training data pool.
  
+ 
+ How to tell if someone stole your ML model?
+ This matters because for some companies, having a more intellinet ML model is the crux of their buisness. FOr example, Spotify's algorithm for predicting what to listen to next helped it eclipse Pandora. Stitchfix emerged from the cut-throat fashion industry.
+ 
+ So how can you tell if a competitor is using a ML model that your company developed? That is your intellectural proprty?
+ 
+Look at the academic papers of:
+
+Dataset Inference: Ownership Resolution in Machine Learning
+Pratyush Maini, Mohammad Yaghini, Nicolas Papernot
+TLDR: how to tell if someone stole your model
+
+CaPC Learning: Confidential and Private Collaborative Learning
+Christopher A. Choquette-Choo, Natalie Dullerud, Adam Dziedzic, Yunxiang Zhang, Somesh Jha, Nicolas Papernot, Xiao Wang
+TLDR: how to create a collaborative ML (deep L?) model with other entities without sharing your proprietary data
+
+Entangled Watermarks as a Defense against Model Extraction
+Hengrui Jia, Christopher A. Choquette-Choo, Varun Chandrasekaran, Nicolas Papernot
+TLDR: protecting your data with watermarks goes okay enough to use
