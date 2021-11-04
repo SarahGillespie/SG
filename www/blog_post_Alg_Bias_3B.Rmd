@@ -40,8 +40,8 @@ knitr::include_graphics("img_blog_post_Alg_Bias_3B_Achilles_being_hit_in_the_hee
 Deep neural networks generally work fine with some small randomness in input data but sometimes give the wrong output due to (the input being a little different from the training data)+(a weak point in the model). This is like hitting the Achilles' heel of an otherwise robust model and is exploitable. People can purposefully make a model classify things wrong if they knows that weak point. Access to the source code and training data is not needed.
 
 
-```{r img_blog_post_Alg_Bias_3B_phantomplate, fig.cap="*Source: Phantomplate.com <br>Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input.*", echo=FALSE, out.width="50%"}
-knitr::include_graphics("img_blog_post_Alg_Bias_3B_phantomplate.gif")
+```{r img_blog_post_Alg_Bias_3B_phantomplate, fig.cap="*Source: Phantomplate.com <br>Caption: Techniques used to obscure license plate numbers to avoid tickets from running red lights or routine tolls are adversarial input.*", echo=FALSE, out.width="100%"}
+knitr::include_graphics("img_blog_post_Alg_Bias_3B_phantomplate.jpg")
 ```
 
 
