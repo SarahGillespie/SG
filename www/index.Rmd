@@ -5,7 +5,7 @@ output:
     toc: false
 ---
 <br>
-
+ 
 ### Steps to solve algorithm biases in everyday algorithms:
 [November 2, 2021: *Math Equations for Deep k-Nearest Neighbors' Confidence and Credibility Scores* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B_math.html)
 
