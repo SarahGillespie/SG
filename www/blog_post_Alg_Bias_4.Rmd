@@ -1,0 +1,34 @@
+---
+title: 'Trust Scores'
+---
+ By Sarah Gillespie
+ 
+ Published November 18, 2021
+
+### Summary
+
+### Step 1
+
+
+
+### Step 2
+
+
+
+### Compare and contract with the DkNN Confidence and Credibility scores
+
+
+#### Things the same
+
+
+#### Things different
+
+
+### Variations of trust scores
+
+
+
+### DIY
+
+The code for the [Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning](https://arxiv.org/pdf/1805.11783.pdf) paper:  https://github.com/google/TrustScore
+It appears there is a trsut scores package avaliable for Python 3.
