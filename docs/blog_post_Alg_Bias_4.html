@@ -11,7 +11,7 @@
 
 
 
-<title>Trust Scores</title>
+<title>Creating Trust Scores for Classification Models</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -376,37 +376,69 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Trust Scores</h1>
+<h1 class="title toc-ignore">Creating Trust Scores for Classification Models</h1>
 
 </div>
 
 
 <p>By Sarah Gillespie</p>
 <p>Published November 18, 2021</p>
-<div id="summary" class="section level3">
-<h3>Summary</h3>
+<p>Trust scores are introduced in the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a>, presented at the 32nd Conference on Neural Information Processing Systems in 2018. The trust scores are a similar concept to the credibility and confidence scores introduced in <a href="https://arxiv.org/pdf/1803.04765.pdf">Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning</a>. The trust score is a remarkably flexible ratio that has a goal of describing how much a user should trust the an algorithm’s classification of a specific point. It is ratio of the distance from the testing sample to the nearest classes similar and class different from the testing sample. This trust score for a testing sample is likely agree with the Bayes-optimal classifier, so the trust score is a clue to decide if an algorithm’s prediction about a test point is correct rather than a Type I or II Error. This approach mixes the topology of points in a multidimensional space with calculus to be effective at detecting the accuracy of a unique machine learning prediction.</p>
+<div id="define-variables" class="section level3">
+<h3>Define variables</h3>
+<p>k: the number of neighbors, like in k-Nearest Neighbors.</p>
+<p><span class="math inline">\(\alpha\)</span>: the density threshold and the specific fraction of data to filter out of the overall collection of data. This is a proxy for the density value. The recommended <span class="math inline">\(\alpha\)</span> value is not specified in the paper.</p>
+<p>1 - <span class="math inline">\(\alpha\)</span>: the probability mass, described as a fraction.</p>
 </div>
-<div id="step-1" class="section level3">
-<h3>Step 1</h3>
+<div id="step-1-preprocess-the-data" class="section level3">
+<h3>Step 1: Preprocess the data</h3>
+<p>The first step is to keep only the points that exist in a high density area. That specific density varies but is defined as <span class="math inline">\(\alpha\)</span> as a general variable. This has the effect of removing outliers and having smooth clusters of points to use for calculating the trust score. The specific distribution of the smooth cluster of points is irrelevant.</p>
+<p>The trust scores paper does not recommend an <span class="math inline">\(\alpha\)</span> value to define what density counts as a high density set.</p>
 </div>
-<div id="step-2" class="section level3">
-<h3>Step 2</h3>
+<div id="step-2-calculate-the-trust-score" class="section level3">
+<h3>Step 2: Calculate the trust score</h3>
+<p>The trust score compares the the distance from the testing sample to the nearest classes similar and different from the testing sample.</p>
+<p>The trust score is calculated as:</p>
+<p>(distance from the testing sample to the nearest class different from the predicted class) / (distance from the testing sample to the nearest class the same as the predicted class)</p>
+<p>Note that “class” in this definition describes the class/categorization of a single point, a group of k-Nearest Neighbors, or a centroid (centroid or geometric center of a plane figure is the arithmetic mean position of all the points in the figure). The trust scores formula is flexible enough to accommodate all of those groupings and have more customizations. Mote details in the <em>Variations of the trust score</em> section.</p>
+<p>If trust score &gt; 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample’s categorization being incorrect.</p>
 </div>
-<div id="compare-and-contract-with-the-dknn-confidence-and-credibility-scores" class="section level3">
-<h3>Compare and contract with the DkNN Confidence and Credibility scores</h3>
-<div id="things-the-same" class="section level4">
-<h4>Things the same</h4>
+<div id="variations-of-the-trust-score" class="section level3">
+<h3>Variations of the trust score</h3>
+<p>The trust score concept put forth in the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a> paper can have variations in a few different categories. A trust score encompasses a variety of similar but slightly differentiated metrics. When communicating a trust score it is important to add the fine print about which metrics are being chosen to calculate that score.</p>
+<p>Trust scores can have variations throughout different categories, just like creating a Build-A-Bear or picking out clothing for the day.</p>
+<ol style="list-style-type: decimal">
+<li><p>A specific test point. The trust score is about looking at the categorization of a single input’s categorization compared to the training data.</p></li>
+<li><p>A specific classifier model. For example, neural network, random forest, or logistic regression.</p></li>
+<li><p>A specific neighbor metric to use to compare the different classes. For example, k-Nearest Neighbors, a single nearest neighbor, or a centroid.</p></li>
+<li><p>A specific data setting. For example, raw inputs, an unsupervised embedding of the space, or individual layers.</p></li>
+</ol>
+<p>So a trust score has four catagories, each with numerous options. It is crucial to specify the details of each of these four categories when communicating a trust score.</p>
 </div>
-<div id="things-different" class="section level4">
-<h4>Things different</h4>
+<div id="compare-trust-scores-to-dknns-confidence-and-credibility-scores" class="section level3">
+<h3>Compare trust scores to DkNN’s confidence and credibility scores</h3>
+<div id="same" class="section level4">
+<h4>Same</h4>
+<ul>
+<li><p>Trust, confidence, and credibility scores all can use k-Nearest Neighbors when creating the score. Trust scores have the flexibility to additionally use a single nearest neighbor or a centroid when calculating the trust score.</p></li>
+<li><p>All scores use the geographically closest points in their calculation.</p></li>
+<li><p>Both the confidence score and the trust score consider the distance from the testing sample to points of other classes.</p></li>
+<li><p>All scores can create their respective scores on individual intermediate layers in a deep learning model. Trust scores can create additional scores using different parts of the model, such as creating a trust score using the raw input.</p></li>
+</ul>
 </div>
+<div id="different" class="section level4">
+<h4>Different</h4>
+<ul>
+<li><p>Confidence and credibility scores do not rely on removing outliers from the training data to get a smooth and high density cluster of points. Trust score calculations rely on having the low density points removed from the training data, which might have adverse effects if the test points are outliers themself.</p></li>
+<li><p>Using the confidence and credibility scores together is better for detecting outlying and adversarial input into the model. The trust score ratio fails to detect if the same and different classes are far away but in a reasonable ratio. This means the trust score would not be extreme enough to alert the algorithm user that the input could be an outlier. In that sense, the trust score would be less effective at detecting the adversarial input compared to a confidence score that can describe ordinal distances between the points in a model.</p></li>
+<li><p>Trust scores have a greater flexibility on how to apply the concept, detailed in the <em>Variations of the trust score</em> section.</p></li>
+<li><p>Trust score points must be independantly and identically distributed (i.i.d.).</p></li>
+</ul>
 </div>
-<div id="variations-of-trust-scores" class="section level3">
-<h3>Variations of trust scores</h3>
 </div>
 <div id="diy" class="section level3">
 <h3>DIY</h3>
-<p>The code for the <a href="https://arxiv.org/pdf/1805.11783.pdf">Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning</a> paper: <a href="https://github.com/google/TrustScore" class="uri">https://github.com/google/TrustScore</a> It appears there is a trsut scores package avaliable for Python 3.</p>
+<p>The code for the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a> paper: <a href="https://github.com/google/TrustScore" class="uri">https://github.com/google/TrustScore</a> It appears there is a trsut scores package available for Python 3.</p>
 </div>
 
 
