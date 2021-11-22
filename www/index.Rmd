@@ -8,6 +8,8 @@ output:
 
 ### Steps to solve algorithm biases in everyday algorithms:
 
+[November 21, 2021: *Wikipedia draft: about Kristian Lum, statistician and algorithm bias researcher* (five-minute read)](https://en.wikipedia.org/wiki/Draft:Kristian_Lum)
+
 [November 18, 2021: *Creating Trust Scores for Classification Models* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_4.html)
  
 [November 2, 2021: *Math Equations for Deep k-Nearest Neighbors' Confidence and Credibility Scores* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B_math.html)
