@@ -1,13 +1,13 @@
 ---
-title: 'Ways algorithms can uphold and fail a variety of fairness definitions'
+title: 'Algorithms can uphold and fail a variety of fairness definitions'
 ---
 By Sarah Gillespie
  
 Published October 4, 2021
 
-The paper, [On Formalizing Fairness in Prediction with Machine Learning](https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf), discusses a number of definitions on how to decide if an algorithm is “fair,” specifically by breaking the concept down into five ways that an outcome can fail fairness. These fairness definitions are most analogous to multiple regression’s OLS assumptions: to have a statistically-sound regression, you need to check that your model fits all the regression assumptions, but you may still be able to work with the regression model if it doesn’t - you just need to be a lot more cautious.
+The paper, [On Formalizing Fairness in Prediction with Machine Learning](https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf), discusses a number of definitions on how to decide if an algorithm is “fair,” specifically by breaking the concept down into five ways that an outcome can fail fairness. These are just the most popular of many different ways to look at a "fair" algorithm. It cannot be emphasized enough that fairness is not a simple accuracy metric that is easy to optimize a model to achieve. It is crucial to look at your model through different fairness lenses to see if your model has negative externalities that fail different fairness measures, despite succeeding on a specific fairness measure.
 
-Comparison: Algorithm Fairness Categories
+### Comparison: Algorithm Fairness Categories
 
 | Concept      | Definition | Example |
 | ----------- | ----------- |---------|
@@ -17,6 +17,8 @@ Comparison: Algorithm Fairness Categories
 | Equality of opportunity      | In a scenario where there is only one beneficial outcome, the true positive rate should be the same for all groups. | Not accounting for systemic discrimination that may affect one group’s data used in the algorithm in an adverse way |
 | Preference-based fairness      | An algorithm satisfies an individual’s preferred treatment and has the highest rate of matching an individual's real preference to the algorithm’s prediction for the individual’s preference. | An algorithm that has a high error percentage for preference matching, such as an unsuccessful roommate algorithm at a large university. |
 
+### Common confusion points
+
 One common confusion point when comparing fairness definitions is the difference between group fairness and individual fairness. One might wonder how they are different, since treating groups differently means being unfair to all the individuals in those groups.
 
 First, let our two different groups be students at Smith College studying computer science and students at Mount Holyoke College studying computer science. All students are applying for jobs at the same career fairs and the same LinkedIn posts and the same company websites.
@@ -24,12 +26,13 @@ First, let our two different groups be students at Smith College studying comput
 If there was group fairness, then the Smith College computer science students would get the same number of interview invitations as Mount Holyoke College students. If Smith computer science students received more or less interview invitations than the Mount Holyoke computer science students then this would fail group fairness.
 
 Individual fairness is focused on individual points in the data set and checking to make sure identical data points receive the same treatment. So, if two Smith computer science students had the same academic background, grades, and experiences and applied to the same jobs, then the interview process would be individually fair if the two Smith students received the same number of interview invitations. If the students did not receive the same number of interview invitations, then the process would not be individually fair. A company might offer more interview opportunities to people in groups underrepresented in their employee population to achieve a group fairness goal. This decreases individual fairness in the applicant population but has a potential to increase group fairness in the company’s employee population. 
-
+### Treatment vs. Impact
 
 This relates to another point the Formalizing Fairness paper discusses: the difference between an algorithm’s treatment and its impact. Treatment and impact are not exclusive to algorithms.
 
 Treatment is the specific type of care that an algorithm suggests for each data point, while impact is the effect on that data point’s well-being. Since each person tends to be more unique and has their own set of skills and resources, providing the exact same treatment to people is unlikely to lead to the exact same outcome. For example, an educational algorithm provides the same treatment that suggests two first grade students read the same chapter in a book. If one student has an older sibling around to help look up challenging words and explain deeper literary elements like foreshadowing and social context, that student will gain a larger benefit and a different impact than a student who reads the book without her support system around helping her to understand the chapter. Despite having the same treatment, these two students had a very different impact.
 
+### ACM's perspective on algorithm accountability
 
 The Association for Computing Machinery published [7 Principles for Algorithmic Transparency and Accountability](https://techpolicy.acm.org/2017/01/new-statement-on-algorithmic-transparency-and-accountability-by-acm-u-s-public-policy-council/), which is written for the creators of algorithms and has a larger emphasis on encouraging algorithm creators to fully understand the algorithm they create and make it auditable. 
 
@@ -52,3 +55,8 @@ Institutions should use rigorous methods to validate their models and document t
 This differs from the [On Formalizing Fairness in Prediction with Machine Learning](https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf) paper, which places more focus on how the subjects of an algorithm should be treated.
 
 The take-away from this is to have individuals know the purpose and impact of algorithms they are responsible for. This may include documentation on an algorithm’s goals, economic impact and social impact. When an algorithm is affecting actual people’s lives rather than just being a gimmick, it is important to consider the intersection of its computing efficiency with its real world effect.
+
+
+### Going forward
+
+A quote from an Expo Talk Panel at NeurIPS 2020 titled ["From  scikit-learn and fairness, tools and challenges"](https://neurips.cc/ExpoConferences/2020/talk%20panel/21299) by Adrin Jalali best summed up the current algorithm fairness terrain when he said "If you take an algorithm, it's not too hard for me to find a fairness definition for which my algorithm does not perform badly. So we need to be really careful about that."

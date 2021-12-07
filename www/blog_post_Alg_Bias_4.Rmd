@@ -74,10 +74,9 @@ So a trust score has four catagories, each with numerous options. It is crucial 
 
 * Trust scores have a greater flexibility on how to apply the concept, detailed in the *Variations of the trust score* section.
 
-* Trust score points must be independantly and identically distributed (i.i.d.).
+* Trust score points must be independently and identically distributed (i.i.d.).
 
 
 ### DIY
 
-The code for the [To Trust Or Not To Trust A Classifier](https://arxiv.org/pdf/1805.11783.pdf) paper:  https://github.com/google/TrustScore
-It appears there is a trsut scores package available for Python 3.
+The code for the [To Trust Or Not To Trust A Classifier](https://arxiv.org/pdf/1805.11783.pdf) paper is located on [Github](https://github.com/google/TrustScore) and has been updated for Python 3.

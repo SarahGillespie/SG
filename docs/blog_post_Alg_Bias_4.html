@@ -432,13 +432,13 @@ div.tocify {
 <li><p>Confidence and credibility scores do not rely on removing outliers from the training data to get a smooth and high density cluster of points. Trust score calculations rely on having the low density points removed from the training data, which might have adverse effects if the test points are outliers themself.</p></li>
 <li><p>Using the confidence and credibility scores together is better for detecting outlying and adversarial input into the model. The trust score ratio fails to detect if the same and different classes are far away but in a reasonable ratio. This means the trust score would not be extreme enough to alert the algorithm user that the input could be an outlier. In that sense, the trust score would be less effective at detecting the adversarial input compared to a confidence score that can describe ordinal distances between the points in a model.</p></li>
 <li><p>Trust scores have a greater flexibility on how to apply the concept, detailed in the <em>Variations of the trust score</em> section.</p></li>
-<li><p>Trust score points must be independantly and identically distributed (i.i.d.).</p></li>
+<li><p>Trust score points must be independently and identically distributed (i.i.d.).</p></li>
 </ul>
 </div>
 </div>
 <div id="diy" class="section level3">
 <h3>DIY</h3>
-<p>The code for the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a> paper: <a href="https://github.com/google/TrustScore" class="uri">https://github.com/google/TrustScore</a> It appears there is a trsut scores package available for Python 3.</p>
+<p>The code for the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a> paper is located on <a href="https://github.com/google/TrustScore">Github</a> and has been updated for Python 3.</p>
 </div>
 
 
