@@ -6,9 +6,11 @@ output:
 ---
 <br>
 
-### Steps to solve algorithm biases in everyday algorithms:
+### Build ethical and explainable algorithms:
 
-[November 21, 2021: *Wikipedia draft: about Kristian Lum, statistician and algorithm bias researcher* (five-minute read)](https://en.wikipedia.org/wiki/Draft:Kristian_Lum)
+[December 19, 2021: *Week-long teachable unit about creating ethical machine learning algorithms.* <br /> This unit contains one lab, two lectures, two groupwork worksheets, and assigned readings from foundational academic research in this field. By the end of the unit, students will be able to define algorithms' fairness goals and conduct mathematical analysis in R and Python to consider the trustworthiness of many common machine learning outputs.](https://github.com/SarahGillespie/Algorithm_Fairness_Teachable_Unit)
+
+[November 21, 2021: *Wikipedia draft about Kristian Lum, statistician and algorithm bias researcher* (five-minute read)](https://en.wikipedia.org/wiki/Draft:Kristian_Lum)
 
 [November 18, 2021: *Creating Trust Scores for Classification Models* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_4.html)
  
@@ -24,9 +26,7 @@ output:
 
 <br>
 
-### Blogging:
-
-[June 4, 2021: *Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans* (two-minute read)](https://sarahgillespie.github.io/SG/blog_post_5.html)
+### Data Ethics:
 
 [May 7, 2021: *Target should just press 'delete'* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_4.html)
 
@@ -41,6 +41,8 @@ output:
 ### Projects:
 
 [Chat about *RealToxicityPrompts: Evaluating Neural Toxic Degeneration in Language Models* (fifteen-minute read)](https://htmlpreview.github.io/?https://github.com/SarahGillespie/SDS293_final_project/blob/main/final_project.html)
+
+[*Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans* (two-minute read)](https://sarahgillespie.github.io/SG/blog_post_5.html)
 
 [Colleges' household income, acceptance rate, and plans for fall 2020](https://twitter.com/SarahG4567/status/1274088050906157056)
 
