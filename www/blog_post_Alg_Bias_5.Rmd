@@ -1,42 +1,23 @@
 ---
-title: 'DIY and example about trust scores'
+title: 'DIY trust scores'
 ---
 By Sarah Gillespie
  
 Published January 17, 2022
 
+### Why use trust scores?
+
+### Who invented these trust scores?
+
 Trust scores are introduced in the [To Trust Or Not To Trust A Classifier](https://arxiv.org/pdf/1805.11783.pdf), presented at the 32nd Conference on Neural Information Processing Systems in 2018. The trust scores are a similar concept to the credibility and confidence scores introduced in [Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning](https://arxiv.org/pdf/1803.04765.pdf). The trust score is a remarkably flexible ratio that has a goal of describing how much a user should trust the an algorithm's classification of a specific point. It is ratio of the distance from the testing sample to the nearest classes similar and class different from the testing sample. This trust score for a testing sample is likely agree with the Bayes-optimal classifier, so the trust score is a clue to decide if an algorithm's prediction about a test point is correct rather than a Type I or II Error. This approach mixes the topology of points in a multidimensional space with calculus to be effective at detecting the accuracy of a unique machine learning prediction.
 
 
-### Calculate the trust score
+### Code to calculate trust scores yourself:
+
+### How to interpret the scores
 
 If trust score > 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample's categorization being incorrect.
 
-### Things that could go wrong
-
-[list]
-#### Similarites
-* Trust, confidence, and credibility scores all can use k-Nearest Neighbors when creating the score. Trust scores have the flexibility to additionally use a single nearest neighbor or a centroid when calculating the trust score.
-
-* All scores use the geographically closest points in their calculation.
-
-* Both the confidence score and the trust score consider the distance from the testing sample to points of other classes.
-
-* All scores can create their respective scores on individual intermediate layers in a deep learning model. Trust scores can create additional scores using different parts of the model, such as creating a trust score using the raw input.
-
-
-
-#### Differences
-
-* Confidence and credibility scores do not rely on removing outliers from the training data to get a smooth and high density cluster of points. Trust score calculations rely on having the low density points removed from the training data, which might have adverse effects if the test points are outliers themself.
-
-* Using the confidence and credibility scores together is better for detecting outlying and adversarial input into the model. The trust score ratio fails to detect if the same and different classes are far away but in a reasonable ratio. This means the trust score would not be extreme enough to alert the algorithm user that the input could be an outlier. In that sense, the trust score would be less effective at detecting the adversarial input compared to a confidence score that can describe ordinal distances between the points in a model.
-
-* Trust scores have a greater flexibility on how to apply the concept, detailed in the *Variations of the trust score* section.
-
-* Trust score points must be independently and identically distributed (i.i.d.).
-
-
-### DIY
+### References
 
 The code for the [To Trust Or Not To Trust A Classifier](https://arxiv.org/pdf/1805.11783.pdf) paper is located on [Github](https://github.com/google/TrustScore) and has been updated for Python 3.
