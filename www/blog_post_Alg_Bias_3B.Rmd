@@ -100,7 +100,7 @@ Puts up a red flag if it is likely that there is purposeful exploitation of the 
 
 Goal: prevent exploited outputs from having a real-world impact.
 
-#### 4. Help the models catagorization be interpretable to people.
+#### 4. Help the models categorization be interpretable to people.
 
 
 The explanations provided by looking at an input’s distance from its nearest neighbors are intuitive and interpretable by humans when trying to understand a model’s specific decision. For example, if an individual was denied a mortgage, a person questioning the model’s decision can learn that the denial was due to an individual's debt-to-income ratio rather than the house’s location or value.
