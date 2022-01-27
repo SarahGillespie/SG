@@ -6,17 +6,21 @@ output:
 ---
 <br>
 
-### Skills to build ethical and explainable algorithms:
+### Building explainable machine learning algorithms
+
+[November 18, 2021: *Creating Trust Scores for Classification Models* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_4.html)
+ 
+[October 28, 2021: *Deep k-Nearest Neighbors Confidence and Credibility Scores* (fifteen-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B.html)
+
+[November 2, 2021: *Math Equations for Deep k-Nearest Neighbors' Confidence and Credibility Scores* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B_math.html)
+
+<br>
+
+### Creating ethical algorithms when confronted with real world challenges
 
 [December 19, 2021: *Week-long teachable unit about creating ethical machine learning algorithms* <br /> This unit contains one lab, two lectures, two groupwork worksheets, and assigned readings from foundational academic research in this field. By the end of the unit, students will be able to define algorithms' fairness goals and conduct mathematical analysis in R and Python to consider the trustworthiness of many common machine learning outputs.](https://github.com/SarahGillespie/Algorithm_Fairness_Teachable_Unit)
 
 [November 21, 2021: *Wikipedia draft about Kristian Lum, statistician and algorithm bias researcher* (five-minute read)](https://en.wikipedia.org/wiki/Draft:Kristian_Lum)
-
-[November 18, 2021: *Creating Trust Scores for Classification Models* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_4.html)
- 
-[November 2, 2021: *Math Equations for Deep k-Nearest Neighbors' Confidence and Credibility Scores* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B_math.html)
-
-[October 28, 2021: *Deep k-Nearest Neighbors Summary* (fifteen-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B.html)
 
 [October 18, 2021: *Preprocessing k-means and k-medians can reduce unintended segregation in each cluster* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3A.html)
 
