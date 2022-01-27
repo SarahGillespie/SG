@@ -90,12 +90,14 @@ penguins_target <- penguins_df %>%
 ```
 
 
-```{python}
+```{python import data from R}
 # Import penguins from R into python
 penguins_data = r.penguins_data
 
 penguins_target = r.penguins_target
+```
 
+```{python encode species to be numbers}
 # python function: encode each penguin species to be a number.
 # purpose: make it easier for the model to assign a species prediction and its trust score
 
@@ -119,14 +121,15 @@ X_penguins = penguins_data
 y_penguins = list(map(encode, penguins_target.values.ravel()))
 # at this point y_penguins is a list. We will need to make it a numpy array later.
 
-print(dictionary) # dictionary with each penguin species connected to its assigned number
+# dictionary coordinating each penguin species connected to its assigned number
+print(dictionary)
 ```
 
 ## Logistic Regression
 
 ```{python logistic regression model}
 
-# NOTE: you may want to run each of these one line at a time in the console.
+# you may want to run each of these one line at a time in the console.
 
 # import the model
 from sklearn.linear_model import LogisticRegression
@@ -139,9 +142,11 @@ model.fit(X_penguins, y_penguins)
 
 # Implement the model / create outputs on testing set.
 y_pred = model.predict(X_penguins)
-# You may get a "failed to converge" and "max number of iterations reached" warning
-# this is more about the data not fitting well to the assigned model rather than a tech issue.
-# it can safely be ignored.
+```
+
+You may get a "failed to converge" and "max number of iterations reached" warning. This is about the data not fitting well to the assigned model rather than a tech issue. This warning can safely be ignored.
+
+```{python compute the trust scores}
 
 # Initialize trust score.
 trust_model = trustscore.TrustScore()
@@ -153,11 +158,10 @@ y_penguins = np.array(y_penguins)
 # fit the trust scores model
 trust_model.fit(X_penguins, y_penguins)
 
-# the model will be fitted. No output.
+# the model will be fitted. It produces no output.
 ```
 
 ```{python}
-
 # Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.
 trust_score = trust_model.get_score(X_penguins, y_pred)
 
