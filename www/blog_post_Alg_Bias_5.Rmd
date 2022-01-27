@@ -28,42 +28,49 @@ knitr::opts_chunk$set(eval = FALSE)
 # Load the R libraries
 library(palmerpenguins) # bring in data about penguin species
 library(dplyr) # tools for data wrangling in R
-library(reticulate) # provides a comprehensive set of tools for interoperability between Python and R.
+library(reticulate) # provides a comprehensive set of tools for interoperability 
+                    # between Python and R.
 
 ```
 
 
 ```{r}
 # configure python
-reticulate::py_config() # Double check that reticulate is actually using your new conda env.
-reticulate::py_install("sklearn", pip = TRUE) # force install with pip. sklearn wasn't coming up via anaconda.
+reticulate::py_config() # Double check that reticulate is actually using your 
+                        # new conda environment.
+reticulate::py_install("sklearn", pip = TRUE) # force install with pip. sklearn
+                                              # wasn't coming up via anaconda.
 reticulate::py_install("matplotlib")
 reticulate::py_install("keras")
 reticulate::py_install("pandas")
 
-# setting up the Python environment and bringing in the required Python packages is important.
+# setting up the Python environment and bringing in the required Python packages 
+# is important.
 # Running this code will likely take 5 to 10 minutes if you do not already have
 # these python packages installed. Otherwise, 
 
 # common trouble shooting:
-# if you're missing a package then try adding its name in an additonal line of py_install
-# if py_install isn't working then try adding the pip = TRUE argument to try installing
-# the library through pip rather than anaconda
+# if you're missing a package, try adding its name in an additional argument of 
+# py_install . if py_install isn't working then try adding the pip = TRUE
+# argument to try installing the library through pip rather than anaconda.
 ```
 
 ```{python}
 import numpy as np
-import trustscore # you need to have trustscore.py in the same folder as this .Rmd file to import it
-import trustscore_evaluation  # you need to have trustscore_evaluation.py in the same folder as this .Rmd file to import it
+import trustscore # you need to have trustscore.py file in the same folder as 
+                  # this .Rmd file to import it
+import trustscore_evaluation  # you need to have trustscore_evaluation.py in the 
+                              # same folder as this .Rmd file to import it
 import numpy as np
 import matplotlib.pyplot as plt
 import keras
 import pandas as pd
 
-# heads up! there might be some scary errors about "dlerror: cudart64_110.dll not found".
-# It's just a warning and you can ignore it.
+
 
 ```
+
+There might be some scary errors about "dlerror: cudart64_110.dll not found". It's just a warning and you can ignore it.
 
 ```{r}
 
