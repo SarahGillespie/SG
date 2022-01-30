@@ -478,16 +478,13 @@ div.tocify {
 
 <p>By Sarah Gillespie</p>
 <p>Published January 17, 2022</p>
-<div id="why-use-trust-scores" class="section level3">
-<h3>Why use trust scores?</h3>
-</div>
-<div id="who-invented-these-trust-scores" class="section level3">
-<h3>Who invented these trust scores?</h3>
-<p>Trust scores are introduced in the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a>, presented at Neural Information Processing Systems in 2018. This approach mixes the topology of points in a multidimensional space with calculus to be effective at detecting the accuracy of a unique machine learning prediction. The trust scores are a similar concept to the credibility and confidence scores introduced in <a href="https://arxiv.org/pdf/1803.04765.pdf">Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning</a>. The trust score is a remarkably flexible ratio with a purpose of describing how much a user should trust an algorithm’s classification of a specific point. The trust score has two steps: first, remove the outlying points, and second, calculate the ratio of the distance from the testing sample to the nearest classes similar and nearest class different from the testing sample. The trust score for a testing sample is likely to agree with the point’s Bayes-optimal classifier. This means the trust score is a clue to decide if an algorithm’s prediction about a test point is correct, rather than a Type I or II Error.</p>
+<div id="what-are-trust-scores" class="section level3">
+<h3>What are trust scores?</h3>
+<p>The trust scores approach mixes the topology of points in a multidimensional space with calculus to be effective at detecting the accuracy of a unique machine learning prediction. Each unique prediction has its own unique trust score. This concept was introduced in the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a>, presented at Neural Information Processing Systems in 2018. The trust score is a remarkably flexible ratio with a purpose of describing how much a user should trust an algorithm’s classification of a specific point. Creating a trust score has two steps: first, remove the outlying points, and second, calculate the ratio of the distance from the testing sample to the nearest classes similar and nearest class different from the testing sample. The trust score for a testing sample is likely to agree with the point’s Bayes-optimal classifier. This means the trust score is a clue to decide if an algorithm’s prediction about a test point is correct, rather than a Type I or II Error.</p>
 </div>
 <div id="code-to-calculate-trust-scores-yourself" class="section level3">
 <h3>Code to calculate trust scores yourself:</h3>
-<p>The initial trust score code was done in Python 2.7 and updated to be usable in Python 3. I have edited the given Python code to work in R using R’s reticulate package, a comprehensive set of tools for interoperability between Python and R.</p>
+<p>While the initial trust score code was done in Python 2.7, it was updated to be usable in Python 3. I have adapted the given Python code to work in R and R Studio by using the reticulate package, a comprehensive set of tools for interoperability between Python and R.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># knitr::opts_chunk$set(echo = FALSE)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the R libraries</span></span>
