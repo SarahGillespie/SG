@@ -21,10 +21,9 @@ Download the entire repository. It is especially important for you to have the t
 
 #### Step 2: Open R Studio and work though the following lines of code.
 
-The code in this tuitorial is to predict the penguin species type from the Palmer Penguins package, but I tried to make it as generalized as possible for you to easily swap in your own data.
+The code in this tutorial creates trust scores based on penguin species type predictions with data from the Palmer Penguins package. I tried to make this code as generalized as possible for you to easily swap in your own data.
 
-```{r setup}
-# knitr::opts_chunk$set(echo = FALSE)
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 
 ```
