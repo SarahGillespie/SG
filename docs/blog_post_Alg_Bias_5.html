@@ -601,9 +601,13 @@ div.tocify {
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># prints the trust scores for each point in the inputted data set</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trust_score)</span></code></pre></div>
-<p>Other models to try:</p>
+<div id="further-steps" class="section level4">
+<h4>Further Steps:</h4>
+<p>Consider the other model options:</p>
 <p>from sklearn.svm import LinearSVC</p>
 <p>from sklearn.ensemble import RandomForestClassifier</p>
+<p>Additionally, consider alternate scores to consider the trustability of your model’s output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.</p>
+</div>
 <div id="how-to-interpret-the-scores" class="section level3">
 <h3>How to interpret the scores</h3>
 <p>If trust score &gt; 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample’s categorization being incorrect.</p>

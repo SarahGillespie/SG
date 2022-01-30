@@ -177,13 +177,14 @@ print(trust_score)
 
 ```
 
-
-Other models to try:
+#### Further Steps:
+Consider the other model options:
 
 from sklearn.svm import LinearSVC
 
 from sklearn.ensemble import RandomForestClassifier
 
+Additionally, consider alternate scores to consider the trustability of your model's output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.
 
 ### How to interpret the scores
 
