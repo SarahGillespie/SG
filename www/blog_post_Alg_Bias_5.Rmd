@@ -15,6 +15,14 @@ The trust scores approach mixes the topology of points in a multidimensional spa
 
 While the initial trust score code was done in Python 2.7, it was updated to be usable in Python 3. I have adapted the given Python code to work in R and R Studio by using the reticulate package, a comprehensive set of tools for interoperability between Python and R.
 
+
+#### Step 1: Gather materials.
+Download the entire repository. It is especially important for you to have the trustscores.py in the same folder as your .Rmd file to import the trust score functions that are in that Python file.
+
+#### Step 2: Open R Studio and work though the following lines of code.
+
+The code in this tuitorial is to predict the penguin species type from the Palmer Penguins package, but I tried to make it as generalized as possible for you to easily swap in your own data.
+
 ```{r setup}
 # knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(eval = FALSE)

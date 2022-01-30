@@ -485,6 +485,13 @@ div.tocify {
 <div id="code-to-calculate-trust-scores-yourself" class="section level3">
 <h3>Code to calculate trust scores yourself:</h3>
 <p>While the initial trust score code was done in Python 2.7, it was updated to be usable in Python 3. I have adapted the given Python code to work in R and R Studio by using the reticulate package, a comprehensive set of tools for interoperability between Python and R.</p>
+<div id="step-1-gather-materials." class="section level4">
+<h4>Step 1: Gather materials.</h4>
+<p>Download the entire repository. It is especially important for you to have the trustscores.py in the same folder as your .Rmd file to import the trust score functions that are in that Python file.</p>
+</div>
+<div id="step-2-open-r-studio-and-work-though-the-following-lines-of-code." class="section level4">
+<h4>Step 2: Open R Studio and work though the following lines of code.</h4>
+<p>The code in this tuitorial is to predict the penguin species type from the Palmer Penguins package, but I tried to make it as generalized as possible for you to easily swap in your own data.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># knitr::opts_chunk$set(echo = FALSE)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the R libraries</span></span>
@@ -560,6 +567,7 @@ div.tocify {
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># dictionary coordinating each penguin species connected to its assigned number</span></span>
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dictionary)</span></code></pre></div>
+</div>
 </div>
 <div id="logistic-regression" class="section level2">
 <h2>Logistic Regression</h2>
