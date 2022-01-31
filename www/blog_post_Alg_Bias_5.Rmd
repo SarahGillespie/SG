@@ -3,7 +3,7 @@ title: 'DIY trust scores'
 ---
 By Sarah Gillespie
  
-Published January 17, 2022
+Published February 13, 2022
 
 ### What are trust scores?
 
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 
 ```{r libraries}
-
+# R code chunk
 # Load the R libraries
 library(palmerpenguins) # bring in data about penguin species
 library(dplyr) # tools for data wrangling in R
@@ -40,8 +40,9 @@ library(reticulate) # provides a comprehensive set of tools for interoperability
 ```
 
 
-```{r}
-# configure python
+```{r configure python}
+# R code chunk
+# configure Python
 reticulate::py_config() # Double check that reticulate is actually using your 
                         # new conda environment.
 reticulate::py_install("sklearn", pip = TRUE) # force install with pip. sklearn
@@ -53,7 +54,7 @@ reticulate::py_install("pandas")
 # setting up the Python environment and bringing in the required Python packages 
 # is important.
 # Running this code will likely take 5 to 10 minutes if you do not already have
-# these python packages installed. Otherwise, 
+# these Python packages installed. Otherwise, 
 
 # common trouble shooting:
 # if you're missing a package, try adding its name in an additional argument of 
@@ -62,6 +63,9 @@ reticulate::py_install("pandas")
 ```
 
 ```{python}
+# Python code chunk
+
+# import required Python packages
 import numpy as np
 import trustscore # you need to have trustscore.py file in the same folder as 
                   # this .Rmd file to import it
@@ -78,7 +82,8 @@ import pandas as pd
 
 There might be some scary errors about "dlerror: cudart64_110.dll not found". It's just a warning and you can ignore it.
 
-```{r}
+```{r data wrangling}
+# R code chunk
 
 # data
 penguins_df <- penguins %>%
@@ -97,14 +102,17 @@ penguins_target <- penguins_df %>%
 
 
 ```{python import data from R}
-# Import penguins from R into python
+# Python code chunk
+# Import penguins from R into Python
 penguins_data = r.penguins_data
 
 penguins_target = r.penguins_target
 ```
 
 ```{python encode species to be numbers}
-# python function: encode each penguin species to be a number.
+# Python code chunk
+
+# Python function: encode each penguin species to be a number.
 # purpose: make it easier for the model to assign a species prediction and its trust score
 
 dictionary = {}
@@ -134,6 +142,7 @@ print(dictionary)
 ## Logistic Regression
 
 ```{python logistic regression model}
+# Python code chunk
 
 # you may want to run each of these one line at a time in the console.
 
@@ -153,6 +162,7 @@ y_pred = model.predict(X_penguins)
 You may get a "failed to converge" and "max number of iterations reached" warning. This is about the data not fitting well to the assigned model rather than a tech issue. This warning can safely be ignored.
 
 ```{python compute the trust scores}
+# Python code chunk
 
 # Initialize trust score.
 trust_model = trustscore.TrustScore()
@@ -168,6 +178,8 @@ trust_model.fit(X_penguins, y_penguins)
 ```
 
 ```{python}
+# Python code chunk
+
 # Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.
 trust_score = trust_model.get_score(X_penguins, y_pred)
 
