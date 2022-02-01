@@ -2,7 +2,7 @@
 title: 'Reflection: Graphs on U.S. Colleges’ Fall 2020 Plans'
 output: pdf_document
 ---
- By Sarah Gillespie
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  Published June 5, 2021
 

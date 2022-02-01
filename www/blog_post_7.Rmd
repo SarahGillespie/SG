@@ -1,7 +1,7 @@
 ---
 title: 'blog post 7: Intellectual Property + ML models'
 ---
- By Sarah Gillespie
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  *in progress*
  

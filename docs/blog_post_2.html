@@ -13,8 +13,8 @@
 
 <title>blog post 2: check your blind spot.</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -309,21 +309,21 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
     Home
   </a>
 </li>
 <li>
   <a href="about.html">
-    <span class="fas fa-user-check"></span>
+    <span class="fa fa-user-check"></span>
      
     About Me
   </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-newspaper"></span>
+    <span class="fa fa-newspaper"></span>
      
     Blog
      
@@ -351,19 +351,19 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/SarahGillespie">
-    <span class="fas fa-github"></span>
+    <span class="fa fa-github"></span>
      
   </a>
 </li>
 <li>
   <a href="https://twitter.com/SarahG4567">
-    <span class="fas fa-twitter"></span>
+    <span class="fa fa-twitter"></span>
      
   </a>
 </li>
 <li>
   <a href="https://www.linkedin.com/in/sarahg4567/">
-    <span class="fas fa-linkedin"></span>
+    <span class="fa fa-linkedin"></span>
      
   </a>
 </li>
@@ -381,7 +381,7 @@ div.tocify {
 </div>
 
 
-<p>By Sarah Gillespie</p>
+<p>By <a href="https://www.linkedin.com/in/sarahg4567/">Sarah Gillespie</a></p>
 <p>Published March 4, 2021</p>
 <p>If a person does not check his car’s blind spot, he is still liable for damage caused in the resulting crash. The same concept should apply to algorithms. Auditing algorithms for biases and discrimination should be considered a necessary cost of doing business. While this may seem like an overwhelming task, a simple first step would be to ensure algorithms that receive government funding do not discriminate against federally protected groups, including discrimination based on gender, race, color, disability, or religion. While our society works to eliminate current discrimination, it is also our responsibility to prevent new ways of discrimination from, intentionally or unintentionally, developing.</p>
 <p>One example of this is Amazon’s resume screening algorithm, discussed in <a href="https://data-feminism.mitpress.mit.edu/"><em>Data Feminism</em></a>. The resume screener was trained using prior applicant’s resumes, which were predominantly male. As a result, the algorithm developed a stronger preference for male applicants and even downgraded resumes with the word “women” and graduates of women’s colleges. While Amazon canceled the project, but is easy to see the potential for discrimination that both has measurable financial impacts and the victims do not know they are being discriminated against.</p>
@@ -427,6 +427,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

@@ -13,8 +13,8 @@
 
 <title>blog post 4: Target should just press delete</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -309,21 +309,21 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
     Home
   </a>
 </li>
 <li>
   <a href="about.html">
-    <span class="fas fa-user-check"></span>
+    <span class="fa fa-user-check"></span>
      
     About Me
   </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-newspaper"></span>
+    <span class="fa fa-newspaper"></span>
      
     Blog
      
@@ -351,19 +351,19 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/SarahGillespie">
-    <span class="fas fa-github"></span>
+    <span class="fa fa-github"></span>
      
   </a>
 </li>
 <li>
   <a href="https://twitter.com/SarahG4567">
-    <span class="fas fa-twitter"></span>
+    <span class="fa fa-twitter"></span>
      
   </a>
 </li>
 <li>
   <a href="https://www.linkedin.com/in/sarahg4567/">
-    <span class="fas fa-linkedin"></span>
+    <span class="fa fa-linkedin"></span>
      
   </a>
 </li>
@@ -381,7 +381,7 @@ div.tocify {
 </div>
 
 
-<p>By Sarah Gillespie</p>
+<p>By <a href="https://www.linkedin.com/in/sarahg4567/">Sarah Gillespie</a></p>
 <p>Published May 7, 2021</p>
 <p>I have always been told that everything on the Internet stays forever, and so I act accordingly. But it’s different downloading all your own details from a corporate website.</p>
 <p>As a California resident I was able to request my data under the <a href="https://oag.ca.gov/privacy/ccpa">California Consumer Privacy Act</a> (CCPA). CCPA is a 2018 law giving Californians the right to know about the personal information a business collects about them and how it is used and shared; the right to delete personal information collected from them; the right to opt-out of the sale of their personal information; and the right to non-discrimination for exercising their CCPA rights.</p>
@@ -458,6 +458,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
