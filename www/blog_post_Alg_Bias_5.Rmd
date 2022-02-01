@@ -17,13 +17,13 @@ While the initial trust score code was done in Python 2.7, it was updated to be 
 
 
 #### Step 1: Gather materials.
-Download the entire repository. It is especially important for you to have the trustscores.py in the same folder as your .Rmd file to import the trust score functions that are in that Python file.
+Download the entire repository. It is important to have the trustscores.py anf trustscore_evaluation.py in the same folder as the .Rmd file to import the trust score functions that are in that Python file.
 
-#### Step 2: Open R Studio and work though the following lines of code.
+#### Step 2: Open R Studio and run the following code chunks.
 
 The code in this tutorial creates trust scores based on penguin species type predictions with data from the Palmer Penguins package. I tried to make this code as generalized as possible for you to easily swap in your own data.
 
-If the code is in R, then write the code chunk name with "r" aznd if the code is in Python then write the code chunk as "python." The code type is detailed in the first line of each individual code chunk.
+If the code is in R, then write the code chunk name with "r" aznd if the code is in Python then write the code chunk as "python". The code type is detailed in the first line of each individual code chunk.
   
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
@@ -33,7 +33,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ```{r libraries}
 # R code chunk
-# Load the R libraries
+# Load the R libraries. Do install.packages() as needed.
 library(palmerpenguins) # bring in data about penguin species
 library(dplyr) # tools for data wrangling in R
 library(reticulate) # provides a comprehensive set of tools for interoperability 
@@ -45,7 +45,7 @@ library(reticulate) # provides a comprehensive set of tools for interoperability
 ```{r configure python}
 # R code chunk
 # configure Python
-reticulate::py_config() # Double check that reticulate is actually using your 
+reticulate::py_config() # Double check that reticulate is actually using a 
                         # new conda environment.
 reticulate::py_install("sklearn", pip = TRUE) # force install with pip. sklearn
                                               # wasn't coming up via anaconda.
@@ -55,10 +55,8 @@ reticulate::py_install("pandas")
 
 # setting up the Python environment and bringing in the required Python packages 
 # is important.
-# Running this code will likely take 5 to 10 minutes if you do not already have
-# these Python packages installed. Otherwise, 
-
-# common trouble shooting:
+# Running this code will likely take 5 to 10 minutes if these Python libraries
+# are not already installed. Otherwise, practice common trouble shooting:
 # if you're missing a package, try adding its name in an additional argument of 
 # py_install . if py_install isn't working then try adding the pip = TRUE
 # argument to try installing the library through pip rather than anaconda.
@@ -78,11 +76,11 @@ import matplotlib.pyplot as plt
 import keras
 import pandas as pd
 
-
-
 ```
 
 There might be some scary errors about "dlerror: cudart64_110.dll not found". It's just a warning and you can ignore it.
+
+#### Step 3: Import data and do any necessary data wrangling to clean the data.
 
 ```{r data wrangling}
 # R code chunk
@@ -102,6 +100,7 @@ penguins_target <- penguins_df %>%
   
 ```
 
+#### Step 4: Bring the data into Python.
 
 ```{python import data from R}
 # Python code chunk
@@ -110,6 +109,8 @@ penguins_data = r.penguins_data
 
 penguins_target = r.penguins_target
 ```
+
+#### Step 5: Encode catagorical variables to be numbers rather than words.
 
 ```{python encode species to be numbers}
 # Python code chunk
@@ -141,7 +142,10 @@ y_penguins = list(map(encode, penguins_target.values.ravel()))
 print(dictionary)
 ```
 
-## Logistic Regression
+
+#### Step 6: Run specific machine learning model.
+
+##### Logistic Regression
 
 ```{python logistic regression model}
 # Python code chunk
@@ -161,9 +165,11 @@ model.fit(X_penguins, y_penguins)
 y_pred = model.predict(X_penguins)
 ```
 
-You may get a "failed to converge" and "max number of iterations reached" warning. This is about the data not fitting well to the assigned model rather than a tech issue. This warning can safely be ignored.
+You may get a "failed to converge" and "max number of iterations reached" warning. This warning describes the data not fitting well to the assigned model rather than a tech issue. This warning can safely be ignored.
 
-```{python compute the trust scores}
+#### Step 7: Compute the trust scores model
+
+```{python compute the trust scores model}
 # Python code chunk
 
 # Initialize trust score.
@@ -179,7 +185,9 @@ trust_model.fit(X_penguins, y_penguins)
 # the model will be fitted. It produces no output.
 ```
 
-```{python}
+#### Step 8: Calculate unique trust scores
+
+```{python calculate unique trust scores}
 # Python code chunk
 
 # Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.
@@ -197,7 +205,7 @@ from sklearn.svm import LinearSVC
 
 from sklearn.ensemble import RandomForestClassifier
 
-Additionally, consider alternate scores to consider the trustability of your model's output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.
+Additionally, consider alternate scores to consider the trustability of the model's output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.
 
 ### How to interpret the scores
 

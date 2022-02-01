@@ -487,21 +487,21 @@ div.tocify {
 <p>While the initial trust score code was done in Python 2.7, it was updated to be usable in Python 3. I have adapted the given Python code to work in R and R Studio by using the reticulate package, a comprehensive set of tools for interoperability between Python and R.</p>
 <div id="step-1-gather-materials." class="section level4">
 <h4>Step 1: Gather materials.</h4>
-<p>Download the entire repository. It is especially important for you to have the trustscores.py in the same folder as your .Rmd file to import the trust score functions that are in that Python file.</p>
+<p>Download the entire repository. It is important to have the trustscores.py anf trustscore_evaluation.py in the same folder as the .Rmd file to import the trust score functions that are in that Python file.</p>
 </div>
-<div id="step-2-open-r-studio-and-work-though-the-following-lines-of-code." class="section level4">
-<h4>Step 2: Open R Studio and work though the following lines of code.</h4>
+<div id="step-2-open-r-studio-and-run-the-following-code-chunks." class="section level4">
+<h4>Step 2: Open R Studio and run the following code chunks.</h4>
 <p>The code in this tutorial creates trust scores based on penguin species type predictions with data from the Palmer Penguins package. I tried to make this code as generalized as possible for you to easily swap in your own data.</p>
-<p>If the code is in R, then write the code chunk name with “r” aznd if the code is in Python then write the code chunk as “python.” The code type is detailed in the first line of each individual code chunk.</p>
+<p>If the code is in R, then write the code chunk name with “r” aznd if the code is in Python then write the code chunk as “python”. The code type is detailed in the first line of each individual code chunk.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R code chunk</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the R libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the R libraries. Do install.packages() as needed.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins) <span class="co"># bring in data about penguin species</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># tools for data wrangling in R</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate) <span class="co"># provides a comprehensive set of tools for interoperability </span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># between Python and R.</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R code chunk</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># configure Python</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_config</span>() <span class="co"># Double check that reticulate is actually using your </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_config</span>() <span class="co"># Double check that reticulate is actually using a </span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                        <span class="co"># new conda environment.</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_install</span>(<span class="st">&quot;sklearn&quot;</span>, <span class="at">pip =</span> <span class="cn">TRUE</span>) <span class="co"># force install with pip. sklearn</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                                              <span class="co"># wasn&#39;t coming up via anaconda.</span></span>
@@ -511,13 +511,11 @@ div.tocify {
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># setting up the Python environment and bringing in the required Python packages </span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># is important.</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Running this code will likely take 5 to 10 minutes if you do not already have</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># these Python packages installed. Otherwise, </span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># common trouble shooting:</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># if you&#39;re missing a package, try adding its name in an additional argument of </span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># py_install . if py_install isn&#39;t working then try adding the pip = TRUE</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># argument to try installing the library through pip rather than anaconda.</span></span></code></pre></div>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Running this code will likely take 5 to 10 minutes if these Python libraries</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># are not already installed. Otherwise, practice common trouble shooting:</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># if you&#39;re missing a package, try adding its name in an additional argument of </span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># py_install . if py_install isn&#39;t working then try adding the pip = TRUE</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># argument to try installing the library through pip rather than anaconda.</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import required Python packages</span></span>
@@ -531,6 +529,9 @@ div.tocify {
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> keras</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
 <p>There might be some scary errors about “dlerror: cudart64_110.dll not found”. It’s just a warning and you can ignore it.</p>
+</div>
+<div id="step-3-import-data-and-do-any-necessary-data-wrangling-to-clean-the-data." class="section level4">
+<h4>Step 3: Import data and do any necessary data wrangling to clean the data.</h4>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R code chunk</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data</span></span>
@@ -544,11 +545,17 @@ div.tocify {
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># target: species</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>penguins_target <span class="ot">&lt;-</span> penguins_df <span class="sc">%&gt;%</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species)</span></code></pre></div>
+</div>
+<div id="step-4-bring-the-data-into-python." class="section level4">
+<h4>Step 4: Bring the data into Python.</h4>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Import penguins from R into Python</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>penguins_data <span class="op">=</span> r.penguins_data</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>penguins_target <span class="op">=</span> r.penguins_target</span></code></pre></div>
+</div>
+<div id="step-5-encode-catagorical-variables-to-be-numbers-rather-than-words." class="section level4">
+<h4>Step 5: Encode catagorical variables to be numbers rather than words.</h4>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Python function: encode each penguin species to be a number.</span></span>
@@ -577,9 +584,10 @@ div.tocify {
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># dictionary coordinating each penguin species connected to its assigned number</span></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dictionary)</span></code></pre></div>
 </div>
-</div>
-<div id="logistic-regression" class="section level2">
-<h2>Logistic Regression</h2>
+<div id="step-6-run-specific-machine-learning-model." class="section level4">
+<h4>Step 6: Run specific machine learning model.</h4>
+<div id="logistic-regression" class="section level5">
+<h5>Logistic Regression</h5>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you may want to run each of these one line at a time in the console.</span></span>
@@ -595,7 +603,11 @@ div.tocify {
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Implement the model / create outputs on testing set.</span></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_penguins)</span></code></pre></div>
-<p>You may get a “failed to converge” and “max number of iterations reached” warning. This is about the data not fitting well to the assigned model rather than a tech issue. This warning can safely be ignored.</p>
+<p>You may get a “failed to converge” and “max number of iterations reached” warning. This warning describes the data not fitting well to the assigned model rather than a tech issue. This warning can safely be ignored.</p>
+</div>
+</div>
+<div id="step-7-compute-the-trust-scores-model" class="section level4">
+<h4>Step 7: Compute the trust scores model</h4>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize trust score.</span></span>
@@ -609,6 +621,9 @@ div.tocify {
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>trust_model.fit(X_penguins, y_penguins)</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># the model will be fitted. It produces no output.</span></span></code></pre></div>
+</div>
+<div id="step-8-calculate-unique-trust-scores" class="section level4">
+<h4>Step 8: Calculate unique trust scores</h4>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.</span></span>
@@ -616,12 +631,14 @@ div.tocify {
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># prints the trust scores for each point in the inputted data set</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trust_score)</span></code></pre></div>
+</div>
 <div id="further-steps" class="section level4">
 <h4>Further Steps:</h4>
 <p>Consider the other model options:</p>
 <p>from sklearn.svm import LinearSVC</p>
 <p>from sklearn.ensemble import RandomForestClassifier</p>
-<p>Additionally, consider alternate scores to consider the trustability of your model’s output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.</p>
+<p>Additionally, consider alternate scores to consider the trustability of the model’s output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.</p>
+</div>
 </div>
 <div id="how-to-interpret-the-scores" class="section level3">
 <h3>How to interpret the scores</h3>
@@ -630,7 +647,6 @@ div.tocify {
 <div id="references" class="section level3">
 <h3>References</h3>
 <p>The code for the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a> paper is located on <a href="https://github.com/google/TrustScore">Github</a> and has been updated for Python 3.</p>
-</div>
 </div>
 
 
