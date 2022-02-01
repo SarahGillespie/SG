@@ -21,7 +21,7 @@ Download the entire repository. It is important to have the trustscores.py anf t
 
 #### Step 2: Open R Studio and run the following code chunks.
 
-The code in this tutorial creates trust scores based on penguin species type predictions with data from the Palmer Penguins package. I tried to make this code as generalized as possible for you to easily swap in your own data.
+The code in this tutorial creates trust scores based on penguin species type predictions with data from the Palmer Penguins package. I tried to make this code as generalized as possible to easily swap in different data.
 
 If the code is in R, then write the code chunk name with "r" aznd if the code is in Python then write the code chunk as "python". The code type is detailed in the first line of each individual code chunk.
   
@@ -56,9 +56,11 @@ reticulate::py_install("pandas")
 # setting up the Python environment and bringing in the required Python packages 
 # is important.
 # Running this code will likely take 5 to 10 minutes if these Python libraries
-# are not already installed. Otherwise, practice common trouble shooting:
-# if you're missing a package, try adding its name in an additional argument of 
-# py_install . if py_install isn't working then try adding the pip = TRUE
+# are not already installed.
+
+# Common trouble shooting:
+# if missing a package, try adding its name in an additional argument of 
+# py_install. if py_install isn't working then try adding the pip = TRUE
 # argument to try installing the library through pip rather than anaconda.
 ```
 
@@ -67,10 +69,10 @@ reticulate::py_install("pandas")
 
 # import required Python packages
 import numpy as np
-import trustscore # you need to have trustscore.py file in the same folder as 
-                  # this .Rmd file to import it
-import trustscore_evaluation  # you need to have trustscore_evaluation.py in the 
-                              # same folder as this .Rmd file to import it
+import trustscore # have trustscore.py file in the same folder as 
+                  # the .Rmd file to import it
+import trustscore_evaluation  # haave trustscore_evaluation.py in the 
+                              # same folder as the .Rmd file to import it
 import numpy as np
 import matplotlib.pyplot as plt
 import keras
@@ -78,7 +80,7 @@ import pandas as pd
 
 ```
 
-There might be some scary errors about "dlerror: cudart64_110.dll not found". It's just a warning and you can ignore it.
+There might be some scary errors about "dlerror: cudart64_110.dll not found". It's just a warning and ignorable.
 
 #### Step 3: Import data and do any necessary data wrangling to clean the data.
 
@@ -144,13 +146,15 @@ print(dictionary)
 
 
 #### Step 6: Run specific machine learning model.
+Options:
+from sklearn.svm import LinearSVC
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 
 ##### Logistic Regression
 
 ```{python logistic regression model}
 # Python code chunk
-
-# you may want to run each of these one line at a time in the console.
 
 # import the model
 from sklearn.linear_model import LogisticRegression
@@ -198,8 +202,8 @@ print(trust_score)
 
 ```
 
-#### Further Steps:
-Consider the other model options:
+### Further Steps:
+Try other model options:
 
 from sklearn.svm import LinearSVC
 
@@ -207,7 +211,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 Additionally, consider alternate scores to consider the trustability of the model's output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.
 
-### How to interpret the scores
+### How to interpret the scores?
 
 If trust score > 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample's categorization being incorrect.
 
