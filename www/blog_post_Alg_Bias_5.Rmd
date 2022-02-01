@@ -202,6 +202,12 @@ print(trust_score)
 
 ```
 
+
+### How to interpret the scores?
+
+If trust score > 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample's categorization being incorrect.
+
+
 ### Further Steps:
 Try other model options:
 
@@ -211,9 +217,6 @@ from sklearn.ensemble import RandomForestClassifier
 
 Additionally, consider alternate scores to consider the trustability of the model's output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.
 
-### How to interpret the scores?
-
-If trust score > 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample's categorization being incorrect.
 
 ### References
 
