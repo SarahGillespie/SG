@@ -1,7 +1,7 @@
 ---
 title: 'Creating Trust Scores for Classification Models'
 ---
-By Sarah Gillespie
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
 Published November 18, 2021
 

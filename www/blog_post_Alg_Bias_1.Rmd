@@ -1,7 +1,4 @@
----
-title: 'Algorithms can uphold and fail a variety of fairness definitions'
----
-By Sarah Gillespie
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
 Published October 4, 2021
 

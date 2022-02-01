@@ -1,7 +1,7 @@
 ---
 title: 'Preprocessing k-means and k-medians'
 ---
- By Sarah Gillespie
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  Published October 18, 2021
  

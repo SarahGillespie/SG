@@ -1,7 +1,7 @@
 ---
 title: 'Deep k-Nearest Neighbors Math Scores Explanation'
 ---
- By Sarah Gillespie
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  Published November 2, 2021
 

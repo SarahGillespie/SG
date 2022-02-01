@@ -1,7 +1,7 @@
 ---
 title: 'How biased data can create a biased algorithm (and prevention methods)'
 ---
- By Sarah Gillespie
+ By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  Published October 11, 2021
  
