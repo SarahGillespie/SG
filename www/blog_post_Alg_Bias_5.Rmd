@@ -23,6 +23,8 @@ Download the entire repository. It is especially important for you to have the t
 
 The code in this tutorial creates trust scores based on penguin species type predictions with data from the Palmer Penguins package. I tried to make this code as generalized as possible for you to easily swap in your own data.
 
+If the code is in R, then write the code chunk name with "r" aznd if the code is in Python then write the code chunk as "python." The code type is detailed in the first line of each individual code chunk.
+  
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 
