@@ -8,7 +8,9 @@ output:
 
 ### Building explainable machine learning algorithms
 
-[November 18, 2021: *Creating Trust Scores for Classification Models* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_4.html)
+[January 31, 2022: *Step by Step Guide to Creating Trust Scores* (twenty-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_5.html)
+
+[November 18, 2021: *Theoretical Trust Scores for Classification Models* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_4.html)
  
 [October 28, 2021: *Deep k-Nearest Neighbors Confidence and Credibility Scores* (fifteen-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B.html)
 
