@@ -202,6 +202,51 @@ print(trust_score)
 
 ```
 
+#### Step 9: calculate a single trust score
+
+##### given x value
+
+```{python calculate specific trust scores given}
+# Python code chunk
+
+# GIVEN X VALUE
+# pick a specific X value from the given data
+X_value_given = np.array([X_penguins[1]])
+
+print("X_value_given:" + str(X_value_given))
+
+y_pred_single = np.array([y_pred[1]])
+
+# Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.
+trust_score_specific = trust_model.get_score(X_value_given, y_pred_single)
+
+# prints the trust scores for each point in the inputted data set
+print(trust_score_specific)
+```
+
+##### theoretical x value
+
+```{python calculate specific trust scores theoretical}
+# Python code chunk
+
+# THEORETICAL X VALUE
+# make up your own X value to generate a trust score
+# put whatever values in X_value_theoretical to find the predicted trust score
+# based on the earlier fitted model
+
+X_value_theoretical = np.array([[  34.1,   23.0,  123. , 3210. ]])
+
+print("X_value:" + str(X_value_theoretical))
+
+y_pred_single = np.array([y_pred[1]])
+
+# Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.
+trust_score_specific = trust_model.get_score(X_value_theoretical, y_pred_single)
+
+print(trust_score_specific)
+```
+
+The output from an array [[  34.1   23.   123.  3210. ]] is a trust score of 1.060239741504233. The array that produces this score is not in the original data set. There is no penguin with these specific wing and height dimensions. Finding the trust score for this collection of made up numbers is a way to see how distinct the imaginary penguin species classification is compared to the next most likely species classification.
 
 ### How to interpret the scores?
 

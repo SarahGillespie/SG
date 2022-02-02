@@ -633,6 +633,48 @@ div.tocify {
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># prints the trust scores for each point in the inputted data set</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trust_score)</span></code></pre></div>
 </div>
+<div id="step-9-calculate-a-single-trust-score" class="section level4">
+<h4>Step 9: calculate a single trust score</h4>
+<div id="given-x-value" class="section level5">
+<h5>given x value</h5>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># GIVEN X VALUE</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pick a specific X value from the given data</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>X_value_given <span class="op">=</span> np.array([X_penguins[<span class="dv">1</span>]])</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;X_value_given:&quot;</span> <span class="op">+</span> <span class="bu">str</span>(X_value_given))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>y_pred_single <span class="op">=</span> np.array([y_pred[<span class="dv">1</span>]])</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>trust_score_specific <span class="op">=</span> trust_model.get_score(X_value_given, y_pred_single)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># prints the trust scores for each point in the inputted data set</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trust_score_specific)</span></code></pre></div>
+</div>
+<div id="theoretical-x-value" class="section level5">
+<h5>theoretical x value</h5>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code chunk</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># THEORETICAL X VALUE</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make up your own X value to generate a trust score</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># put whatever values in X_value_theoretical to find the predicted trust score</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># based on the earlier fitted model</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>X_value_theoretical <span class="op">=</span> np.array([[  <span class="fl">34.1</span>,   <span class="fl">23.0</span>,  <span class="fl">123.</span> , <span class="fl">3210.</span> ]])</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;X_value:&quot;</span> <span class="op">+</span> <span class="bu">str</span>(X_value_theoretical))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>y_pred_single <span class="op">=</span> np.array([y_pred[<span class="dv">1</span>]])</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute trusts score from the above model, given (unlabeled) testing examples and (hard) model predictions.</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>trust_score_specific <span class="op">=</span> trust_model.get_score(X_value_theoretical, y_pred_single)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trust_score_specific)</span></code></pre></div>
+<p>The output from an array [[ 34.1 23. 123. 3210. ]] is a trust score of 1.060239741504233. The array that produces this score is not in the original data set. There is no penguin with these specific wing and height dimensions. Finding the trust score for this collection of made up numbers is a way to see how distinct the imaginary penguin species classification is compared to the next most likely species classification.</p>
+</div>
+</div>
 </div>
 <div id="how-to-interpret-the-scores" class="section level3">
 <h3>How to interpret the scores?</h3>
