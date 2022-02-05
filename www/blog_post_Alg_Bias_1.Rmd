@@ -38,11 +38,15 @@ Individual fairness is focused on individual points in the data set and checking
 
 #### Equality of opportunity, expanded upon.
 
-Not accounting for systemic discrimination or economic circumstances that may affect one group’s data used in the algorithm could have an adverse impact. This can be aas simple a metric like standardized testing: lower income students may not have the same resources as higher income students to access private tutors, the luxury of time to study for an optional test (rather than work or care for family), and better funded schools.
+Not accounting for systemic discrimination or economic circumstances that may affect one group’s data used in the algorithm could have an adverse impact. This can be considered through a metric like standardized testing: lower income students may not have the same resources as higher income students to access private tutors, the luxury of time to study for an optional test (rather than work or care for family), and better funded schools for the prior twelve years. Using standardized test scores to predict college and career performance is problematic when considering students equality of opportunity when preparing for the test. Using SAT scores in a model is not an apples-to-apples approach for different students.
+
+Relying on these scores in aa metric also speaks to how people's attributes can be oversimplified in models. Expanding on the SAT score example, using only numeric attributes to rate aa candidate may ignore qualitative attributes, such as real-world skills, unique perspectives, or determination.
+
+One way to address a model neglecting equality of opportunity is to include more metrics that can showcase someone's useful skills and perspectives apart from metrics that ignore systemic discrimination or economic circumstances.
 
 #### Equity vs. equality
 
-For example, the U.S. government sending out a maximum of four free at-home COVID tests to each household is an example of how equality does not achieve equity. While every household does get the same number of tests, this approach does not consider a myriad of factors where a household might need more tests, such as a multigenerational household or collection of roommates or levels of household cooperation. The four tests per hosuehold approach benefits people who can afford to live alone and with infrequent exposure to COVID risk. 
+For example, the U.S. government sending out a maximum of four free at-home COVID tests to each household is an example of how equality does not achieve equity. While every household does get the same number of tests, this approach does not consider a myriad of factors where a household might need more tests, such as a multigenerational household or collection of roommates or levels of household cooperation. The four tests per household approach benefits people who can afford to live alone and with infrequent exposure to COVID risk. 
 
 <br>
 
