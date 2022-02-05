@@ -383,17 +383,23 @@ div.tocify {
 
 <p>By <a href="https://www.linkedin.com/in/sarahg4567/">Sarah Gillespie</a></p>
 <p>Published November 18, 2021</p>
+<div id="overview" class="section level3">
+<h3>Overview</h3>
 <p>Trust scores are introduced in the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a>, presented at the 32nd Conference on Neural Information Processing Systems in 2018. The trust scores are a similar concept to the credibility and confidence scores introduced in <a href="https://arxiv.org/pdf/1803.04765.pdf">Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning</a>. The trust score is a remarkably flexible ratio that has a goal of describing how much a user should trust the an algorithm’s classification of a specific point. It is ratio of the distance from the testing sample to the nearest classes similar and class different from the testing sample. This trust score for a testing sample is likely agree with the Bayes-optimal classifier, so the trust score is a clue to decide if an algorithm’s prediction about a test point is correct rather than a Type I or II Error. This approach mixes the topology of points in a multidimensional space with calculus to be effective at detecting the accuracy of a unique machine learning prediction.</p>
-<div id="define-variables" class="section level3">
-<h3>Define variables</h3>
+<p><br></p>
+</div>
+<div id="defined-variables" class="section level3">
+<h3>Defined variables</h3>
 <p>k: the number of neighbors, like in k-Nearest Neighbors.</p>
 <p><span class="math inline">\(\alpha\)</span>: the density threshold and the specific fraction of data to filter out of the overall collection of data. This is a proxy for the density value. The recommended <span class="math inline">\(\alpha\)</span> value is not specified in the paper.</p>
-<p>1 - <span class="math inline">\(\alpha\)</span>: the probability mass, described as a fraction.</p>
+<p>1 - <span class="math inline">\(\alpha\)</span>: the probability mass. This can be desscribed as a fraction.</p>
+<p><br></p>
 </div>
 <div id="step-1-preprocess-the-data" class="section level3">
 <h3>Step 1: Preprocess the data</h3>
 <p>The first step is to keep only the points that exist in a high density area. That specific density varies but is defined as <span class="math inline">\(\alpha\)</span> as a general variable. This has the effect of removing outliers and having smooth clusters of points to use for calculating the trust score. The specific distribution of the smooth cluster of points is irrelevant.</p>
 <p>The trust scores paper does not recommend an <span class="math inline">\(\alpha\)</span> value to define what density counts as a high density set.</p>
+<p><br></p>
 </div>
 <div id="step-2-calculate-the-trust-score" class="section level3">
 <h3>Step 2: Calculate the trust score</h3>
@@ -402,6 +408,7 @@ div.tocify {
 <p>(distance from the testing sample to the nearest class different from the predicted class) / (distance from the testing sample to the nearest class the same as the predicted class)</p>
 <p>Note that “class” in this definition describes the grouping categorization of a single point (like, a specific penguin species if the goal is the determine the penguin’s species), a group of k-Nearest Neighbors, or a centroid (centroid or geometric center of a plane figure is the arithmetic mean position of all the points in the figure). The trust scores formula is flexible enough to accommodate all of those groupings and have more customizations. Mote details in the <em>Variations of the trust score</em> section.</p>
 <p>If trust score &gt; 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample’s categorization being incorrect.</p>
+<p><br></p>
 </div>
 <div id="variations-of-the-trust-score" class="section level3">
 <h3>Variations of the trust score</h3>
@@ -414,6 +421,7 @@ div.tocify {
 <li><p>A specific data setting. For example, raw inputs, an unsupervised embedding of the space, or individual layers.</p></li>
 </ol>
 <p>So a trust score has four categories, each with numerous options. It is crucial to specify the details of each of these four categories when communicating a trust score.</p>
+<p><br></p>
 </div>
 <div id="compare-trust-scores-to-dknns-confidence-and-credibility-scores" class="section level3">
 <h3>Compare trust scores to DkNN’s confidence and credibility scores</h3>
@@ -434,6 +442,7 @@ div.tocify {
 <li><p>Trust scores have a greater flexibility on how to apply the concept, detailed in the <em>Variations of the trust score</em> section.</p></li>
 <li><p>Trust score points must be independently and identically distributed (i.i.d.).</p></li>
 </ul>
+<p><br></p>
 </div>
 </div>
 <div id="diy" class="section level3">
