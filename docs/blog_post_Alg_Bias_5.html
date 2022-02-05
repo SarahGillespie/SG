@@ -481,6 +481,7 @@ div.tocify {
 <div id="what-are-trust-scores" class="section level3">
 <h3>What are trust scores?</h3>
 <p>The trust scores approach mixes the topology of points in a multidimensional space with calculus to be effective at detecting the accuracy of a unique machine learning prediction. Each unique prediction has its own unique trust score. This concept was introduced in the <a href="https://arxiv.org/pdf/1805.11783.pdf">To Trust Or Not To Trust A Classifier</a>, presented at Neural Information Processing Systems in 2018. The trust score is a remarkably flexible ratio with a purpose of describing how much a user should trust an algorithm’s classification of a specific point. Creating a trust score has two steps: first, remove the outlying points, and second, calculate the ratio of the distance from the testing sample to the nearest classes similar and nearest class different from the testing sample. The trust score for a testing sample is likely to agree with the point’s Bayes-optimal classifier. This means the trust score is a clue to decide if an algorithm’s prediction about a test point is correct, rather than a Type I or II Error.</p>
+<p><br></p>
 </div>
 <div id="code-to-calculate-trust-scores-yourself" class="section level3">
 <h3>Code to calculate trust scores yourself</h3>
@@ -673,12 +674,14 @@ div.tocify {
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trust_score_specific)</span></code></pre></div>
 <p>The output from an array [[ 34.1 23. 123. 3210. ]] is a trust score of 1.060239741504233. The array that produces this score is not in the original data set. There is no penguin with these specific wing and height dimensions. Finding the trust score for this collection of made up numbers is a way to see how distinct the imaginary penguin species classification is compared to the next most likely species classification.</p>
+<p><br></p>
 </div>
 </div>
 </div>
 <div id="how-to-interpret-the-scores" class="section level3">
 <h3>How to interpret the scores?</h3>
 <p>If trust score &gt; 1, then the different class is geographically closer to the testing sample than its predicted class. This is a red flag for the testing sample’s categorization being incorrect.</p>
+<p><br></p>
 </div>
 <div id="further-steps" class="section level3">
 <h3>Further Steps:</h3>
@@ -686,6 +689,7 @@ div.tocify {
 <p>from sklearn.svm import LinearSVC</p>
 <p>from sklearn.ensemble import RandomForestClassifier</p>
 <p>Additionally, consider alternate scores to consider the trustability of the model’s output. One intuitive but less rigoriously researched scoring system is confidence and credibility scores.</p>
+<p><br></p>
 </div>
 <div id="references" class="section level3">
 <h3>References</h3>

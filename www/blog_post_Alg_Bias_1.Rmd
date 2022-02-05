@@ -2,7 +2,14 @@ By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
 Published October 4, 2021
 
+### Overview
+
 The paper, [On Formalizing Fairness in Prediction with Machine Learning](https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf), discusses a number of definitions on how to decide if an algorithm is “fair,” specifically by breaking the concept down into five ways that an outcome can fail fairness. These are just the most popular of many different ways to look at a "fair" algorithm. It cannot be emphasized enough that fairness is not a simple accuracy metric that is easy to optimize a model to achieve. It is crucial to look at your model through different fairness lenses to see if your model has negative externalities that fail different fairness measures, despite succeeding on a specific fairness measure.
+
+
+<br>
+
+
 
 ### Comparison: Algorithm Fairness Categories
 
@@ -11,10 +18,15 @@ The paper, [On Formalizing Fairness in Prediction with Machine Learning](https:/
 | Counterfactual fairness      | Decision is fair towards an individual if the decision is the same in both the actual world and counterfactual worlds where the individual belongs to a different demographic group.       |  Amazon’s resume algorithm rejecting the resumes of anyone with the word “woman” on her resume.       |
 | Group fairness   | The outcome prediction for individuals should be the same outcome across different demographic groups with almost equal probability. Collectivist egalitarianism.        |  [Northepoint sentencing algorithm failed group fairness between different racial groups. The formula was particularly likely to falsely flag black defendants as future criminals, wrongly labeling them this way at almost twice the rate as white defendants. White defendants were mislabeled as low risk more often than black defendants.](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)       |
 | Individual fairness      | A predictor is fair if it produces similar outputs for similar individuals. Associated with individual egalitarianism. | A victim of the Northpointe algorithm, Brisha Borden, was given a disproportionately harsh sentencing suggestion compared to another data point, Vernon Prater. |
-| Equality of opportunity      | In a scenario where there is only one beneficial outcome, the true positive rate should be the same for all groups. | Not accounting for systemic discrimination or economic circumstances that may affect one group’s data used in the algorithm could have an adverse impact. For example, the U.S. government sending out aa maximum of four free at-home COVID tests to each household is an example of how equality does not achieve equity. While every household does get the same number of tests, this approach does not consider a myriad of factors where a household might need more tests, such as a multigenerational household or collection of roommates or levels of household cooperation. The four tests per hosuehold approach benefits people who can afford to live alone and with infrequent exposure to COVID risk. |
+| Equality of opportunity      | In a scenario where there is only one beneficial outcome, the true positive rate should be the same for all groups. | Not accounting for systemic discrimination or economic circumstances that may affect one group’s data used in the algorithm could have an adverse impact. |
 | Preference-based fairness      | An algorithm satisfies an individual’s preferred treatment and has the highest rate of matching an individual's real preference to the algorithm’s prediction for the individual’s preference. | An algorithm that has a high error percentage for preference matching, such as an unsuccessful roommate algorithm at a large university. |
 
+<br>
+
+
 ### Common confusion points
+
+#### Group fairness vs. individual fairness
 
 One common confusion point when comparing fairness definitions is the difference between group fairness and individual fairness. One might wonder how they are different, since treating groups differently means being unfair to all the individuals in those groups.
 
@@ -24,12 +36,25 @@ If there was group fairness, then the Smith College computer science students wo
 
 Individual fairness is focused on individual points in the data set and checking to make sure identical data points receive the same treatment. So, if two Smith computer science students had the same academic background, grades, and experiences and applied to the same jobs, then the interview process would be individually fair if the two Smith students received the same number of interview invitations. If the students did not receive the same number of interview invitations, then the process would not be individually fair. A company might offer more interview opportunities to people in groups underrepresented in their employee population to achieve a group fairness goal. This decreases individual fairness in the applicant population but has a potential to increase group fairness in the company’s employee population.
 
+#### Equality of opportunity, expanded upon.
+
+Not accounting for systemic discrimination or economic circumstances that may affect one group’s data used in the algorithm could have an adverse impact. This can be aas simple a metric like standardized testing: lower income students may not have the same resources as higher income students to access private tutors, the luxury of time to study for an optional test (rather than work or care for family), and better funded schools.
+
+#### Equity vs. equality
+
+For example, the U.S. government sending out a maximum of four free at-home COVID tests to each household is an example of how equality does not achieve equity. While every household does get the same number of tests, this approach does not consider a myriad of factors where a household might need more tests, such as a multigenerational household or collection of roommates or levels of household cooperation. The four tests per hosuehold approach benefits people who can afford to live alone and with infrequent exposure to COVID risk. 
+
+<br>
+
 
 ### Treatment vs. Impact
 
 This relates to another point the Formalizing Fairness paper discusses: the difference between an algorithm’s treatment and its impact. Treatment and impact are not exclusive to algorithms.
 
 Treatment is the specific type of action that an algorithm suggests for each data point, while impact is the effect on that data point’s well-being. Since each person tends to be more unique and has their own set of skills and resources, providing the exact same treatment to people is unlikely to lead to the exact same outcome. For example, an educational algorithm provides the same treatment that suggests two first grade students read the same chapter in a book. If one student has an older sibling around to help look up challenging words and explain deeper literary elements like foreshadowing and social context, that student will gain a larger benefit and a different impact than a student who reads the book without her support system around helping her to understand the chapter. Despite having the same treatment, these two students had a very different impact.
+
+<br>
+
 
 ### ACM's perspective on algorithm accountability
 
@@ -54,6 +79,9 @@ Institutions should use rigorous methods to validate their models and document t
 This differs from the [On Formalizing Fairness in Prediction with Machine Learning](https://www.fatml.org/media/documents/formalizing_fairness_in_prediction_with_ml.pdf) paper, which places more focus on how the subjects of an algorithm should be treated.
 
 The take-away from this is to have individuals know the purpose and impact of algorithms they are responsible for. This may include documentation on an algorithm’s goals, economic impact and social impact. When an algorithm is affecting actual people’s lives rather than just being a gimmick, it is important to consider the intersection of its computing efficiency with its real world effect.
+
+
+<br>
 
 
 ### Going forward
