@@ -1,11 +1,11 @@
 ---
-title: 'Deep k-Nearest Neighbors Math Scores Explanation'
+title: 'Deep k-Nearest Neighbors (DkNN): Math Scores Explanation'
 ---
 By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  Published November 2, 2021
 
-### Deep k-Nearest Neighbors (DkNN)
+### Overview
 
 This blog post is the accompanying in-depth math behind DkNN, detailed in [*Succinct Deep k-Nearest Neighbors Explanation* (fifteen-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_3B.html). *Succinct Deep k-Nearest Neighbors Explanation* provides a quality overview of DkNN. This blog post is math notation that would be unnecessary to initially encounter when learning about DkNN.
 
@@ -13,11 +13,17 @@ To review, deep learning faces a lack of robustness in some settings, such as be
 
  [Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning](https://arxiv.org/pdf/1803.04765.pdf) introduces two novel measurements: credibility scores and confidence scores. Unexpected measurements could alert the people running the algorithm to potential adversarial inputs or if the model is extrapolating too much from limited data. Assuming these measurements fall along a normal distribution from a collection of test inputs, if a credibility score or confidence score is too many standard devations away from the mean score then the model could put up a red flag for human intervention.
 
+<br>
+
+
 ```{r img_blog_post_Alg_Bias_3B_DkNN_drawing, fig.cap="*Source: Sarah Gillespie illustration <br>Caption: An illustration of confidence and credibility scores in a three hidden layer model using 5 nearest neighbor points per layer.*", echo=FALSE, out.width="100%"}
 knitr::include_graphics("img_blog_post_Alg_Bias_3B_DkNN_drawing.jpg")
 ```
 
 In this drawing, I just guesstimated the distances between the input and nearest neighbor points using made-up data points and layers. You can calculate actual confidence and credibility scores using statistical software.
+
+<br>
+
 
 ### Mathematical Notation for the Confidence Score
 *Confidence*: quantifies the likelihood of the prediction being correct.
@@ -26,9 +32,13 @@ Confidence score = the distance between the test input and the model’s nearest
 
 The confidence score does not exist in an informational vacuum: an algorithm user most consider the confidence score relative to other inputs' confidence scores. A large score, relative to other inputs' confidence scores. means the point is less similar to the model's training data and may be too much of an outlier to correctly classify. The confidence score range is [0, $\infty$). Just like the credibility score, the confidence score exists for an individual hidden layer and the model as a whole.
 
-Let:
 
-$ I$ be the model's input that is being analyzed in each hidden layer. The input point is located at $(x_{I}, y_{I})$ in each unique hidden layer.
+<br>
+
+
+### Defined variables
+
+$I$: the model's input that is being analyzed in each hidden layer. The input point is located at $(x_{I}, y_{I})$ in each unique hidden layer.
  
  n be a specific nearest neighbor point located at $(x_{n}, y_{n})$.
  
@@ -53,6 +63,9 @@ $$\sum_{\lambda=1}^{\Lambda} \sum_{n=1}^{\varphi} \sqrt{(x_{n} - x_{I}) + (y_{n}
 If the deep learning classification output and the training data are in agreement (i.e. the input has a small credibility score and a small confidence score), then the DkNN algorithm’s prediction is likely to be accurate. However, if there is a disconnect between the representation prediction and the training data then the output is likely to be an inaccurate prediction. This can happen if an input is too much of an outlier or being an adversarial input. Same with the confidence score: regardless of the classification output, if a point is too geographically far from its neighbors then that increases the likelihood that the point is an adversarial input or too obscure for the model to correctly classify based on the model’s training data.
 
 Summing up the score for each layer only works and is comparable because each input goes through the same series of layers. The confidence and credibility score approach would not work in a neural network model where each input is analyzed by some, but not all, of the model's neurons.
+
+<br>
+
 
 ### Mathematical Notation for the Credibility Score
 
@@ -79,6 +92,9 @@ $$\frac{\sum_{\lambda=1}^{\Lambda} \psi_\lambda}{\Lambda\varphi}$$
 Note: in this formula, it is assumed that there is the same number of $\varphi$, the number of nearest neighbor points in each layer. Since we assume $\varphi$ is the same integer value for layer then we can multiply $\varphi$ by the total number of layers rather than doing summation notation on $\varphi$.
 
 A large credibility score means that it is more likely the input is adversarial or otherwise wrongly classified. The credibility score range is [0, 1]. A score of 0 means that all of the point's nearest neighbors are the same group that the point's final classification is while a score of 1 means that none of the point's nearest neighbors are the same group as the point's final classification. The credibility score exists for an individual hidden layer and the model as a whole.
+
+
+<br>
 
 
 ### DIY
