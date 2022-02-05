@@ -1,11 +1,11 @@
 ---
-title: 'Quick Deep k-Nearest Neighbors Explanation'
+title: 'Quick Deep k-Nearest Neighbors (DkNN) Explanation'
 ---
 By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  Published October 28, 2021
 
-### Deep k-Nearest Neighbors (DkNN)
+### Overview
 
 Deep learning faces a lack of robustness in some settings, such as being vulnerable to adversarial inputs, not being able to rationalize its predictions, and not able to provide protection for stakeholders against data that does not conform to the model’s training data. The impact is these algorithms have very limited usage in high stakes applications such as security or safety critical applications, despite how advanced deep learning is in less critical settings. The unpredictability and unaccountability is a major barrier for the adoption of deep learning in high stakes settings. The paper [Deep k-Nearest Neighbors: Towards Confident, Interpretable and Robust Deep Learning](https://arxiv.org/pdf/1803.04765.pdf) introduces DkNN. DkNN is excellent at producing documentation to answer why a deep-learning model groups each input to its specific output. The paper also introduces some metrics about how reasonable a deep learning model's output by comparing the input to the training data.
 
@@ -16,6 +16,9 @@ knitr::include_graphics("img_blog_post_Alg_Bias_3B_An-example-of-a-deep-learning
 The research paper introducing DkNN describes this as "ensure that each intermediate computation performed by the deep neural network is conformal with the final prediction that it makes.”
 
 In other words, the goal of DkNN is to provide documentation on why a deep learning algorithm chose the category that it did and let the people running the algorithm know if something seems amiss. This increases the opportunity for human intervention if an input needs more nuanced thinking and analysis than can be provided by a model. This is crucial in settings like using deep learning in situations where security and reliablity are paramount, like the financial or military industries.
+
+<br>
+
 
 ### Does DkNN change the model?
 
@@ -28,6 +31,9 @@ The model's output with DkNN will be exactly the same as without DkNN: the only 
 ```{r img_blog_post_Alg_Bias_3B_recipt2, fig.cap="*Source: Getty Images*", echo=FALSE, out.width="100%"}
 knitr::include_graphics("img_blog_post_Alg_Bias_3B_recipt2.jpg")
 ```
+
+
+<br>
 
 
 ### Adversarial Input
@@ -48,6 +54,8 @@ knitr::include_graphics("img_blog_post_Alg_Bias_3B_phantomplate.jpg")
 When an algorithm is classifying lots of points with little human interaction, how could the algorithm know if a point is intentionally exploiting an algorithm's weak spot?
 
 The solution is to find some way to rank how likely points are to be operable in the existing model.
+
+<br>
 
 
 ### Numbers about the numbers
@@ -74,6 +82,9 @@ The mathematical notation for the confidence and credibility scores can be found
 
 
 Summing up the score for each layer only works and is comparable because each input goes through the same series of layers. The confidence and credibility score approach would not work in a neural network model where each input is analyzed by some, but not all, of the model's neurons.
+
+<br>
+
 
 ### DkNN Application Areas
 
@@ -110,10 +121,16 @@ This can be legally important when a [Right to Explanation](https://en.wikipedia
 
 To conclude, DkNN is not a silver bullet solution to deep learning’s problems, but it does provide an opportunity for more context on how an algorithm is grouping points. The DkNN grouping can be used to flag inputs that are too far outside the norm to be classified accurately, but the DkNN process  does not alter the deep learning model. The benefit to fairness is that a given model can be much more interpretable and increase a model’s ability to have its outputs checked by people.
 
+<br>
+
+
 ### Big idea to take DkNN further:
 #### Use DkNN to reduce GPT-3's toxic language generation
 
 GPT-3 frequently produces toxic language, mimicking the toxic language present in its natural language training data. The current approach is mass banning all potentially toxic words if using the model in a sensitive setting. This has an effect of making the model seem less like natural language and misses toxic words, phrases, or nuances that are not present in the banned words list. There is potential in using DkNN to trace the neural networks and subnetworks that *might* be most associated with the toxic output, especially toxic output that occurs more frequently than it is present in the training data. Then, it might be possible to "turn off" those collections of model neurons or deweight the model parameters that are most correlated with toxic language production.
+
+<br>
+
 
 ### DIY
 
