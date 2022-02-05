@@ -5,8 +5,14 @@ By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
  Published October 18, 2021
  
+### Overview
 
 Some of the most common grouping algorithms are not infallible against accidentally grouping by protected classes. K-means and k-medians can be susceptible to falling into the “ZIP code problem.” The ZIP code problem is a situation where the United States Postal Service assigned geographic code in effect becomes a proxy variable for race due to historic redlining practices. This results in stark racial and economic divides throughout cities that persist to the present day. Systemic racism and sexism in the United States have created many such proxy variables like the ZIP code problem.
+
+
+<br>
+
+### How this occurs
 
 As a refresher, k-grouping algorithms is an unsupervised machine learning technique that groups a collection of data points into subgroups based on a certain feature the points share. For the k-median grouping algorithm, the algorithm uses “centroids”, k different randomly-initiated points in the data, and assigns every data point to the nearest centroid. After every point has been assigned, the centroid is moved to the median of all of the points assigned to it. The same grouping strategy is used for [k-means](https://towardsdatascience.com/how-does-k-means-clustering-in-machine-learning-work-fdaaaf5acfa0).
 
@@ -15,6 +21,13 @@ knitr::include_graphics("img_blog_post_Alg_Bias_3A_howdoesMLwork.png")
 ```
 
 If a person uses a k-grouping algorithm to create groups based on ZIP codes or another proxy variable for a protected class, the effect can still be segregated clusters. If a person groups students by SAT score, then they most likely unintentionally simultaneously grouped students by family income.If a person groups members of a city by ZIP code, they most likely also created clusters that each have a homogenous racial group rather than each cluster representing the city’s diversity.
+
+
+<br>
+
+
+
+### Concrete solution: preprocessing step to create diverse clusters
 
 There is a solution to have groups clustered around your variable of interest while still having each cluster be roughly representative of the overall data’s population diversity. Algorithm builders can apply a pre-processing step that creates clusters based on the variable of interest as well as prioritizing each cluster being roughly the same diversity as the population as  a whole. This means the groups may be more spread out than a classic k-grouping algorithm but can be diverse based on one or more protected groups. 
 
