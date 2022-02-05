@@ -401,20 +401,21 @@ div.tocify {
 <div id="mathematical-notation-for-the-confidence-score" class="section level3">
 <h3>Mathematical Notation for the Confidence Score</h3>
 <p><em>Confidence</em>: quantifies the likelihood of the prediction being correct.</p>
-<p>Confidence score = the distance between the test input and the model’s nearest neighboring training points, summed for each layer to create a confidence score for each layer and then the summation of layer confidence scores can be added together to get a confidence score for the model as a whole.</p>
+<p>The confidence score is defined as the distance between the test input and the model’s nearest neighboring training points, summed for each layer to create a confidence score for each layer and then the summation of layer confidence scores can be added together to get a confidence score for the model as a whole.</p>
 <p>The confidence score does not exist in an informational vacuum: an algorithm user most consider the confidence score relative to other inputs’ confidence scores. A large score, relative to other inputs’ confidence scores. means the point is less similar to the model’s training data and may be too much of an outlier to correctly classify. The confidence score range is [0, <span class="math inline">\(\infty\)</span>). Just like the credibility score, the confidence score exists for an individual hidden layer and the model as a whole.</p>
 <p><br></p>
 </div>
 <div id="defined-variables" class="section level3">
 <h3>Defined variables</h3>
+<p>Let</p>
 <p><span class="math inline">\(I\)</span>: the model’s input that is being analyzed in each hidden layer. The input point is located at <span class="math inline">\((x_{I}, y_{I})\)</span> in each unique hidden layer.</p>
-<p>n be a specific nearest neighbor point located at <span class="math inline">\((x_{n}, y_{n})\)</span>.</p>
-<p><span class="math inline">\(\varphi\)</span> be the total nearest neighbor points considered in each layer.</p>
+<p>n: a specific nearest neighbor point located at <span class="math inline">\((x_{n}, y_{n})\)</span>.</p>
+<p><span class="math inline">\(\varphi\)</span>: the total nearest neighbor points considered in each layer.</p>
 <p>We can use the distance formula, <span class="math inline">\(\sqrt{(x_{2} - x_{1}) + (y_{2} - y_{1})}\)</span>, as a base to compute a single layer’s confidence score. Note that the <span class="math inline">\((x, y)\)</span> location is a simplistic representation of the point in a two-dimension Cartesian plane. This can vary but the mathematician must adapt the below formula for another representation of the two points. We sum up the distances between the input point and each nearest neighbor point to find a single hidden layer’s confidence score.</p>
 <p><span class="math display">\[\sum_{n=1}^{\varphi} \sqrt{(x_{n} - x_{I}) + (y_{n} - y_{I})}\]</span></p>
 <p>We can find the confidence score for an entire model by summing up all the layers’ confidence scores. Let</p>
-<p><span class="math inline">\(\lambda\)</span> be a specific hidden layer</p>
-<p><span class="math inline">\(\Lambda\)</span> be the total number of hidden layers</p>
+<p><span class="math inline">\(\lambda\)</span>: a specific hidden layer</p>
+<p><span class="math inline">\(\Lambda\)</span>: the total number of hidden layers</p>
 <p><span class="math display">\[\sum_{\lambda=1}^{\Lambda} \sum_{n=1}^{\varphi} \sqrt{(x_{n} - x_{I}) + (y_{n} - y_{I})}\]</span></p>
 <p>If the deep learning classification output and the training data are in agreement (i.e. the input has a small credibility score and a small confidence score), then the DkNN algorithm’s prediction is likely to be accurate. However, if there is a disconnect between the representation prediction and the training data then the output is likely to be an inaccurate prediction. This can happen if an input is too much of an outlier or being an adversarial input. Same with the confidence score: regardless of the classification output, if a point is too geographically far from its neighbors then that increases the likelihood that the point is an adversarial input or too obscure for the model to correctly classify based on the model’s training data.</p>
 <p>Summing up the score for each layer only works and is comparable because each input goes through the same series of layers. The confidence and credibility score approach would not work in a neural network model where each input is analyzed by some, but not all, of the model’s neurons.</p>
@@ -424,11 +425,11 @@ div.tocify {
 <h3>Mathematical Notation for the Credibility Score</h3>
 <p><em>Credibility</em>: characterizes how relevant the training data is to the prediction.</p>
 <p>Use the same notation from above, let</p>
-<p><span class="math inline">\(\varphi\)</span> be the total nearest neighbor points considered in each layer</p>
-<p><span class="math inline">\(\lambda\)</span> be a specific hidden layer</p>
-<p><span class="math inline">\(\Lambda\)</span> be the total number of hidden layers</p>
+<p><span class="math inline">\(\varphi\)</span>: the total nearest neighbor points considered in each layer</p>
+<p><span class="math inline">\(\lambda\)</span>: a specific hidden layer</p>
+<p><span class="math inline">\(\Lambda\)</span>: the total number of hidden layers</p>
 <p>with the addition of letting</p>
-<p><span class="math inline">\(\psi\)</span> be the number of nearest neighbor points that are a different class than the input point’s final classification.</p>
+<p><span class="math inline">\(\psi\)</span>: the number of nearest neighbor points that are a different class than the input point’s final classification.</p>
 <p>A single layer’s credibility score would be <span class="math inline">\(\frac{\psi}{\varphi}\)</span>.</p>
 <p>The credibility score for an entire model would be</p>
 <p><span class="math display">\[\frac{\sum_{\lambda=1}^{\Lambda} \psi_\lambda}{\Lambda\varphi}\]</span></p>
