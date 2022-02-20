@@ -1,0 +1,15 @@
+---
+title: 'template'
+---
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
+ 
+Published January 31, 2022 SAWAP DATE
+
+
+### Mitigating Unwanted Biases with Adversarial Learning : using [this paper] to admire its linear algebra and multivariable calculus in action.
+
+
+The trust scores approach BLAH BLAH BLAH BLAH
+
+
+<br>
