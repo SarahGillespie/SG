@@ -10,8 +10,9 @@ Published January 31, 2022 SAWAP DATE
 
 Toward Fair Deep Anomaly Detection
 ADD QUOTES FROM THE PAPER https://dl.acm.org/doi/10.1145/3442188.3445878
+ALSO MENTION THE VIDEO PRESENTAION AND ITS KEY NOTES
 
-Anomaly detection that correctly detects anomalies but without unfairly penalizing or benefiting data that is just part of a protected class rather than its own anomalous behavior. This can also clue an observer in to a problem in a typically consistent category that might otherwise co undetected due to focusing on the anomalies in categories that have a more extreme range of values be their normal. While. traditional anomaly detection struggles to scale up and find anomalies in larger sets of data, the fair deep anomaly detection actually beenfits from a big data set rather than a small dataset.
+Fair deep anomaly detection that correctly detects anomalies but without unfairly penalizing or benefiting data that is just part of a protected class rather than its own anomalous behavior. This can also clue an observer in to a problem in a typically consistent category that might otherwise co undetected due to focusing on the anomalies in categories that have a more extreme range of values be their normal. While. traditional anomaly detection struggles to scale up and find anomalies in larger sets of data, the fair deep anomaly detection actually beenfits from a big data set rather than a small dataset.
 
 
 ### Real World Applications
