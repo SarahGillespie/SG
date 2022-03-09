@@ -8,8 +8,42 @@ Published January 31, 2022 SAWAP DATE
 
 ### Towards Fair Deep Anomaly Detection
 
+Toward Fair Deep Anomaly Detection
+ADD QUOTES FROM THE PAPER https://dl.acm.org/doi/10.1145/3442188.3445878
 
-The trust scores approach BLAH BLAH BLAH BLAH
+Anomaly detection that correctly detects anomalies but without unfairly penalizing or benefiting data that is just part of a protected class rather than its own anomalous behavior. This can also clue an observer in to a problem in a typically consistent category that might otherwise co undetected due to focusing on the anomalies in categories that have a more extreme range of values be their normal. While. traditional anomaly detection struggles to scale up and find anomalies in larger sets of data, the fair deep anomaly detection actually beenfits from a big data set rather than a small dataset.
 
 
-<br>
+### Real World Applications
+#### Prevent discrimination:
+For a potential real-world application of this:
+SARAH WRITE MORE HERE AND WALK SOMEONE THROUGH THE EXAAMPLE
+Uber and Lyft rankings.
+At the end of every ride, Uber and Lyft customers are requested to score their experience with the driver on a scale from 1 to 5 along with ranking the car on cleanliness and driver-safety. We will assume that these ride-share companies wish to reward their best drivers (say, the 10%) and lay off their lowest performing drivers (say, the bottom 10%) across the platform and not discriminate against their (employed contractors?) For any protected category, like race or gender. We can make a reasonable assumption that there are excellent and subpar drivers of races and genders across the ridesharing platform along with a bunch of completely adequate drivers just doing their job. The best and worst drivers can be considered anomalies. Driver score might be normally distributed to represent this. ADD A PHOTO OF THE NORMAL DISTRIBUTION.
+
+How can rideshare companies learn which of their employed contractors are in the top and bottom 10% extremes? 
+
+The only experience data comes in through the customer ranking. This data is at risk of an unreliable narrator scenario: existing racism and sexism can leak in through customer’s ranking of their driver as the rider reflects on their trip. This makes directly using the anomalies in this score problematic: if black drivers are systemically rated lower than white drivers of equal quality due to customer prejudice, then laying off the drivers ranked in the bottom 10% would be laying off more black drivers than is actually fair and accidentally protecting more white/majority group drivers than is actually fair. Rewarding the top 10% of drivers could have unfair implications as well: drivers not systemically discriminated against by the general public would get more monetary rewards if systemic discrimination is bringing down other driver’s scores.  One way to address this dilemma of discovering true anomalies in rideshare driver quality and working with unreliable-narrator style data is to look for anomalies within different categories that are likely influenced by prejudice. So look for the anomalously bad drivers within the white driver population, black driver population, and other race categories. Same for gender and other protected groups that are vulnerable to the general public’s prejudice unduly influencing their end-of-ride driver assessment.
+
+Rather than being “race-blind,” fair deep anomaly detection is a tool to help (cicumvent? Avoid? Prevent?) vulnerable groups from being impacted by metrics that are affected by racist, sexist, or otherwise biased data.
+
+#### Increase problem detectability
+Detect extremes in different subset populations with each having their own frequency and severity of outliers.
+Electricity generation prices / machinery failure detection.
+Wind and solar generation by its nature will have more variance in its production than a constant and less influenced electricity source like nuclear or gas generators. Breaking anomaly detection into categories when possible,  like looking for extreme anomalies in the wind generation production subset and the nuclear generation subset, would be more informative than looking at anomalies in the electricity generation as a whole: wind production’s extremes would constantly be registered as anomalies but an anomalous but still reliable nuclear generator might not be extreme enough for the anomaly detection method to take note.ß
+
+
+### Fair Deep Anomaly Detection Process:
+Break into subgroups (I.e. gender, race)
+Look for anomalies within each of those subgroups. Any typical anomaly detection method should fine.
+The positive impact is that this can help prevent systemic racism/sexism from affecting business decisions. It solves the problem of when the collected data does not accurately represent the world around you (see, the unreliable narrator concept in writing) and can help separate out those biases and unreliability to find the truth.
+
+### Weaknesses of this approach:
+Built for categorical data with hard-separation (e.g. only identifying as one category in the categorical data, like “pet-owner” or “non-pet-owner” rather than people who could own a cat and/or a snake and/or no pets) or binary data, rather than linear data (e.g. SAT scores on their range of 400-1600). To apply this to linear data it would bet important tp break the linear data into subgroups (e.g. SAAT score quartiles). Not good on trying to fit overlapping categories of data unless there is enough data in each subgroup to have adequate representation (e.g. not great at finding anomalies with consideration to both race and gender unless there is enough observations in each group to merit its own category (e.g. is there enough data Ian the dataset to find anomalies in the subset of people who fall into the category. Like, analyzing the category of people who are Hawaii residents and born in Rhode Island. If there are enough observations in your dataset to detect anomalies on this population then great. But it’s a pretty small dataset and its unlikely that there will be enough observations to have a quality representation of anomalies in this group of people. In this situation with consideration to the limits of the dorsal distribution then it might be best to detect anomalies in the larger group of Hawaii-residents and the larger group of people born in Rhode Island since the anomaliy detection methods would have enough data to actually have a fair chance of detecting the anomalies. This is a example of where fari deep aomaly detection would beenfit from a big dataset and do great if there was many observations of people born in Rhode Island but now Hawaii residents, but traditional anomaly detection methods would struggle since fnding anomalies in the data set population as a whole might not detect anomalies in the very specific subset we are curious about anomalies regarding.
+
+
+### Taking this Further
+Fair deep anomaly detection can be used for anomalies in images, as well. See LINK TALK for more details about that. Also see the PAPER.
+
+
+### Github
