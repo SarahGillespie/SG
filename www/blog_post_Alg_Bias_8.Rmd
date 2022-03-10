@@ -35,7 +35,7 @@ Wind and solar generation by its nature will have more variance in its productio
 
 
 ### Process:
-1. Break into subgroups (I.e. gender, race)
+1. Break into subgroups (i.e. gender, race, machine type, grographic region). Take care that there are no N/A values in the subgroup categorization or make an unclassified subgroup. Whatever you decide look for anomalies within needs to have a category to look for anomalies within that category. This requires some consideration of the data: there is more nuance and challenges to classify peoples' race and gender than something built for categorization, like a piece of labratory equipment. Some of that nuance is even from how the data is collected: a gender box with just "male" and "female" boxes omits many people who dont fall into that binary. A "check only one" race box does not adequately describe the population that exists in the world. People might try to make do, ticking the box that is most similar to how they describe themelves but often it is a subpar description. Improved data collection is needed. It is very possible that the data you are applying fair deep anomaly detection to reflects these shortcomings. This may make your anomaly detection less fair and effect than it would be if there was improved data collection earlier in the process.
 2. Look for anomalies within each of those subgroups. Any typical anomaly detection method should fine.
 
 
