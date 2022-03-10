@@ -28,15 +28,17 @@ The only experience data comes in through the customer ranking. This data is at 
 
 Rather than being “race-blind,” fair deep anomaly detection is a tool to help (cicumvent? Avoid? Prevent?) vulnerable groups from being impacted by metrics that are affected by racist, sexist, or otherwise biased data.
 
-#### Increase problem detectability
+#### Increase detectability of problems
 Detect extremes in different subset populations with each having their own frequency and severity of outliers.
 Electricity generation prices / machinery failure detection.
 Wind and solar generation by its nature will have more variance in its production than a constant and less influenced electricity source like nuclear or gas generators. Breaking anomaly detection into categories when possible,  like looking for extreme anomalies in the wind generation production subset and the nuclear generation subset, would be more informative than looking at anomalies in the electricity generation as a whole: wind production’s extremes would constantly be registered as anomalies but an anomalous but still reliable nuclear generator might not be extreme enough for the anomaly detection method to take note.ß
 
 
-### Fair Deep Anomaly Detection Process:
-Break into subgroups (I.e. gender, race)
-Look for anomalies within each of those subgroups. Any typical anomaly detection method should fine.
+### Process:
+1. Break into subgroups (I.e. gender, race)
+2. Look for anomalies within each of those subgroups. Any typical anomaly detection method should fine.
+
+
 The positive impact is that this can help prevent systemic racism/sexism from affecting business decisions. It solves the problem of when the collected data does not accurately represent the world around you (see, the unreliable narrator concept in writing) and can help separate out those biases and unreliability to find the truth.
 
 ### Weaknesses of this approach:
