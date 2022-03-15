@@ -17,7 +17,7 @@ Fair deep anomaly detection that correctly detects anomalies but without unfairl
 
 ### Real World Applications
 #### Prevent discrimination:
-: Uber and Lyft rankings.
+Uber and Lyft rankings.
 At the end of every ride, Uber and Lyft customers are requested to score their experience with the driver on a scale from 1 to 5 along with ranking the car on cleanliness and driver-safety. We will assume that these ride-share companies wish to reward their best drivers (say, the top 5%) and lay off their lowest performing drivers (say, the bottom 5%) across the platform and not discriminate against their (employed contractors?) For any protected category, like race or gender. We can make a reasonable assumption that there are excellent and subpar drivers of races and genders across the ridesharing platform along with a bunch of completely adequate drivers just doing their job. The best and worst drivers can be considered anomalies. Driver score might be normally distributed to represent this. ADD A PHOTO OF THE NORMAL DISTRIBUTION TOP AND BOTTOM 5% HIGHLIGHTED
 
 How can rideshare companies learn which of their employed contractors are outliers, falling into being ranked in the top and bottom 5% rating scores? 
