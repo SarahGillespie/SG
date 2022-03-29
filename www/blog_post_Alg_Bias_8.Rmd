@@ -47,4 +47,6 @@ Built for categorical data with hard-separation (e.g. only identifying as one ca
 Fair deep anomaly detection can be used for anomalies in images, as well. See LINK TALK for more details about that. Also see the PAPER.
 
 
-### Github SARAH GO LOOK FOR A GITHUB ABOUT THIS. MAYBE WRITE OUT SOME OF THE CODE IN R OR PYHTON WITH SOME EXAMPLE DATA.
+### Github
+
+I have been unable to find a Github or code associated with this research paper. This seems like a fantastic idea but without sample code then it might be a challenge to apply this concept to the larger machine learning ideas mentioned in the paper. Right now, the easiest path to apply this concept in ten minutes would be to manually filter for the groups you want and then use any desired anomaly detection menthod.
