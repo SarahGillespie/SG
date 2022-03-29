@@ -3,7 +3,7 @@ title: 'Fair Deep Anomaly Detection'
 ---
 By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
-Published January 31, 2022 SAWAP DATE
+Published ADD DATE
 
 
 ### Towards Fair Deep Anomaly Detection paper
@@ -15,7 +15,7 @@ ALSO MENTION THE VIDEO PRESENTAION AND ITS KEY NOTES
 Fair deep anomaly detection that correctly detects anomalies but without unfairly penalizing or benefiting data that is just part of a protected class rather than its own anomalous behavior. This can also clue an observer in to a problem in a typically consistent category that might otherwise co undetected due to focusing on the anomalies in categories that have a more extreme range of values be their normal. While. traditional anomaly detection struggles to scale up and find anomalies in larger sets of data, the fair deep anomaly detection actually beenfits from a big data set rather than a small dataset.
 
 ### Quick Overview
-### Real World Applications
+### Real World Applications on small datasets
 #### 1. Prevent discrimination:
 Uber and Lyft rankings.
 At the end of every ride, Uber and Lyft customers are requested to score their experience with the driver on a scale from 1 to 5 along with ranking the car on cleanliness and driver-safety. We will assume that these ride-share companies wish to reward their best drivers (say, the top 5%) and lay off their lowest performing drivers (say, the bottom 5%) across the platform and not discriminate against their (employed contractors?) For any protected category, like race or gender. We can make a reasonable assumption that there are excellent and subpar drivers of races and genders across the ridesharing platform along with a bunch of completely adequate drivers just doing their job. The best and worst drivers can be considered anomalies. Driver score might be normally distributed to represent this. ADD A PHOTO OF THE NORMAL DISTRIBUTION TOP AND BOTTOM 5% HIGHLIGHTED
@@ -31,6 +31,10 @@ Detect extremes in different subset populations with each having their own frequ
 Electricity generation prices / machinery failure detection.
 Wind and solar generation by its nature will have more variance in its production than a constant and less influenced electricity source like nuclear or gas generators. Breaking anomaly detection into categories when possible,  like looking for extreme anomalies in the wind generation production subset and the nuclear generation subset, would be more informative than looking at anomalies in the electricity generation as a whole: wind production’s extremes would constantly be registered as anomalies but an anomalous but still reliable nuclear generator might not be extreme enough for the anomaly detection method to take note.
 
+### Application to more advanced machine learning
+WORDS WORDS WORDS.
+
+# put in the math here
 
 ### Process: EDIT BECAUSE THIS IS MUCH MORE NUANCED THAN THE PARAGRAPH. ADD IN THE GRAPHS FROM THE PAPER AND PROCESSES.
 1. Break into subgroups (i.e. gender, race, machine type, grographic region). Take care that there are no N/A values in the subgroup categorization or make an unclassified subgroup. Whatever you decide look for anomalies within needs to have a category to look for anomalies within that category. This requires some consideration of the data: there is more nuance and challenges to classify peoples' race and gender than something built for categorization, like a piece of labratory equipment. Some of that nuance is even from how the data is collected: a gender box with just "male" and "female" boxes omits many people who dont fall into that binary. A "check only one" race box does not adequately describe the population that exists in the world. People might try to make do, ticking the box that is most similar to how they describe themelves but often it is a subpar description. Improved data collection is needed. It is very possible that the data you are applying fair deep anomaly detection to reflects these shortcomings. This may make your anomaly detection less fair and effect than it would be if there was improved data collection earlier in the process.
