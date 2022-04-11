@@ -23,6 +23,13 @@ Gradients
 
 #### Linear Algebra
 
+Matrix transformations
+
+(2 Related Work, Figure 1: The architecture of the adversarial network.)
+[INCLUDE PHOTO]
+
+
+Concept of discerete
 "If the output variable Y is discrete, a predictor Y_HAT satisfied *equality of opportunity* with respect to a class *y* if Y_HAT and Z are independent conditioned on Y = *y*." (1 Introduction, definition 3)
 
 
