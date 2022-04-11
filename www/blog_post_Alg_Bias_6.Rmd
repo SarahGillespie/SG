@@ -12,7 +12,7 @@ Published January 31, 2022 SAWAP DATE
 [good paper for its ideas]
 This paper is an excellent example of a smorsberg of lower division math concepts in action in the machine learning application.
 
-This contrasts with how often professors of these classes teach to a broad audience, such as having a calculus class have an engineering focus or an introductory statistics class have an economics focus. I appreciate that this paper frequently answers the "when will I use this?" question with respect to machine learning applications.
+This contrasts with how often professors of these classes teach to a broad audience, such as having a calculus class have an engineering focus or an introductory statistics class have an economics focus. I appreciate that this paper frequently answers the "when will I use this?" question with respect to machine learning applications and, as someone who has passed these classes, was a read full of poingent nostolgia being reminded of linear algebra transformations and type errors.
 
 
 #### Calculus
