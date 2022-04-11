@@ -17,6 +17,8 @@ This contrasts with how often professors of these classes teach to a broad audie
 
 #### Calculus
 
+Gradients
+"We begin with a model, which we call the predictor, trained to accomplish the task of predicting Y given X . As in Figure 1, we assume that the model is trained by attempting to modify weights W to minimize some loss LP (yˆ,y), using a gradient-based method such as stochastic gradient descent." (3 Adversarial Debiasing)
 
 
 #### Linear Algebra
