@@ -1,5 +1,5 @@
 ---
-title: 'template'
+title: 'How introductory math classes actually apply to machine learning'
 ---
 By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
@@ -11,7 +11,7 @@ Published January 31, 2022 SAWAP DATE
 [good paper for its ideas]
 This paper is an excellent example of a smorsberg of lower division math concepts in action in the machine learning application.
 
-This contrasts with how often professors of these classes teach to a broad audience with many engineering majors. This paper frequently answers the "when will I use this?" question 
+This contrasts with how often professors of these classes teach to a broad audience, such as having a calculus class have an engineering focus or an introductory statistics class have an economics focus. I appreciate that this paper frequently answers the "when will I use this?" question with respect to machine learning applications.
 
 #### Calculus
 
