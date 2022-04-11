@@ -10,7 +10,7 @@ Published January 31, 2022 SAWAP DATE
 ### [Mitigating Unwanted Biases with Adversarial Learning](https://dl.acm.org/doi/pdf/10.1145/3278721.3278779) : using [this paper] to admire its linear algebra and multivariable calculus in action.
 
 [good paper for its ideas]
-This paper is an excellent example of a smorsberg of lower division math concepts in action in the machine learning application.
+This paper is an excellent example of a smorsberg of lower division math concepts used specifically in the machine learning context.
 
 This contrasts with how often professors of these classes teach to a broad audience, such as having a calculus class have an engineering focus or an introductory statistics class have an economics focus. I appreciate that this paper frequently answers the "when will I use this?" question with respect to machine learning applications and, as someone who has passed these classes, was a read full of poingent nostolgia being reminded of linear algebra transformations and type errors.
 
@@ -48,6 +48,10 @@ Math concept behind loss and lossy is the linear algebra mapping. Ex. <a,b,c> to
 Concept of discerete
 "If the output variable Y is discrete, a predictor Y_HAT satisfied *equality of opportunity* with respect to a class *y* if Y_HAT and Z are independent conditioned on Y = *y*." (1 Introduction, definition 3)
 
+Bias Subspace
+"It is worth noting that these word vectors computed from the original embeddings are never updated nor is there projection onto the bias subspace and therefore the original word embeddings are never modified. What is learned is a tranform from a biased embedding space to a debiased embedding space."
+(6 Experiments, Word Embeddings)
+
 Double lined E
 (5 Theoretical Guarantees, Proposition 2)
 The 𝔼
@@ -63,6 +67,9 @@ Proofs
 Type I and Type II errors
 "We also compare with the related previous work of Beutel et al. [2], and find we are able to better equalize the differences between the two groups, measured by both False Positive Rate and False Negative Rate (1 - True Positive Rate), although note that the previous work performs better overall for False Negative Rate." (1 Introduction)
 
+Statistically Significant
+"Although the values don’t exactly reach equality, neither dif- ference is statistically significant: a two-proportion two-tail large sample z-test yields p-values 0.25 for y = 0 and 0.62 for y = 1."
+(6 Experiments, UCI Adult Dataset)
 
 #### Conclusion
 It's exciting to see this melody of fundamental mathematical concepts being used in one paper. This is a great bridge between concrete math concepts and "squishy" or subjective machine learning applications, like word categorizations with respect to gender.
