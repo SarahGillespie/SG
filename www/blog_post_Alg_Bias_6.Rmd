@@ -11,7 +11,7 @@ Published January 31, 2022 SAWAP DATE
 [good paper for its ideas]
 This paper is an excellent example of a smorsberg of lower division math concepts in action in the machine learning application.
 
-This contrasts with how often professors of these classes teach to a broad audience with many engineering mahors.
+This contrasts with how often professors of these classes teach to a broad audience with many engineering majors. This paper frequently answers the "when will I use this?" question 
 
 #### Calculus
 
@@ -23,5 +23,8 @@ This contrasts with how often professors of these classes teach to a broad audie
 
 #### Statistics
 
+
+#### Conclusion
+It's exciting to see this melody of fundamental mathematical concepts being used in one paper. This is a great bridge between concrete math concepts and "squishy" or subjective machine learning applications, like word categorizations with respect to gender.
 
 <br>
