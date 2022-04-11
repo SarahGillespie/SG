@@ -20,6 +20,9 @@ This contrasts with how often professors of these classes teach to a broad audie
 Gradients
 "We begin with a model, which we call the predictor, trained to accomplish the task of predicting Y given X . As in Figure 1, we assume that the model is trained by attempting to modify weights W to minimize some loss LP (yˆ,y), using a gradient-based method such as stochastic gradient descent." (3 Adversarial Debiasing)
 
+Differentiability
+"Let the predictor, the adversary, and their weights W, U be defined according to Section 3 LetLA(W,U)betheadver- sary’s loss, convex in U , concave in W ,4 and continuously differen- tiable everywhere." (5 Theoretical Guarantees, Proposition 1)
+
 
 #### Linear Algebra
 
@@ -28,9 +31,18 @@ Matrix transformations
 (2 Related Work, Figure 1: The architecture of the adversarial network.)
 [INCLUDE PHOTO]
 
+and 
+vector transformations and vector mapping
+"We will suppose the adversary has loss term LA(z_HAT,z) and weights U." (3 Adversarial Debiasing)
+
+"Under certain conditions, we show that if the predictor converges, it must converge to a model that satis- fies the desired fairness definition. Since the predictor also attempts to decrease the prediction loss LP , the predictor should still perform well on the target task." (4 Properties, Optimality)
+Math concept behind loss and lossy is the linear algebra mapping. Ex. <a,b,c> to <a+b,c>.
 
 Concept of discerete
 "If the output variable Y is discrete, a predictor Y_HAT satisfied *equality of opportunity* with respect to a class *y* if Y_HAT and Z are independent conditioned on Y = *y*." (1 Introduction, definition 3)
+
+Proofs
+(vocabulary and proofs are spread throughout the paper)
 
 
 #### Statistics
