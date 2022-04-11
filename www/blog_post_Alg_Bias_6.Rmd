@@ -27,6 +27,10 @@ Differentiability
 Vector addition and subtraction
 "Figure 2: Diagram illustrating the gradients in Eqn. 1 and the relevance of the projection term projhд. Without the projection term, in the pictured scenario, the predictor would move in the direction labelled д + h in the diagram, which actually helps the adversary. With the projection term, the predictor will never move in a direction that helps the adversary." (ADD PHOTO) (3 Adversarial Debiasing, Figure 2)
 
+Multivariable Functions
+y = σ(0.6u − 0.6r + 0.6)
+(6 Experiments, Toy Experiments)
+
 #### Linear Algebra
 
 Matrix transformations
@@ -43,6 +47,12 @@ Math concept behind loss and lossy is the linear algebra mapping. Ex. <a,b,c> to
 
 Concept of discerete
 "If the output variable Y is discrete, a predictor Y_HAT satisfied *equality of opportunity* with respect to a class *y* if Y_HAT and Z are independent conditioned on Y = *y*." (1 Introduction, definition 3)
+
+Double lined E
+(5 Theoretical Guarantees, Proposition 2)
+The 𝔼
+E
+ means either Euclidean space, the expected value of a random variable, or a field in a tower of fields. 
 
 Proofs
 (vocabulary and proofs are spread throughout the paper)
