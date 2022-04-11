@@ -8,8 +8,20 @@ Published January 31, 2022 SAWAP DATE
 
 ### Mitigating Unwanted Biases with Adversarial Learning : using [this paper] to admire its linear algebra and multivariable calculus in action.
 
+[good paper for its ideas]
+This paper is an excellent example of a smorsberg of lower division math concepts in action in the machine learning application.
 
-The trust scores approach BLAH BLAH BLAH BLAH
+This contrasts with how often professors of these classes teach to a broad audience with many engineering mahors.
+
+#### Calculus
+
+
+
+#### Linear Algebra
+
+
+
+#### Statistics
 
 
 <br>
