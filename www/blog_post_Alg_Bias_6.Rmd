@@ -26,6 +26,8 @@ This contrasts with how often professors of these classes teach to a broad audie
 
 #### Statistics
 
+Type I and Type II errors
+"We also compare with the related previous work of Beutel et al. [2], and find we are able to better equalize the differences between the two groups, measured by both False Positive Rate and False Negative Rate (1 - True Positive Rate), although note that the previous work performs better overall for False Negative Rate." (1 Introduction)
 
 
 #### Conclusion
