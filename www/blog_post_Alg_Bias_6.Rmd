@@ -4,10 +4,10 @@ title: 'How introductory math classes actually apply to machine learning'
 
 By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
-Published January 31, 2022 SAWAP DATE
+Published April 14, 2022
 
 
-### [Mitigating Unwanted Biases with Adversarial Learning](https://dl.acm.org/doi/pdf/10.1145/3278721.3278779) : using [this paper] to admire its linear algebra and multivariable calculus in action.
+### [Mitigating Unwanted Biases with Adversarial Learning](https://dl.acm.org/doi/pdf/10.1145/3278721.3278779): using this paper to admire its melody of calculus, linear algebra, and statistics.
 
 [good paper for its ideas]
 This paper is an excellent example of a smorsberg of lower division math concepts used specifically in the machine learning context.
