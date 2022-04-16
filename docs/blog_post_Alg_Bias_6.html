@@ -11,9 +11,9 @@
 
 
 
-<title>template</title>
+<title>How introductory math classes actually apply to machine learning</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -53,6 +53,7 @@
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -73,6 +74,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -298,7 +302,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -322,7 +326,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-newspaper"></span>
      
     Blog
@@ -376,17 +380,46 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">template</h1>
+<h1 class="title toc-ignore">How introductory math classes actually apply to machine learning</h1>
 
 </div>
 
 
 <p>By <a href="https://www.linkedin.com/in/sarahg4567/">Sarah Gillespie</a></p>
-<p>Published January 31, 2022 SAWAP DATE</p>
-<div id="mitigating-unwanted-biases-with-adversarial-learning-using-this-paper-to-admire-its-linear-algebra-and-multivariable-calculus-in-action." class="section level3">
-<h3>Mitigating Unwanted Biases with Adversarial Learning : using [this paper] to admire its linear algebra and multivariable calculus in action.</h3>
-<p>The trust scores approach BLAH BLAH BLAH BLAH</p>
+<p>Published April 14, 2022</p>
+<div id="mitigating-unwanted-biases-with-adversarial-learning-using-this-paper-to-admire-its-melody-of-calculus-linear-algebra-and-statistics." class="section level3">
+<h3><a href="https://dl.acm.org/doi/pdf/10.1145/3278721.3278779">Mitigating Unwanted Biases with Adversarial Learning</a>: using this paper to admire its melody of calculus, linear algebra, and statistics.</h3>
+<p>[good paper for its ideas] This paper is an excellent example of a smorsberg of lower division math concepts used specifically in the machine learning context.</p>
+<p>This contrasts with how often professors of these classes teach to a broad audience, such as having a calculus class have an engineering focus or an introductory statistics class have an economics focus. I appreciate that this paper frequently answers the “when will I use this?” question with respect to machine learning applications and, as someone who has passed these classes, was a read full of poingent nostolgia being reminded of linear algebra transformations and type errors.</p>
+<div id="calculus" class="section level4">
+<h4>Calculus</h4>
+<p>Gradients “We begin with a model, which we call the predictor, trained to accomplish the task of predicting Y given X . As in Figure 1, we assume that the model is trained by attempting to modify weights W to minimize some loss LP (yˆ,y), using a gradient-based method such as stochastic gradient descent.” (3 Adversarial Debiasing)</p>
+<p>Differentiability “Let the predictor, the adversary, and their weights W, U be defined according to Section 3 LetLA(W,U)betheadver- sary’s loss, convex in U , concave in W ,4 and continuously differen- tiable everywhere.” (5 Theoretical Guarantees, Proposition 1)</p>
+<p>Vector addition and subtraction “Figure 2: Diagram illustrating the gradients in Eqn. 1 and the relevance of the projection term projhд. Without the projection term, in the pictured scenario, the predictor would move in the direction labelled д + h in the diagram, which actually helps the adversary. With the projection term, the predictor will never move in a direction that helps the adversary.” (ADD PHOTO) (3 Adversarial Debiasing, Figure 2)</p>
+<p>Multivariable Functions y = σ(0.6u − 0.6r + 0.6) (6 Experiments, Toy Experiments)</p>
+</div>
+<div id="linear-algebra" class="section level4">
+<h4>Linear Algebra</h4>
+<p>Matrix transformations</p>
+<p>(2 Related Work, Figure 1: The architecture of the adversarial network.) [INCLUDE PHOTO]</p>
+<p>and vector transformations and vector mapping “We will suppose the adversary has loss term LA(z_HAT,z) and weights U.” (3 Adversarial Debiasing)</p>
+<p>“Under certain conditions, we show that if the predictor converges, it must converge to a model that satis- fies the desired fairness definition. Since the predictor also attempts to decrease the prediction loss LP , the predictor should still perform well on the target task.” (4 Properties, Optimality) Math concept behind loss and lossy is the linear algebra mapping. Ex. &lt;a,b,c&gt; to &lt;a+b,c&gt;.</p>
+<p>Concept of discerete “If the output variable Y is discrete, a predictor Y_HAT satisfied <em>equality of opportunity</em> with respect to a class <em>y</em> if Y_HAT and Z are independent conditioned on Y = <em>y</em>.” (1 Introduction, definition 3)</p>
+<p>Bias Subspace “It is worth noting that these word vectors computed from the original embeddings are never updated nor is there projection onto the bias subspace and therefore the original word embeddings are never modified. What is learned is a tranform from a biased embedding space to a debiased embedding space.” (6 Experiments, Word Embeddings)</p>
+<p>Double lined E (5 Theoretical Guarantees, Proposition 2) The 𝔼 E means either Euclidean space, the expected value of a random variable, or a field in a tower of fields.</p>
+<p>Proofs (vocabulary and proofs are spread throughout the paper)</p>
+</div>
+<div id="statistics" class="section level4">
+<h4>Statistics</h4>
+<p>Type I and Type II errors “We also compare with the related previous work of Beutel et al. [2], and find we are able to better equalize the differences between the two groups, measured by both False Positive Rate and False Negative Rate (1 - True Positive Rate), although note that the previous work performs better overall for False Negative Rate.” (1 Introduction)</p>
+<p>Statistically Significant “Although the values don’t exactly reach equality, neither dif- ference is statistically significant: a two-proportion two-tail large sample z-test yields p-values 0.25 for y = 0 and 0.62 for y = 1.” (6 Experiments, UCI Adult Dataset)</p>
+</div>
+<div id="conclusion" class="section level4">
+<h4>Conclusion</h4>
+<p>It’s exciting to see this melody of fundamental mathematical concepts being used in one paper. This is a great bridge between concrete math concepts and “squishy” or subjective machine learning applications, like word categorizations with respect to gender.</p>
+<p>This paper also links in some multidiciplinary concepts as well, such as philosophy when describing the fairness definitions. (1 Intrduction, Definitions 1 to 3).</p>
 <p><br></p>
+</div>
 </div>
 
 
