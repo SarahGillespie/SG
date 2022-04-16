@@ -4,73 +4,85 @@ title: 'How introductory math classes actually apply to machine learning'
 
 By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
-Published April 14, 2022
+Published April 21, 2022
 
 
 #### Introduction
 
-[Mitigating Unwanted Biases with Adversarial Learning](https://dl.acm.org/doi/pdf/10.1145/3278721.3278779) is an excellent example of a smorsberg of lower division math concepts used specifically in the machine learning context. The concepts can be grouped into calculus, linear algebra, and statistics.
+[Mitigating Unwanted Biases with Adversarial Learning](https://dl.acm.org/doi/pdf/10.1145/3278721.3278779) is an excellent example of the smorsberg of lower division math concepts used frequently in machine learning. The concepts can be grouped into calculus, linear algebra, and statistics.
 
-While this paper assumes the reader is fluent in the introductory math concepts described, it is an excellent example of the application of these lower division concepts specifically within the context of machine learning. This contrasts with how professors of Introductory Statistics, Calculus I-III, and Linear Algebra classes are often taught to a broad audience of students needing a smattering of different math concepts for their career, such as a room of both economics, biology, and engineering majors. A [Wine and Viticulture major](https://wvit.calpoly.edu) was seated to my left in my calculus class at Cal Poly San Luis Obispo. I appreciate that this paper frequently answers the "when will I use this?" question with respect to machine learning applications and, as someone who has passed these classes, was a nostolgic read as linear algebra transformations and type errors reminded me of study groups I put together on weekends at Smith College.
+While the paper assumes the reader is fluent in the introductory math concepts described, it is an excellent example of the application of these lower division concepts specifically within the context of machine learning. This contrasts with how professors of Introductory Statistics, Calculus I-III, and Linear Algebra classes are often taught to a broad audience of students needing a smattering of different math concepts for their career, such as a room of both economics, biology, and engineering majors. A [Wine and Viticulture major](https://wvit.calpoly.edu) was seated to my left in my Cal Poly San Luis Obispo calculus class. I appreciate that this paper frequently answers the "when will I use this?" question with respect to machine learning applications. As a bonus, this paper was a nostalgic read with linear algebra transformations and type errors reminding me of study groups I put together on weekends at Smith College, arguing out proofs and getting covered in chalk dust.
 
 
-##### Calculus
+#### Calculus
 
-Gradients
+*Gradients*
+
 "We begin with a model, which we call the predictor, trained to accomplish the task of predicting Y given X . As in Figure 1, we assume that the model is trained by attempting to modify weights W to minimize some loss LP (yˆ,y), using a gradient-based method such as stochastic gradient descent." (3 Adversarial Debiasing)
 
-Differentiability
+*Differentiability*
+
 "Let the predictor, the adversary, and their weights W, U be defined according to Section 3 LetLA(W,U)betheadver- sary’s loss, convex in U , concave in W ,4 and continuously differen- tiable everywhere." (5 Theoretical Guarantees, Proposition 1)
 
 
-Vector addition and subtraction
+*Vector addition and subtraction*
+
 "Figure 2: Diagram illustrating the gradients in Eqn. 1 and the relevance of the projection term projhд. Without the projection term, in the pictured scenario, the predictor would move in the direction labelled д + h in the diagram, which actually helps the adversary. With the projection term, the predictor will never move in a direction that helps the adversary." (ADD PHOTO) (3 Adversarial Debiasing, Figure 2)
 
-Multivariable Functions
+*Multivariable Functions*
+
 y = σ(0.6u − 0.6r + 0.6)
 (6 Experiments, Toy Experiments)
 
-##### Linear Algebra
+#### Linear Algebra
 
-Matrix transformations
+*Matrix transformations*
 
 (2 Related Work, Figure 1: The architecture of the adversarial network.)
 [INCLUDE PHOTO]
 
 and 
-vector transformations and vector mapping
+
+*vector transformations and vector mapping*
+
 "We will suppose the adversary has loss term LA(z_HAT,z) and weights U." (3 Adversarial Debiasing)
 
 "Under certain conditions, we show that if the predictor converges, it must converge to a model that satis- fies the desired fairness definition. Since the predictor also attempts to decrease the prediction loss LP , the predictor should still perform well on the target task." (4 Properties, Optimality)
 Math concept behind loss and lossy is the linear algebra mapping. Ex. <a,b,c> to <a+b,c>.
 
-Concept of discerete
+*Concept of discerete*
+
 "If the output variable Y is discrete, a predictor Y_HAT satisfied *equality of opportunity* with respect to a class *y* if Y_HAT and Z are independent conditioned on Y = *y*." (1 Introduction, definition 3)
 
-Bias Subspace
+*Bias Subspace*
+
 "It is worth noting that these word vectors computed from the original embeddings are never updated nor is there projection onto the bias subspace and therefore the original word embeddings are never modified. What is learned is a tranform from a biased embedding space to a debiased embedding space."
 (6 Experiments, Word Embeddings)
 
-Double lined E
+*Double lined E*
+
 (5 Theoretical Guarantees, Proposition 2)
 The 𝔼
 E
  means either Euclidean space, the expected value of a random variable, or a field in a tower of fields. 
 
-Proofs
+*Proofs*
+
 (vocabulary and proofs are spread throughout the paper)
 
 
-##### Statistics
+#### Statistics
 
-Type I and Type II errors
+*Type I and Type II errors*
+
 "We also compare with the related previous work of Beutel et al. [2], and find we are able to better equalize the differences between the two groups, measured by both False Positive Rate and False Negative Rate (1 - True Positive Rate), although note that the previous work performs better overall for False Negative Rate." (1 Introduction)
 
-Statistically Significant
+*Statistically Significant*
+
 "Although the values don’t exactly reach equality, neither dif- ference is statistically significant: a two-proportion two-tail large sample z-test yields p-values 0.25 for y = 0 and 0.62 for y = 1."
 (6 Experiments, UCI Adult Dataset)
 
-##### Conclusion
+#### Conclusion
 It's exciting to see this melody of fundamental mathematical concepts being used in one paper. This is a great bridge between concrete math concepts and "squishy" or subjective machine learning applications, like word categorizations with respect to gender.
 
 This paper also links in some multidiciplinary concepts as well, such as philosophy when describing the fairness definitions. (1 Intrduction, Definitions 1 to 3).
