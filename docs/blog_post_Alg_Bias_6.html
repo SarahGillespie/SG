@@ -387,19 +387,19 @@ div.tocify {
 
 <p>By <a href="https://www.linkedin.com/in/sarahg4567/">Sarah Gillespie</a></p>
 <p>Published April 14, 2022</p>
-<div id="mitigating-unwanted-biases-with-adversarial-learning-using-this-paper-to-admire-its-melody-of-calculus-linear-algebra-and-statistics." class="section level3">
-<h3><a href="https://dl.acm.org/doi/pdf/10.1145/3278721.3278779">Mitigating Unwanted Biases with Adversarial Learning</a>: using this paper to admire its melody of calculus, linear algebra, and statistics.</h3>
-<p>[good paper for its ideas] This paper is an excellent example of a smorsberg of lower division math concepts used specifically in the machine learning context.</p>
-<p>This contrasts with how often professors of these classes teach to a broad audience, such as having a calculus class have an engineering focus or an introductory statistics class have an economics focus. I appreciate that this paper frequently answers the “when will I use this?” question with respect to machine learning applications and, as someone who has passed these classes, was a read full of poingent nostolgia being reminded of linear algebra transformations and type errors.</p>
-<div id="calculus" class="section level4">
-<h4>Calculus</h4>
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p><a href="https://dl.acm.org/doi/pdf/10.1145/3278721.3278779">Mitigating Unwanted Biases with Adversarial Learning</a> is an excellent example of a smorsberg of lower division math concepts used specifically in the machine learning context. The concepts can be grouped into calculus, linear algebra, and statistics.</p>
+<p>While this paper assumes the reader is fluent in the introductory math concepts described, it is an excellent example of the application of these lower division concepts specifically within the context of machine learning. This contrasts with how professors of Introductory Statistics, Calculus I-III, and Linear Algebra classes are often taught to a broad audience of students needing a smattering of different math concepts for their career, such as a room of both economics, biology, and engineering majors. A <a href="https://wvit.calpoly.edu">Wine and Viticulture major</a> was seated to my left in my calculus class at Cal Poly San Luis Obispo. I appreciate that this paper frequently answers the “when will I use this?” question with respect to machine learning applications and, as someone who has passed these classes, was a nostolgic read as linear algebra transformations and type errors reminded me of study groups I put together on weekends at Smith College.</p>
+<div id="calculus" class="section level5">
+<h5>Calculus</h5>
 <p>Gradients “We begin with a model, which we call the predictor, trained to accomplish the task of predicting Y given X . As in Figure 1, we assume that the model is trained by attempting to modify weights W to minimize some loss LP (yˆ,y), using a gradient-based method such as stochastic gradient descent.” (3 Adversarial Debiasing)</p>
 <p>Differentiability “Let the predictor, the adversary, and their weights W, U be defined according to Section 3 LetLA(W,U)betheadver- sary’s loss, convex in U , concave in W ,4 and continuously differen- tiable everywhere.” (5 Theoretical Guarantees, Proposition 1)</p>
 <p>Vector addition and subtraction “Figure 2: Diagram illustrating the gradients in Eqn. 1 and the relevance of the projection term projhд. Without the projection term, in the pictured scenario, the predictor would move in the direction labelled д + h in the diagram, which actually helps the adversary. With the projection term, the predictor will never move in a direction that helps the adversary.” (ADD PHOTO) (3 Adversarial Debiasing, Figure 2)</p>
 <p>Multivariable Functions y = σ(0.6u − 0.6r + 0.6) (6 Experiments, Toy Experiments)</p>
 </div>
-<div id="linear-algebra" class="section level4">
-<h4>Linear Algebra</h4>
+<div id="linear-algebra" class="section level5">
+<h5>Linear Algebra</h5>
 <p>Matrix transformations</p>
 <p>(2 Related Work, Figure 1: The architecture of the adversarial network.) [INCLUDE PHOTO]</p>
 <p>and vector transformations and vector mapping “We will suppose the adversary has loss term LA(z_HAT,z) and weights U.” (3 Adversarial Debiasing)</p>
@@ -409,13 +409,13 @@ div.tocify {
 <p>Double lined E (5 Theoretical Guarantees, Proposition 2) The 𝔼 E means either Euclidean space, the expected value of a random variable, or a field in a tower of fields.</p>
 <p>Proofs (vocabulary and proofs are spread throughout the paper)</p>
 </div>
-<div id="statistics" class="section level4">
-<h4>Statistics</h4>
+<div id="statistics" class="section level5">
+<h5>Statistics</h5>
 <p>Type I and Type II errors “We also compare with the related previous work of Beutel et al. [2], and find we are able to better equalize the differences between the two groups, measured by both False Positive Rate and False Negative Rate (1 - True Positive Rate), although note that the previous work performs better overall for False Negative Rate.” (1 Introduction)</p>
 <p>Statistically Significant “Although the values don’t exactly reach equality, neither dif- ference is statistically significant: a two-proportion two-tail large sample z-test yields p-values 0.25 for y = 0 and 0.62 for y = 1.” (6 Experiments, UCI Adult Dataset)</p>
 </div>
-<div id="conclusion" class="section level4">
-<h4>Conclusion</h4>
+<div id="conclusion" class="section level5">
+<h5>Conclusion</h5>
 <p>It’s exciting to see this melody of fundamental mathematical concepts being used in one paper. This is a great bridge between concrete math concepts and “squishy” or subjective machine learning applications, like word categorizations with respect to gender.</p>
 <p>This paper also links in some multidiciplinary concepts as well, such as philosophy when describing the fairness definitions. (1 Intrduction, Definitions 1 to 3).</p>
 <p><br></p>
