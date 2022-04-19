@@ -397,46 +397,55 @@ div.tocify {
 <li><strong>Multi-Disciplinary Expertise Is Leveraged Throughout the Total Product Life Cycle:</strong> In-depth understanding of a model’s intended integration into clinical workflow, and the desired benefits and associated patient risks, can help ensure that ML-enabled medical devices are safe and effective and address clinically meaningful needs over the lifecycle of the device.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Good Software Engineering and Security Practices Are Implemented:</strong> Model design is implemented with attention to the “fundamentals”: good software engineering practices, data quality assurance, data management, and robust cybersecurity practices. These practices include methodical risk management and design process that can appropriately capture and communicate design, implementation, and risk management decisions and rationale, as well as ensure data authenticity and integrity.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Clinical Study Participants and Data Sets Are Representative of the Intended Patient Population:</strong> Data collection protocols should ensure that the relevant characteristics of the intended patient population (for example, in terms of age, gender, sex, race, and ethnicity), use, and measurement inputs are sufficiently represented in a sample of adequate size in the clinical study and training and test datasets, so that results can be reasonably generalized to the population of interest. This is important to manage any bias, promote appropriate and generalizable performance across the intended patient population, assess usability, and identify circumstances where the model may underperform.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Training Data Sets Are Independent of Test Sets:</strong> Training and test datasets are selected and maintained to be appropriately independent of one another. All potential sources of dependence, including patient, data acquisition, and site factors, are considered and addressed to assure independence.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Selected Reference Datasets Are Based Upon Best Available Methods:</strong> Accepted, best available methods for developing a reference dataset (that is, a reference standard) ensure that clinically relevant and well characterized data are collected and the limitations of the reference are understood. If available, accepted reference datasets in model development and testing that promote and demonstrate model robustness and generalizability across the intended patient population are used.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Model Design Is Tailored to the Available Data and Reflects the Intended Use of the Device:</strong> Model design is suited to the available data and supports the active mitigation of known risks, like overfitting, performance degradation, and security risks. The clinical benefits and risks related to the product are well understood, used to derive clinically meaningful performance goals for testing, and support that the product can safely and effectively achieve its intended use. Considerations include the impact of both global and local performance and uncertainty/variability in the device inputs, outputs, intended patient populations, and clinical use conditions.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="7" style="list-style-type: decimal">
 <li><strong>Focus Is Placed on the Performance of the Human-AI Team:</strong> Where the model has a “human in the loop,” human factors considerations and the human interpretability of the model outputs are addressed with emphasis on the performance of the Human-AI team, rather than just the performance of the model in isolation.</li>
 </ol>
 </blockquote>
+<p>One aspect to consider in machine learning is if the tool is used to replace a human or in unison with a person. If a machine learning model is used to double check and enhance a person’s insights then that could be useful, and seems to be the standard as models are worked on and oversights found. Often when using a model to replace a human’s insights then the idea is to see if the model is more accurate than a human’s eye. This calls up much statistical analysis: is the model better than a human on average or during edge cases, too?</p>
 <blockquote>
 <ol start="8" style="list-style-type: decimal">
 <li><strong>Testing Demonstrates Device Performance during Clinically Relevant Conditions:</strong> Statistically sound test plans are developed and executed to generate clinically relevant device performance information independently of the training data set. Considerations include the intended patient population, important subgroups, clinical environment and use by the Human-AI team, measurement inputs, and potential confounding factors.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="9" style="list-style-type: decimal">
 <li><strong>Users Are Provided Clear, Essential Information:</strong> Users are provided ready access to clear, contextually relevant information that is appropriate for the intended audience (such as health care providers or patients) including: the product’s intended use and indications for use, performance of the model for appropriate subgroups, characteristics of the data used to train and test the model, acceptable inputs, known limitations, user interface interpretation, and clinical workflow integration of the model. Users are also made aware of device modifications and updates from real-world performance monitoring, the basis for decision-making when available, and a means to communicate product concerns to the developer.</li>
 </ol>
 </blockquote>
+<p>[comments]</p>
 <blockquote>
 <ol start="10" style="list-style-type: decimal">
 <li><strong>Deployed Models Are Monitored for Performance and Re-training Risks are Managed:</strong> Deployed models have the capability to be monitored in “real world” use with a focus on maintained or improved safety and performance. Additionally, when models are periodically or continually trained after deployment, there are appropriate controls in place to manage risks of overfitting, unintended bias, or degradation of the model (for example, dataset drift) that may impact the safety and performance of the model as it is used by the Human-AI team.</li>
