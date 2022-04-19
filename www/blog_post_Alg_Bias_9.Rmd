@@ -9,3 +9,4 @@ Published ADD DATE
 ### Open letter to the FDA regarding their machine learning guidelines
 
 
+action plan = https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-software-medical-device
