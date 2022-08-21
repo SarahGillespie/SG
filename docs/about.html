@@ -13,7 +13,7 @@
 
 <title>About me</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -50,6 +50,7 @@
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -70,6 +71,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -222,7 +226,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -246,7 +250,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-newspaper"></span>
      
     Blog
@@ -305,11 +309,9 @@ $(document).ready(function () {
 </div>
 
 
-<div id="i-am-an-undergraduate-student-double-majoring-in-quantitative-economics-and-statistical-and-data-sciences." class="section level4">
-<h4>I am an undergraduate student double majoring in <a href="https://www.smith.edu/academics/economics">quantitative economics</a> and <a href="https://www.smith.edu/academics/statistics">statistical and data sciences</a>.</h4>
-<p>My career goal is to analyze and synthesize complex data into concise, relevant, and engaging insights to facilitate data-driven decision making. For my Bachelors degree, I will graduate from <a href="https://www.smith.edu/">Smith College</a> in January 2022.</p>
-<p>Besides academics, I am president of my school’s Statistical and Data Sciences club. I use this leadership opportunity to organize inclusive events to support beginner, intermediate, and advanced student skill-level learning and enthusiasm in data science and statistics. This semester’s topics include included Git, R Shiny, data communication, environmental data, and alumni speakers.</p>
-<p>My hobbies this month include drinking too much pumpkin spice flavored coffee, improving Wikipedia pages and listening to The Great Courses’ <a href="https://www.thegreatcourses.com/courses/the-black-death-the-worlds-most-devastating-plague">The Black Death: The World’s Most Devastating Plague</a> audiobook from my public library.</p>
+<p>I am a recent <a href="https://www.smith.edu/">Smith College</a> graduate who studied <a href="https://www.smith.edu/academics/economics">quantitative economics</a> and <a href="https://www.smith.edu/academics/statistics">statistical and data sciences</a>. My career goal is to analyze and synthesize complex data into concise, relevant, and engaging insights to facilitate data-driven decision making. I currently work as a metrologist and quality engineer at a biotech labratory in Cambridge, MA.</p>
+<p>During undergrad, I was the president of my school’s Statistical and Data Sciences club. I used this leadership opportunity to organize inclusive events to support beginner, intermediate, and advanced student skill-level learning and enthusiasm in data science and statistics. Topics include included Git, R Shiny, data communication, environmental data, and guest speakers. I continue this energy by running Diversity and Inclusion events while at work and writing my political representatives while at home.</p>
+<p>My hobbies this month include adventuring Massachusetts via commuter rail and Dutch-style bike, advocating for more bike lanes, listening to The Great Courses’ <a href="https://www.thegreatcourses.com/courses/the-black-death-the-worlds-most-devastating-plague">The Black Death: The World’s Most Devastating Plague</a> audiobook from my public library.</p>
 <p><br></p>
 <div class="figure">
 <img src="img_about_harbor_photo.jpg" alt="*Caption: Sarah standing in front of the Boston Harbor with a smile.*" width="100%" />
@@ -318,7 +320,6 @@ $(document).ready(function () {
 </p>
 </div>
 <hr />
-</div>
 <div id="social-media" class="section level3">
 <h3>Social media:</h3>
 <p><a href="https://github.com/SarahGillespie">Github</a></p>
