@@ -1,28 +1,108 @@
 ---
-title: 'blog post 7: Intellectual Property + ML models'
+title: 'blog post 7: FDA Algorithm Regulation'
 ---
 By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)
  
- *in progress*
- 
-Testing GPT-3 and Codex --> go google the code and phrases and see how much is originally generated and how much is actually just intelligently copy and pasted paragraphs from training data. GPT-3 and Codex blur the lines of copyright on code and language by putting everything in the same training data pool.
- 
- 
- How to tell if someone stole your ML model?
- This matters because for some companies, having a more intellinet ML model is the crux of their buisness. FOr example, Spotify's algorithm for predicting what to listen to next helped it eclipse Pandora. Stitchfix emerged from the cut-throat fashion industry.
- 
- So how can you tell if a competitor is using a ML model that your company developed? That is your intellectural proprty?
- 
-Look at the academic papers of:
+### FDA Algorithm Regulation
 
-Dataset Inference: Ownership Resolution in Machine Learning
-Pratyush Maini, Mohammad Yaghini, Nicolas Papernot
-TLDR: how to tell if someone stole your model
+#### (an informal cross-sectional study of FDA warnings as of December 2022)
 
-CaPC Learning: Confidential and Private Collaborative Learning
-Christopher A. Choquette-Choo, Natalie Dullerud, Adam Dziedzic, Yunxiang Zhang, Somesh Jha, Nicolas Papernot, Xiao Wang
-TLDR: how to create a collaborative ML (deep L?) model with other entities without sharing your proprietary data
+United States government agencies are starting to publish guidance relating to algorithms, but only the FDA and Department of Housing and Urban Development are actively engaged in warnings to corporations.
 
-Entangled Watermarks as a Defense against Model Extraction
-Hengrui Jia, Christopher A. Choquette-Choo, Varun Chandrasekaran, Nicolas Papernot
-TLDR: protecting your data with watermarks goes okay enough to use
+<br> 
+
+### FDA and algorithms
+
+[FDA warning letters](https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters) are published for the public to read. As of December 2022, the word “algorithm” and related words come up a shockingly rare number of times.
+
+<br> 
+
+### Algorithm-specific FDA warning letters
+
+Company: [Global Medical Technology SL](https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/global-medical-technology-sl-598226-12202019)
+
+
+Letter issue date: 2019 December 12
+
+
+Issuing office: Center for Devices and Radiological Health
+
+
+Subject: CGMP/QSR/Medical Devices/Adulterated
+
+
+Key quotes:
+
+The object in question is the “Platinum GMT IPL System Cloud,” which is a hair removal device.
+
+>No records were provided to demonstrate that the system software has been validated. For example, the software includes an algorithm that automatically selects the treatment energy level parameters based on the patients’ characteristics (e.g., (b)(4)). However, no records were provided to demonstrate that this software function has been validated to ensure that correct parameters are set when delivering treatment to the patients.
+
+Highlights: What does an unvalidated algorithm mean? This is still being defined for increasingly complex algorithms, but I am confident that a validated algorithm would follow the general validated GMP software expectations for user’s limitations: clearly set user permissions, individual user accountability, and permanently recorded data outputs. For a machine learning or artificial intelligence algorithm that is not easy to recreate manually, the algorithm’s [training data would need to be documented](https://arxiv.org/abs/1803.09010) and archived so that abnormal algorithm outputs could be thoroughly investigated. My interpretation of this letter is that there was not a human check on the algorithm’s output parameters before the treatment energy level parameter output was applied to a patient, which means *this warning letter focuses more on the user permissions side of software, rather than delving into the algorithm’s training data.*
+
+<br> 
+
+Company: [Galt Pharmaceuticals LLC](https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/galt-pharmaceuticals-llc-593156-09132019)
+
+
+Letter issue date: 2019 September 13
+
+
+Issuing office: Office of Prescription Drug Promotion
+
+
+Subject: False & Misleading Claims/Misbranded
+
+
+Key quotes: 
+
+An advertisement about Doral sleep medication was discussed extentively in the FDA warning letter.
+
+>Concerned about Abuse potential of sleep medications?”:
+>“Doral’s relative likelihood of abuse is considerably lower than some of the widely used sleep aids (i.e. Zolpidem & Temazepam)”
+>“Doral was ranked even lower than OTC product Diphenhydramine for relative abuse potential”
+>A figure comparing the “Relative Likelihood of Abuse” of 19 drugs, with Quazepam shown as having a score lower than 16 of the drugs depicted
+> “Doral’s abuse potential is 1/2 of Zolpidem & 1/3 of Temazepam”
+>These claims and presentation are misleading because they minimize the risks of abuse and dependence associated with Doral and suggest that this C-IV scheduled drug is superior in safety to other prescription and over-the-counter (OTC) products. The cited reference by Griffiths et al., provides an algorithm that purportedly differentiates the likelihood of abuse and relative toxicity among 19 compounds, including Doral (quazepam). However, as FDA pointed out in 2014, *“the ‘algorithm’ lacks actual abuse data in human subjects and has not been validated.”* While we acknowledge the figure includes the following statement, “Please see complete prescribing information for detailed information on each product. The above chart is not intended for efficacy comparison. The authors algorithm, while comprehensive, does lack prospective abuse data in human subjects and had not been validated in subsequent research,” this statement does not mitigate the overwhelming impression that Doral is superior in safety to other prescription and OTC products.
+
+Highlights: This letter’s algorithm critique focuses on misbranding based on a misunderstanding of algorithm output and an algorithm that was not validated. It appears that the company that received the warning letter did not create the algorithm: Galt Pharmaceuticals LLC relied on an algorithm that appears to have been published in a research paper rather than developed and controlled by Galt Pharmaceuticals LLC.
+Additionally, the FDA addressed that the algorithm described in the advertising used data input from non-human subjects. I cannot underscore enough how crucial it is to document an algorithm’s input data since that data is instrumental to understand the algorithm output.
+
+<br> 
+
+Company: [RadLogics, Inc.](https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/radlogics-inc-515599-04052018)
+
+
+Letter issue date: 2018 May 04
+
+
+Issuing office: Center for Devices and Radiological Health
+
+
+Subject: CGMP/QSR/Medical Devices/PMA/Adulterated/Misbranded
+
+
+Key quotes:
+
+>Language on your firm’s website indicates that the AlphaPoint software provides CADe functionality, utilizing machine learning algorithms to automatically detect and mark abnormalities on medical images, including lung nodules, pneumothorax, and pleural effusion. Your firm’s website states that the AlphaPoint software is capable of functioning as a “Virtual Resident” because it automatically performs an initial review of radiologic images and generates a report listing and characterizing the abnormalities detected in the images, relieving the physician of the task of reviewing the images to identify abnormalities. Examples of such language include:
+>“Detailed, accurate findings for each case are available in a matter of minutes. By the time you sit down to review a case, the preliminary findings are up on the screen. Instead of spending the majority of your time on detection and characterization, you can focus on the critical task of diagnostics and completing your report.”
+>“The RADLogics Virtual Resident is like having a top resident preparing detailed detection and characterization findings for your review.”
+>“The RADLogics Virtual Resident is not subject to human variability, minimizing the chances of errors and inconsistencies.  For example, if a clinician fails to note that contrast media was used in a scan, this will not affect the accuracy of the findings.  The RADLogics Virtual Resident analyzes the images and identifies, independently, whether or not a contrast media was used.  The software also scans for all of the disease states that are in each scan module.  In the case of Chest CT, for example, even if a referring physician has asked the radiologist to look for a rib fracture, the software will identify lung nodules, if present.” 
+In addition, on November 21, 2017, your firm published a video on YouTube demonstrating AlphaPoint’s CADe functionality. The 3 minute 7 second video entitled “RADLogics with and without Demo 11 21 17” shows the difference between “reading a chest CT” and “Using the RADLogics Machine-Learning Virtual Resident.” The video highlights nodules automatically marked and measured by the AlphaPoint software at 1:49, 1:53, and 1:57, and suggests the superiority of AlphaPoint’s automatic detection capability over that of a human radiologist by calling out an “Additional Nodule!” at 2:28. The video concludes with a summary indicating that AlphaPoint’s automatic detection capability could allow a radiologist to read such capability, stating that “Reading without RADLogics” takes 12 minutes 30 seconds, while “Reading with RADLogics” takes 9 minutes 30 seconds.”
+ 
+>The statements cited above provide evidence that you have made a major change or modification to the intended use of your device (see 21 CFR 807.81(a)(3)(ii)) that requires a new premarket submission. We also note that your firm’s device may not be found substantially equivalent to a legally marketed device (predicate) currently classified under 21 CFR 884.2980(a) if your firm’s device has different technological characteristics from the predicate device that raise different questions of safety and effectiveness from the predicate device (e.g., a significant change in the materials, design, energy source, or other features of the device (see 21 U.S.C. 360c(f)(1), 21 U.S.C. 360c(i)(1), and the implementing regulations found at 21 CFR 807.100).
+
+>None of your firm’s claims relating to AlphaPoint’s CADe capability is supported by the original report cleared for K120161. Your firm has provided no evidence to FDA supporting the safety and efficacy of AlphaPoint’s CADe capabilities, and FDA is currently unaware of any literature that could support RADLogics’ claims regarding AlphaPoint’s CADe functionality. The lack of evidence demonstrating the medical images 3 minutes faster than software without safety and efficacy of AlphaPoint’s automatic detection and characterization capabilities raises public health concerns. Specifically, the risks for the device as advertised are low sensitivity and specificity (i.e., the device has unknown false positive and false negative rates). For example, if there is a false negative, a risk to the patient is that lung nodules may go undetected or untreated, which may increase the risk of late diagnosis of lung cancer. For a false positive, there is a risk that the patient may be referred for unnecessary biopsy and/or other surgical procedures. Both biopsy and lung surgery have a risk of significant complications. Similar risks to patients exist for other conditions that your website claims the AlphaPoint software can detect/characterize (e.g., cardiomegaly, pneumothorax, pleural effusion, enlarged mediastinum, pleural air, and pleural fluid). Your firm’s promotional materials increase these public health concerns further because they market AlphaPoint as a physician replacement that can make an initial review of radiology images and provide automatic detection and characterization of abnormalities, which leaves the physician to only review the software’s findings and provide a diagnosis. These new risks are serious, and are not effectively mitigated because the AlphaPoint software was not cleared for computer-assisted detection intended use.
+
+Highlights: This letter is based on RadLogics’ making such a big change to their product that the device needed a new round of FDA authorization.
+
+Additionally, the company did not publish the device’s [Type I and Type II error rates](https://online.stat.psu.edu/stat200/lesson/6/6.1) to support its low sensitivity claim. The FDA explained the risk of Type I and Type II errors for this product by giving the example, if there is a false negative, a risk to the patient is that lung nodules may go undetected or untreated, which may increase the risk of late diagnosis of lung cancer. For a false positive, there is a risk that the patient may be referred for unnecessary biopsy and/or other surgical procedures.
+
+<br> 
+
+### FDA and algorithms in the long-run
+
+I predict algorithm efficacy and content will generally go unchallenged unless a civil suit is brought against the people who create an algorithm. And with no clear Standard Operating Procedures or compliance guidelines for how to build a resilient algorithm, I don’t expect the status quo to change. Algorithms used in the development of food and drug products would be subject to FDA oversight. The interesting gray area is algorithms that are not related to food and drug products, yet may have an impact on the public’s health. For example, AI-driven mental health care is [predicted to become a $37 billion industry by 2026, according to the Brookings Institute,](https://www.brookings.edu/techstream/the-wellness-industrys-risky-embrace-of-ai-driven-mental-health-care/) and social media algorithms have [measurable impacts on mental health](https://hai.stanford.edu/news/psychiatrists-perspective-social-media-algorithms-and-mental-health).
+
+The [FDA has released an Artificial Intelligence/Machine Learning action plan](https://www.fda.gov/news-events/press-announcements/fda-releases-artificial-intelligencemachine-learning-action-plan), which errs on the side of being vague, probably to avoid hamstringing future innovations by rules that didn’t predict future innovations, but the lack of warning letters regarding algorithms indicate that algorithms are not being investigated. Not every algorithm would pass or fail, but you’d expect more failures if algorithms were being thoroughly investigated in this new field. Having only one warning letter for an unvalidated algorithm is a giant sign that the FDA does not have its eyes on this upcoming regulatory problem.
+
+In the long-run, algorithm documentability and explainability are increasingly relevant in today's world. This may need to be its own branch other than the FDA, but for not, the FDA is a good fit as a functioning and organized agency. This issue transcends political lines; health and safety of the US public is a nonpartisan issue.

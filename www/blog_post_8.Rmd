@@ -1,0 +1,48 @@
+---
+title: 'blog post 8: Other USA government agencies and algorithm regulation'
+---
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)  
+ 
+ <br> 
+ 
+### Non-FDA United States government agencies and algorithm regulation
+(an informal cross-sectional study of government agency websites in December 2022)  
+
+<br> 
+
+### Department of Housing and Urban Development (HUD)
+[A HUD case against Facebook in 2019](https://www.hud.gov/sites/dfiles/Main/documents/HUD_v_Facebook.pdf) stated that Facebook engaged in housing discrimination by allowing housing to be advertised via targeted ads which led to digital redlining based on users’ demographics known by Facebook.
+
+It appears that each government agency is dealing with algorithms independently and only when algorithms cross into the agency’s regulatory sphere. It appears that civil lawsuits are doing the majority of algorithm regulation that occurs since civil lawsuits have the teeth to inflict financial penalties on companies.  
+
+<br> 
+
+### Federal Trade Commission (FTC)
+Did you know that the [FTC also issues warning letters](https://www.ftc.gov/legal-library/browse/warning-letters) to companies that threaten its mission statement of protecting America’s consumers? Many of the FTC’s warning letters are that branch posting relevant warning letters that the FDA issued. As of 23 December 2022, there are only 507 FTC warning letters posted and none deal with algorithms.
+
+The FTC does provide some guidance related to using artificial intelligence and algorithms. Andrew Smith, Director, FTC Bureau of Consumer Protection [wrote a business blog on 08 April 2020](https://www.ftc.gov/business-guidance/blog/2020/04/using-artificial-intelligence-and-algorithms) giving general business recommendations about using algorithms using past cases as warnings. This blog reiterated that the FTC becomes involved when customers are misled. This can be through a past complaint, such as a compliant that the Ashley Madison dating website misled customers by creating fake profiles to generate customer sign ups to warning people that if a company’s use of doppelgängers – whether a fake dating profile, phony follower, deepfakes, or an AI chatbot – misleads or discriminates against consumers, then that company could face an FTC enforcement action.
+
+The most interesting advice is to make sure that your AI models are validated and revalidated to ensure that they work as intended, and do not illegally discriminate. Having a validated algorithm came up in the FDA warning letter to [Global Medical Technology SL](https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/global-medical-technology-sl-598226-12202019). The FTC describes validating an algorithm as unique to the specific algorithm but may include the algorithm “based on data derived from an empirical comparison of sample groups, or the population of creditworthy and noncreditworthy applicants who applied for credit within a reasonable preceding period of time; that they are developed and validated using accepted statistical principles and methodology; and that they are periodically revalidated by the use of appropriate statistical principles and methodology, and adjusted as necessary to maintain predictive ability.”
+
+A similar business blog published by the FTC and written by Elisa Jillson on 19 April 2021 dives into algorithm discrimination specifics. This blog goes a step further to address the qualitative and hard to measure fairness topic of an algorithm doing more harm than good.
+
+“Do more good than harm. To put it in the simplest terms, under the FTC Act, a practice is unfair if it causes more harm than good. Let’s say your algorithm will allow a company to target consumers most interested in buying their product. Seems like a straightforward benefit, right? But let’s say the model pinpoints those consumers by considering race, color, religion, and sex – and the result is digital redlining (similar to the Department of Housing and Urban Development’s case against Facebook in 2019). If your model causes more harm than good – that is, in Section 5 parlance, if it causes or is likely to cause substantial injury to consumers that is not reasonably avoidable by consumers and not outweighed by countervailing benefits to consumers or to competition – the FTC can challenge the use of that model as unfair.”
+
+An [FTC press release on 11 Aug 2022](https://www.ftc.gov/news-events/news/press-releases/2022/08/ftc-explores-rules-cracking-down-commercial-surveillance-lax-data-security-practices) admits that the FTC has limited power, explaining “the FTC’s past work, however, suggests that enforcement of the FTC Act alone may not be enough to protect consumers. The FTC’s ability to deter unlawful conduct is limited because the agency generally lacks authority to seek financial penalties for initial violations of the FTC Act. By contrast, rules that establish clear privacy and data security requirements across the board and provide the Commission the authority to seek financial penalties for first-time violations could incentivize all companies to invest more consistently in compliant practices.”  
+
+<br> 
+
+### Federal Communications Commission (FCC)
+
+The [FCC also issues warning letters](https://www.fcc.gov/tags/warning-letter).
+There are a couple dozen warning letters posted, all focused on robocalls. This government agency focuses more on broadband internet and the telecommunications industry.  
+
+<br> 
+
+### U.S. Consumer Product Safety Commission (CPSC)
+CPSC has a downloadable Excel sheet of violations rather than the original text of a warning letter. The violations focus exclusively on physical items rather than algorithms: violations range from sleepwear flammability failures, fireworks short fuse burn time, bicycle helmet structural failure, to lead in children’s products.  
+
+<br> 
+
+### Department of Homeland Security (DHS) 
+DHS shows no evidence that the DHS does algorithm regulation. DHS does dabble in *creating* algorithms used for biometric analysis, explosives detection, and Transportation Security Administration (TSA) announced the eight winners of the Passenger Screening Algorithms.  
