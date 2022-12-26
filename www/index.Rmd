@@ -8,6 +8,10 @@ output:
 
 ### Building explainable machine learning algorithms
 
+[December 26, 2022: FDA and Algorithm Regulation](https://sarahgillespie.github.io/SG/blog_post_7.html)
+
+[December 26, 2022: Other USA Government Agencies and Algorithm Regulation](https://sarahgillespie.github.io/SG/blog_post_8.html)
+
 [January 31, 2022: *Step by Step Guide to Creating Trust Scores* (twenty-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_5.html)
 
 [November 18, 2021: *Theoretical Trust Scores for Classification Models* (five-minute read)](https://sarahgillespie.github.io/SG/blog_post_Alg_Bias_4.html)
