@@ -60,6 +60,7 @@ COVID_test_results = ["negative", "negative", "negative", "postitive", "negative
 #### 2.3 Pretend the month is December 2022. Use a for-loop to iterative over all the test results. Use an if-statement to only print the result if the test has a positive result.
 
 <br>
+
 ### Section 3: Integers
 
 #### 3.0 Describe an integer in your own words.
