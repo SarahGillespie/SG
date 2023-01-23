@@ -1,0 +1,56 @@
+---
+title: 'Intro Python graphs with a biology focus: practice'
+---
+By [Sarah Gillespie](https://www.linkedin.com/in/sarahg4567/)  
+ 
+<br> 
+
+### Notes
+
+To solve these problems, read Plotly documentation, Stack Overflow, and Google. It's an "open book" assignment.
+
+Celebrate error messages: errors can be annoying but it means you're creatively testing the boundaries of Python.
+
+Include excellent comments to explain your code. It's a relief to anyone who reads your future code to have a comment to know your thought process, what the code is supposed to do, code weaknesses, and requirements for that code to run successfuly.
+
+Create a new Google Colab notebook to solve these practice problems. Attempt each problem on your own before asking for help. We will work together to solve these problems later, starting from wherever you got stuck. It's better to have tried and havea wrong answer than leave something blank.
+
+<br>
+
+### Section 1: Plotly basics
+
+Load in data: a simple array that I make up myself. Quantity of cat food that each cat eats. Have a column for wet food that will be ignored. 
+Communicate the cat food chomping results. 
+Look at some averages. 
+Calculate the min and max. 
+
+Create columns broken down by food type. 
+
+Create and sum a new column to create the line graph. 
+
+Explain that that is an array - like a list of lists. Explain how it differs from a dictionary. 
+
+Create a line graph of TOTAL dry food consuption over time.
+
+Create a line graph separated out by cat.
+
+Taking your graph you created in the previous question, 
+
+
+### Section 2: Using open source data to find interesting trends
+
+Load in an openBostondata or MA state data csv that is interesting to you! Data literacy is important especially with climate change. 
+
+
+Find and communicate trends
+Do a bar chart using a catagorical variable.
+
+
+Are any variables a proxy variables for a variable that is not in the data set?
+
+
+
+```
+
+
+```
