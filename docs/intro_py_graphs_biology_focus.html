@@ -11,7 +11,7 @@
 
 
 
-<title>Intro Python with a biology focus: practice</title>
+<title>Intro Python graphs with a biology focus: practice</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -380,7 +380,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Intro Python with a biology focus: practice</h1>
+<h1 class="title toc-ignore">Intro Python graphs with a biology focus: practice</h1>
 
 </div>
 
@@ -397,13 +397,80 @@ div.tocify {
 </div>
 <div id="section-1-plotly-basics" class="section level3">
 <h3>Section 1: Plotly basics</h3>
-<p>Load in data: a simple array that I make up myself. Quantity of cat food that each cat eats. Have a column for wet food that will be ignored. Communicate the cat food chomping results. Look at some averages. Calculate the min and max.</p>
+<p>The example dataframe used in this section will be a guesstimate of the quanity of food that my cats eat each day.</p>
+<div id="load-in-data-this-section-will-explore-different-data-structures.-its-the-under-the-hood-of-what-makes-microsoft-excel-or-csv-files-you-will-use-later-in-these-practice-problems." class="section level4">
+<h4>Load in data: this section will explore different data structures. It’s the “under the hood” of what makes Microsoft Excel or CSV files you will use later in these practice problems.</h4>
+<pre><code># import pandas, the library that makes it easier to work with dataframes
+import pandas as pd  
+cats_lst = [&quot;Ada Lovelace&quot;, &quot;Quinn&quot;, &quot;Eevee&quot;, &quot;Cola&quot;, &quot;Clem&quot;]
+
+# Calling DataFrame constructor on list  
+cats_df = pd.DataFrame(cats_lst)  
+print(cats_df)  
+</code></pre>
+<p>Comprehension question: what type of data structure is: <br> 1. cats_df <br> 2. cats_lst <br> 3. the elements within the brackets? <br></p>
+<div id="spoiler" style="display:none">
+<p>Answer: <br> 1. cats_df is a dataframe. <br> 2. cats_lst is a list. <br> 3. the elements within the brackets are strings.</p>
+<p>There are a number of naming conventions for variables, but the default naming convention in 2023 is to use the relevant data structure as a suffix. That way it’s immediately evident to someone proofreading your code that the variable is a list/constant/etc.</p>
+<p>Additionally, you probably noticed the underscores. Python uses “snake_case” to name variables: lowercase words and an underscore to separate words. That should be your default for Python variables until we come across a new data structure called “classes” that use UpperCamelCase for class names.</p>
+</div>
+<button title="Click to show answer" type="button" onclick="if(document.getElementById(&#39;spoiler&#39;) .style.display==&#39;none&#39;)
+              {document.getElementById(&#39;spoiler&#39;) .style.display=&#39;&#39;}
+            else{document.getElementById(&#39;spoiler&#39;) .style.display=&#39;none&#39;}">
+Show/hide
+</button>
+</div>
+<div id="working-with-some-data" class="section level4">
+<h4>Working with some data</h4>
+<pre><code>import pandas as pd  
+  
+# Create a Dataframe from a set of lists 
+cat_food_lists = {&#39;cat&#39;: [&#39;Ada&#39;, &#39;Quinn&#39;, &#39;Eevee&#39;, &#39;Cola&#39;, &#39;Ada&#39;, &#39;Quinn&#39;, &#39;Eevee&#39;, &#39;Ada&#39;, &#39;Quinn&#39;, &#39;Eevee&#39;], &#39;quantity_in_grams&#39;: [310, 250, 200, 200, 295, 225, 210, 300, 230, 190], &#39;day&#39;: [&#39;Sunday&#39;, &#39;Sunday&#39;, &#39;Sunday&#39;, &#39;Sunday&#39;, &#39;Monday&#39;, &#39;Monday&#39;, &#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Tuesday&#39;, &#39;Tuesday&#39;]}  
+  
+# Create a DataFrame from the cat food data. This is called casting the dictionary as a dataframe.
+cat_food_df = pd.DataFrame(cat_food_lists)  
+  
+# Print the output.  
+print(cat_food_df) 
+</code></pre>
+<p>Communicate the cat food chomping results.</p>
+<p>Find and print the mean, median, minimum, and maxiumum of the “quantity_in_grams” column using pandas.</p>
+<div id="spoiler2" style="display:none">
+<p>Answer: <br> The long way: <br></p>
+<pre><code>cat_food_mean = cat_food_df[&quot;quantity_in_grams&quot;].mean()
+print(cat_food_mean)
+
+cat_food_median = cat_food_df[&quot;quantity_in_grams&quot;].median()
+print(cat_food_mean)
+
+cat_food_min = cat_food_df[&quot;quantity_in_grams&quot;].min()
+print(cat_food_min)
+
+cat_food_max = cat_food_df[&quot;quantity_in_grams&quot;].max()
+print(cat_food_max)
+</code></pre>
+<p>The short way: <br></p>
+<pre><code>cat_food_agg_df = cat_food_df.agg(
+{
+&quot;quantity_in_grams&quot;:[&quot;mean&quot;, &quot;median&quot;, &quot;min&quot;, &quot;max&quot;]
+}
+)
+
+print(cat_food_agg_df)</code></pre>
+</div>
+<button title="Click to show answer" type="button" onclick="if(document.getElementById(&#39;spoiler2&#39;) .style.display==&#39;none&#39;)
+              {document.getElementById(&#39;spoiler2&#39;) .style.display=&#39;&#39;}
+            else{document.getElementById(&#39;spoiler2&#39;) .style.display=&#39;none&#39;}">
+Show/hide
+</button>
+<p>Next, try filtering.</p>
 <p>Create columns broken down by food type.</p>
 <p>Create and sum a new column to create the line graph.</p>
 <p>Explain that that is an array - like a list of lists. Explain how it differs from a dictionary.</p>
 <p>Create a line graph of TOTAL dry food consuption over time.</p>
 <p>Create a line graph separated out by cat.</p>
 <p>Taking your graph you created in the previous question,</p>
+</div>
 </div>
 <div id="section-2-using-open-source-data-to-find-interesting-trends" class="section level3">
 <h3>Section 2: Using open source data to find interesting trends</h3>

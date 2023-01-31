@@ -17,14 +17,124 @@ Create a new Google Colab notebook to solve these practice problems. Attempt eac
 
 <br>
 
-### Section 1: Plotly basics
+### Section 1: Datawrangling basics
 
-Load in data: a simple array that I make up myself. Quantity of cat food that each cat eats. Have a column for wet food that will be ignored. 
+The example dataframe used in this section will be a guesstimate of the quanity of food that my cats eat each day.
+
+#### Load in data: this section will explore different data structures. It's the "under the hood" of what makes Microsoft Excel or CSV files you will use later in these practice problems. 
+
+```
+# import pandas, the library that makes it easier to work with dataframes
+import pandas as pd  
+cats_lst = ["Ada Lovelace", "Quinn", "Eevee", "Cola", "Clem"]
+
+# Calling DataFrame constructor on list  
+cats_df = pd.DataFrame(cats_lst)  
+print(cats_df)  
+
+```
+Comprehension question: what type of data structure is:
+<br>
+1. cats_df
+<br>
+2. cats_lst
+<br>
+3. the elements within the brackets? 
+<br>
+
+<div id="spoiler" style="display:none">
+
+Answer:
+<br>
+1. cats_df is a dataframe.
+<br>
+2. cats_lst is a list.
+<br>
+3. the elements within the brackets are strings.
+
+There are a number of naming conventions for variables, but the default naming convention in 2023 is to use the relevant data structure as a suffix. That way it's immediately evident to someone proofreading your code that the variable is a list/constant/etc.
+
+Additionally, you probably noticed the underscores. Python uses "snake_case" to name variables: lowercase words and an underscore to separate words. That should be your default for Python variables until we come across a new data structure called "classes" that use UpperCamelCase for class names.
+
+</div>
+
+<button title="Click to show answer" type="button"
+   onclick="if(document.getElementById('spoiler') .style.display=='none')
+              {document.getElementById('spoiler') .style.display=''}
+            else{document.getElementById('spoiler') .style.display='none'}">
+  Show/hide
+</button>
+
+#### Calculating summary statistics
+
+```
+import pandas as pd  
+  
+# Create a Dataframe from a set of lists 
+cat_food_lists = {'cat': ['Ada', 'Quinn', 'Eevee', 'Cola', 'Ada', 'Quinn', 'Eevee', 'Ada', 'Quinn', 'Eevee'], 'quantity_in_grams': [310, 250, 200, 200, 295, 225, 210, 300, 230, 190], 'day': ['Sunday', 'Sunday', 'Sunday', 'Sunday', 'Monday', 'Monday', 'Monday', 'Tuesday', 'Tuesday', 'Tuesday']}  
+  
+# Create a DataFrame from the cat food data. This is called casting the dictionary as a dataframe.
+cat_food_df = pd.DataFrame(cat_food_lists)  
+  
+# Print the output.  
+print(cat_food_df) 
+
+```
+
 Communicate the cat food chomping results. 
-Look at some averages. 
-Calculate the min and max. 
 
-Create columns broken down by food type. 
+Find and print the mean, median, minimum, and maxiumum of the "quantity_in_grams" column using pandas.
+
+<div id="spoiler2" style="display:none">
+
+Answer:
+<br>
+The long way:
+<br>
+
+```
+cat_food_mean = cat_food_df["quantity_in_grams"].mean()
+print(cat_food_mean)
+
+cat_food_median = cat_food_df["quantity_in_grams"].median()
+print(cat_food_mean)
+
+cat_food_min = cat_food_df["quantity_in_grams"].min()
+print(cat_food_min)
+
+cat_food_max = cat_food_df["quantity_in_grams"].max()
+print(cat_food_max)
+
+```
+
+The short way:
+<br>
+```
+cat_food_agg_df = cat_food_df.agg(
+{
+"quantity_in_grams":["mean", "median", "min", "max"]
+}
+)
+
+print(cat_food_agg_df)
+```
+
+</div>
+
+<button title="Click to show answer" type="button"
+   onclick="if(document.getElementById('spoiler2') .style.display=='none')
+              {document.getElementById('spoiler2') .style.display=''}
+            else{document.getElementById('spoiler2') .style.display='none'}">
+  Show/hide
+</button>
+
+
+#### Challenge question: Grouping your data into categories.
+It's great that we can find the overarching summary statistics, but what if we want to comapre or discover specific day or a specific cat's data?
+
+Use pandas' "group by" method to find the mean food consumption for each cat and for each day.
+
+#### Section 2: Graphing review and challenge
 
 Create and sum a new column to create the line graph. 
 
