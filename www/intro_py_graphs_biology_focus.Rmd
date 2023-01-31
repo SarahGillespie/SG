@@ -13,7 +13,7 @@ Celebrate error messages: errors can be annoying but it means you're creatively 
 
 Include excellent comments to explain your code. It's a relief to anyone who reads your future code to have a comment to know your thought process, what the code is supposed to do, code weaknesses, and requirements for that code to run successfuly.
 
-Create a new Google Colab notebook to solve these practice problems. Attempt each problem on your own before asking for help. We will work together to solve these problems later, starting from wherever you got stuck. It's better to have tried and havea wrong answer than leave something blank.
+Create a new Google Colab notebook to solve these practice problems. Attempt each problem on your own before asking for help. We will work together to solve these problems later, starting from wherever you got stuck. It's better to have tried and have a wrong answer than leave something blank.
 
 <br>
 
@@ -21,7 +21,7 @@ Create a new Google Colab notebook to solve these practice problems. Attempt eac
 
 The example dataframe used in this section will be a guesstimate of the quanity of food that my cats eat each day.
 
-#### Load in data: this section will explore different data structures. It's the "under the hood" of what makes Microsoft Excel or CSV files you will use later in these practice problems. 
+#### Load in data: this section will explore different data structures. This is the building blocks of Microsoft Excel and the old-school version of the CSV files you will use in later practice problems.
 
 ```
 # import pandas, the library that makes it easier to work with dataframes
@@ -44,8 +44,6 @@ Comprehension question: what type of data structure is:
 
 <div id="spoiler" style="display:none">
 
-Answer:
-<br>
 1. cats_df is a dataframe.
 <br>
 2. cats_lst is a list.
@@ -87,8 +85,6 @@ Find and print the mean, median, minimum, and maxiumum of the "quantity_in_grams
 
 <div id="spoiler2" style="display:none">
 
-Answer:
-<br>
 The long way:
 <br>
 
@@ -134,33 +130,73 @@ It's great that we can find the overarching summary statistics, but what if we w
 
 Use pandas' "group by" method to find the mean food consumption for each cat and for each day.
 
-#### Section 2: Graphing review and challenge
+### Section 2: Graphing review and challenge
 
-Create and sum a new column to create the line graph. 
+#### Use Plotly to create a scatterplot of cat food data
 
-Explain that that is an array - like a list of lists. Explain how it differs from a dictionary. 
+Create a scatterplot of cat food consumption, broken down by each cat.
 
-Create a line graph of TOTAL dry food consuption over time.
-
-Create a line graph separated out by cat.
-
-Taking your graph you created in the previous question, 
-
-
-### Section 2: Using open source data to find interesting trends
-
-Load in an openBostondata or MA state data csv that is interesting to you! Data literacy is important especially with climate change. 
-
-
-Find and communicate trends
-Do a bar chart using a catagorical variable.
-
-
-Are any variables a proxy variables for a variable that is not in the data set?
-
-
+<div id="spoiler3" style="display:none">
 
 ```
+import plotly.express as px
 
+fig = px.scatter(cat_food_df, y="cat", x="quantity_in_grams", color="cat")
+fig.update_traces(marker_size=10)
+fig.show()
+```
+Challenge: change something and re-run this code! What happens if you set the marker_size to 100? Your x_axis to "cat"? Your color to "quantity_in_grams"?
+
+</div>
+
+<button title="Click to show answer" type="button"
+   onclick="if(document.getElementById('spoiler3') .style.display=='none')
+              {document.getElementById('spoiler3') .style.display=''}
+            else{document.getElementById('spoiler3') .style.display='none'}">
+  Show/hide
+</button>
+
+
+#### Use Plotly and the min/max variables above to create a bar chart.
+
+Edit the sample code below to have it automatically calculate and graph summary statistics so you don't have the manually enter the x-axis and y-axis data each time.
+
+Hint: filter the data set, calculate variables, and paste the variables into the code below. There are many ways to reach the correct answer.
 
 ```
+# An example of filtering and creating a new data frame to only keep the Ada values
+ada_cat_food_df = cat_food_df[(cat_food_df.cat == "Ada")]
+
+# A sample bar chart
+fig = px.bar(x=["Ada","Quinn","Eevee", "Cola"], y=[1,3,2,4])
+fig.update_xaxes(showgrid=True, ticks="outside")
+fig.show()
+```
+
+### Section 3: Using open source data to find interesting trends
+
+Find a dataset that is interesting and seems like it has at least 3 columns that would be easy to graph. Many United States government agencies publish data to the public (and you can even request data via a Freedom of Information Act.) Again, pick a dataset that seems graphable using the Plotly charts you've seen. While the entire text of Wikipedia is technically available data... that might be too much of a challege to be enjoyable to graph.
+
+Boston's open data: https://data.boston.gov
+
+Cambridge's open data: https://www.cambridgema.gov/departments/opendata
+
+United States: https://data.gov
+
+CDC: https://data.cdc.gov
+
+Kaggle: https://www.kaggle.com/datasets
+
+World Bank: https://data.worldbank.org
+
+Five Thirty Eight: https://github.com/fivethirtyeight/data
+
+#### Download the dataset to your computer and then load the dataset into Google Colab. This can be tricky especially with different browsers and size limits. LMK if you get stuck here and we will troubleshoot the issue.
+
+#### Explore the dataframe using the pandas min, max, mean, and other statistical methods. What do you discover?
+
+#### Create a graph using this data.
+
+#### Are any variables that might be a proxy variables for a variable that is not in the data set?
+
+
